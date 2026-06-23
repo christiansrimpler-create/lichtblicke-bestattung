@@ -115,6 +115,16 @@ p { margin: 0 0 1.1rem; }
 .btn-call:hover { background: var(--lime-dark); color: #fff; }
 .btn-call svg { width: 18px; height: 18px; fill: currentColor; }
 
+/* Auf dunkelgrünen Flächen (Hero, CTA-Band) würde der grüne Primär-Button
+   untergehen → heller Button mit grüner Schrift, damit er sich klar abhebt. */
+.hero .btn-primary,
+.cta .btn-primary {
+  background: #fff; color: var(--green);
+  box-shadow: 0 14px 30px -16px rgba(0, 0, 0, .55);
+}
+.hero .btn-primary:hover,
+.cta .btn-primary:hover { background: var(--lime-soft); color: var(--green-dark); }
+
 .link-arrow {
   font-weight: 600; text-decoration: none; color: var(--green);
   border-bottom: 2px solid var(--lime); padding-bottom: 2px; white-space: nowrap;
