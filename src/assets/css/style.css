@@ -299,7 +299,7 @@ p { margin: 0 0 1.1rem; }
 .paket-acc[open] .paket-acc-chevron { transform: rotate(180deg); }
 .paket-acc[open] .paket-acc-toggle-label { color: var(--lime-dark); }
 .paket-acc-body { padding: .2rem 1.6rem 1.7rem; }
-.paket-acc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 2.4rem; margin-bottom: 1.6rem; }
+.paket-acc-cols { display: grid; grid-template-columns: 1fr; gap: 1.6rem; margin-bottom: 1.6rem; }
 .paket-acc-cols .paket-leistungen { margin-bottom: 0; }
 .paket-acc[open] .paket-acc-body { animation: accIn .28s var(--ease); }
 @keyframes accIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
@@ -425,7 +425,7 @@ p { margin: 0 0 1.1rem; }
   .paket-acc-right { width: 100%; justify-content: space-between; gap: .6rem; }
   .paket-acc-preis-wrap { text-align: left; }
   .paket-acc-name { font-size: 1.2rem; }
-  .paket-acc-cols { grid-template-columns: 1fr; gap: 0; }
+  .paket-acc-cols { gap: 1.2rem; }
   .paket-acc-body { padding-left: 1.2rem; padding-right: 1.2rem; }
   .paket-acc-body .btn { width: 100%; justify-content: center; }
 }
