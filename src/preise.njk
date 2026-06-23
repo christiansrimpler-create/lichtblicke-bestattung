@@ -17,8 +17,10 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
 </section>
 
 <section class="section pt-0">
-  <div class="wrap narrow pakete-akkordeon">
-    {%- for paket in pakete %}
+  <div class="wrap">
+    {# Nach Bestattungsart gruppiert: erst beide Erdbestattungen, dann beide Feuerbestattungen #}
+    <div class="pakete-akkordeon">
+    {%- for paket in pakete | sort(attribute="art") %}
     <details class="paket-acc reveal" id="{{ (paket.art + '-' + paket.stufe) | lower }}">
       <summary class="paket-acc-head">
         <span class="paket-acc-info">
@@ -60,6 +62,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
       </div>
     </details>
     {%- endfor %}
+    </div>
   </div>
 
   <div class="wrap narrow reveal">
