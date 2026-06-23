@@ -77,8 +77,10 @@ desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und beza
         <span class="paket-tag">{{ paket.art }}</span>
         <h3>{{ paket.name }}</h3>
         <p>{{ paket.beschreibung }}</p>
-        <span class="paket-preis">{{ paket.preis }}</span>
-        <span class="paket-card-cta">Details ansehen →</span>
+        <span class="paket-card-foot">
+          <span class="paket-preis">{{ paket.preis }}</span>
+          <span class="paket-card-cta">Details ansehen →</span>
+        </span>
       </a>
       {%- endfor %}
     </div>
