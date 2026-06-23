@@ -272,6 +272,38 @@ p { margin: 0 0 1.1rem; }
 
 .preis-fussnote { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; color: var(--ink-soft); background: var(--tint); border-radius: var(--radius); padding: 1.1rem 1.4rem; margin: 0 0 2.5rem; }
 
+/* ---- Pakete als Aufklapp-Dropdowns (mit Kurzinfo im geschlossenen Zustand) ---- */
+.pakete-akkordeon { display: flex; flex-direction: column; gap: .9rem; margin-bottom: 2.5rem; }
+.paket-acc {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; scroll-margin-top: 100px;
+  transition: box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.paket-acc[open] { box-shadow: var(--shadow); border-color: #dde7c4; }
+.paket-acc-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.6rem;
+  padding: 1.4rem 1.6rem; cursor: pointer; list-style: none;
+}
+.paket-acc-head::-webkit-details-marker { display: none; }
+.paket-acc-head:hover { background: var(--lime-soft); }
+.paket-acc-info { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
+.paket-acc .paket-tag { margin: 0; align-self: flex-start; }
+.paket-acc-name { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; line-height: 1.15; color: var(--ink); }
+.paket-acc-desc { color: var(--ink-soft); font-size: .98rem; max-width: 46ch; }
+.paket-acc-right { display: flex; align-items: center; gap: 1.3rem; flex-shrink: 0; }
+.paket-acc-preis-wrap { display: flex; flex-direction: column; text-align: right; }
+.paket-acc-right .paket-preis { font-size: 1.35rem; margin: 0; }
+.paket-acc-right small { color: var(--ink-soft); font-size: .72rem; }
+.paket-acc-toggle { display: inline-flex; align-items: center; gap: .45rem; color: var(--green); font-weight: 600; font-size: .9rem; }
+.paket-acc-chevron { width: 20px; height: 20px; flex-shrink: 0; transition: transform .3s var(--ease); }
+.paket-acc[open] .paket-acc-chevron { transform: rotate(180deg); }
+.paket-acc[open] .paket-acc-toggle-label { color: var(--lime-dark); }
+.paket-acc-body { padding: .2rem 1.6rem 1.7rem; }
+.paket-acc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 2.4rem; margin-bottom: 1.6rem; }
+.paket-acc-cols .paket-leistungen { margin-bottom: 0; }
+.paket-acc[open] .paket-acc-body { animation: accIn .28s var(--ease); }
+@keyframes accIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
 /* ==========================================================================
    Split (Bild + Text)
    ========================================================================== */
@@ -358,6 +390,8 @@ p { margin: 0 0 1.1rem; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero-bg { animation: none; transform: none; }
   .hero-note::before { animation: none; }
+  .paket-acc[open] .paket-acc-body { animation: none; }
+  .paket-acc-chevron { transition: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -379,4 +413,11 @@ p { margin: 0 0 1.1rem; }
   .footer-main { grid-template-columns: 1fr; gap: 1.8rem; }
   .info-callout, .paket-foot { flex-direction: column; align-items: flex-start; }
   .info-callout .btn, .paket-foot .btn { width: 100%; justify-content: center; }
+  .paket-acc-head { flex-direction: column; align-items: flex-start; gap: .9rem; padding: 1.1rem 1.2rem; }
+  .paket-acc-right { width: 100%; justify-content: space-between; gap: .6rem; }
+  .paket-acc-preis-wrap { text-align: left; }
+  .paket-acc-name { font-size: 1.2rem; }
+  .paket-acc-cols { grid-template-columns: 1fr; gap: 0; }
+  .paket-acc-body { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .paket-acc-body .btn { width: 100%; justify-content: center; }
 }

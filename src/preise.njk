@@ -11,41 +11,54 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
     <p class="eyebrow">Pakete &amp; Preise</p>
     <h1>Klar, transparent, bezahlbar</h1>
     <p class="lead">Wir sind stolz darauf, durch unser Konzept preiswerte Bestattungen in
-      hoher Qualität anbieten zu können. Jedes Paket enthält genau das, was Sie brauchen –
+      hoher Qualität anbieten zu können. Klappen Sie ein Paket auf, um alle Leistungen zu sehen –
       zu einem festen Preis und ohne versteckte Kosten.</p>
   </div>
 </section>
 
 <section class="section pt-0">
-  <div class="wrap pakete-grid pakete-detail">
+  <div class="wrap narrow pakete-akkordeon">
     {%- for paket in pakete %}
-    <article class="paket-card paket-card-lg reveal" id="{{ (paket.art + '-' + paket.stufe) | lower }}">
-      <span class="paket-tag">{{ paket.art }} · {{ paket.stufe }}</span>
-      <h2>{{ paket.name }}</h2>
-      <div class="paket-preis-zeile">
-        <span class="paket-preis">{{ paket.preis }}</span>
-        <small>{{ paket.preis_zusatz }}</small>
-      </div>
-      <p class="paket-desc">{{ paket.beschreibung }}</p>
-
-      <h3 class="paket-sub">Unsere Leistungen</h3>
-      <ul class="paket-leistungen">
-        {%- for l in paket.leistungen %}
-        <li>{{ l }}</li>
-        {%- endfor %}
-      </ul>
-
-      <h3 class="paket-sub">Unsere Lieferungen</h3>
-      <ul class="paket-leistungen">
-        {%- for l in paket.lieferungen %}
-        <li>{{ l }}</li>
-        {%- endfor %}
-      </ul>
-
-      <div class="paket-foot">
+    <details class="paket-acc reveal" id="{{ (paket.art + '-' + paket.stufe) | lower }}">
+      <summary class="paket-acc-head">
+        <span class="paket-acc-info">
+          <span class="paket-tag">{{ paket.art }} · {{ paket.stufe }}</span>
+          <span class="paket-acc-name">{{ paket.name }}</span>
+          <span class="paket-acc-desc">{{ paket.beschreibung }}</span>
+        </span>
+        <span class="paket-acc-right">
+          <span class="paket-acc-preis-wrap">
+            <span class="paket-preis">{{ paket.preis }}</span>
+            <small>{{ paket.preis_zusatz }}</small>
+          </span>
+          <span class="paket-acc-toggle">
+            <span class="paket-acc-toggle-label">Leistungen ansehen</span>
+            <svg class="paket-acc-chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </span>
+      </summary>
+      <div class="paket-acc-body">
+        <div class="paket-acc-cols">
+          <div>
+            <h3 class="paket-sub">Unsere Leistungen</h3>
+            <ul class="paket-leistungen">
+              {%- for l in paket.leistungen %}
+              <li>{{ l }}</li>
+              {%- endfor %}
+            </ul>
+          </div>
+          <div>
+            <h3 class="paket-sub">Unsere Lieferungen</h3>
+            <ul class="paket-leistungen">
+              {%- for l in paket.lieferungen %}
+              <li>{{ l }}</li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </div>
         <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">Beratung anfragen</a>
       </div>
-    </article>
+    </details>
     {%- endfor %}
   </div>
 
