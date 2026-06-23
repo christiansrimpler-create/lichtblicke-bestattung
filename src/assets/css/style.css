@@ -305,8 +305,11 @@ p { margin: 0 0 1.1rem; }
 .pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
 @media (min-width: 920px) {
   .pakete-akkordeon { grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: var(--wrap); }
-  /* Gleich hohe Karten: Button unten ausrichten, damit beide Spalten fluchten */
+  /* Gleich hohe Karten: "Beratung anfragen" unten ausrichten, damit beide Spalten fluchten.
+     Chrome kapselt den <details>-Inhalt in ::details-content – dieses Element muss die
+     Höhe mit strecken, sonst bricht die Flex-Kette (Safari/Firefox: Body ist direktes Kind). */
   .pakete-akkordeon .paket-acc { display: flex; flex-direction: column; }
+  .pakete-akkordeon .paket-acc::details-content { flex: 1; display: flex; flex-direction: column; }
   .pakete-akkordeon .paket-acc-body { flex: 1; display: flex; flex-direction: column; }
   .pakete-akkordeon .paket-acc-body > .btn { margin-top: auto; align-self: flex-start; }
 }
