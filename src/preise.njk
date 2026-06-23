@@ -19,7 +19,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
 <section class="section pt-0">
   <div class="wrap pakete-grid pakete-detail">
     {%- for paket in pakete %}
-    <article class="paket-card paket-card-lg reveal">
+    <article class="paket-card paket-card-lg reveal" id="{{ (paket.art + '-' + paket.stufe) | lower }}">
       <span class="paket-tag">{{ paket.art }} · {{ paket.stufe }}</span>
       <h2>{{ paket.name }}</h2>
       <div class="paket-preis-zeile">

@@ -233,9 +233,16 @@ p { margin: 0 0 1.1rem; }
 .pakete-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 .paket-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 2rem; position: relative; overflow: hidden;
+  padding: 2rem; position: relative; overflow: hidden; scroll-margin-top: 100px;
   transition: transform .3s var(--ease), box-shadow .3s var(--ease);
 }
+/* Klickbare Vorschau-Kacheln auf der Startseite */
+.paket-card-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; cursor: pointer; }
+.paket-card-link:hover { color: inherit; }
+.paket-card-link .paket-preis { margin-bottom: 1.1rem; }
+.paket-card-cta { margin-top: auto; font-weight: 600; color: var(--green); font-size: .95rem; transition: color .25s var(--ease); }
+.paket-card-link:hover .paket-card-cta { color: var(--lime-dark); }
+.paket-card-link:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
 .paket-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--lime); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
 .paket-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .paket-card:hover::before { transform: scaleX(1); }
