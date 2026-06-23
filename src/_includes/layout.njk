@@ -5,11 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }} · {{ einstellungen.firmenname }}</title>
   <meta name="description" content="{{ desc }}">
+  <meta name="theme-color" content="#3c5320">
   <link rel="icon" href="{{ '/assets/img/logo-kreis.png' | url }}">
+  <link rel="canonical" href="{{ einstellungen.site_url }}{{ page.url | url }}">
+
+  {# Social-Vorschau (z. B. WhatsApp, Facebook, Suchmaschinen) #}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ einstellungen.firmenname }}">
+  <meta property="og:title" content="{{ title }} · {{ einstellungen.firmenname }}">
+  <meta property="og:description" content="{{ desc }}">
+  <meta property="og:url" content="{{ einstellungen.site_url }}{{ page.url | url }}">
+  <meta property="og:image" content="{{ einstellungen.site_url }}{{ '/assets/img/graeser.jpg' | url }}">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}?v={{ assetVersion }}">
+
+  {# Strukturierte Daten: lokales Bestattungsunternehmen (für Google & Karten) #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FuneralHome",
+    "name": "{{ einstellungen.firmenname }}",
+    "image": "{{ einstellungen.site_url }}{{ '/assets/img/graeser.jpg' | url }}",
+    "url": "{{ einstellungen.site_url }}{{ '/' | url }}",
+    "telephone": "{{ einstellungen.telefon_link }}",
+    "email": "{{ einstellungen.email }}",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ einstellungen.adresse_strasse }}",
+      "postalCode": "79106",
+      "addressLocality": "Freiburg im Breisgau",
+      "addressCountry": "DE"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 48.004, "longitude": 7.850 },
+    "areaServed": "Freiburg im Breisgau und Umgebung",
+    "parentOrganization": { "@type": "Organization", "name": "{{ einstellungen.mutter_name }}" }
+  }
+  </script>
 </head>
 <body>
 

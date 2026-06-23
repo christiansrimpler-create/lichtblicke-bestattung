@@ -1,5 +1,10 @@
 # Zentrale Angaben – hier an einer Stelle pflegbar, erscheinen überall auf der Seite
 firmenname: "Lichtblicke Bestattung"
+
+# Basis-URL (nur Domain, ohne Unterpfad) – für Social-Vorschau & Suchmaschinen.
+# Bei Umzug auf die echte Domain hier auf "https://www.lichtblicke-bestattung.de" ändern.
+site_url: "https://christiansrimpler-create.github.io"
+
 claim: "Preiswert & Fair."
 hero_text: "Eine würdevolle Bestattung soll keine Frage des Geldbeutels sein. Wir begleiten Sie einfühlsam, transparent und zu fairen Preisen."
 

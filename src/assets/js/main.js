@@ -12,11 +12,13 @@
     menu.classList.add("open");
     document.body.style.overflow = "hidden";
     burger.setAttribute("aria-expanded", "true");
+    if (closeBtn) closeBtn.focus();
   }
   function closeMenu() {
     menu.classList.remove("open");
     document.body.style.overflow = "";
     burger.setAttribute("aria-expanded", "false");
+    burger.focus();
   }
 
   if (burger && menu) {
