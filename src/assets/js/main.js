@@ -61,6 +61,28 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---- Pakete: nur auf Mobile als Dropdown; auf Desktop dauerhaft offen ---- */
+  var accs = document.querySelectorAll("details.paket-acc");
+  if (accs.length) {
+    var deskMq = window.matchMedia("(min-width: 761px)");
+    var applyAccMode = function () {
+      var desktop = deskMq.matches;
+      accs.forEach(function (d) {
+        d.classList.toggle("paket-acc--static", desktop);
+        if (desktop) d.open = true;
+      });
+    };
+    // Auf Desktop das Zuklappen per Klick verhindern
+    accs.forEach(function (d) {
+      var s = d.querySelector("summary");
+      if (s) s.addEventListener("click", function (e) {
+        if (deskMq.matches) e.preventDefault();
+      });
+    });
+    applyAccMode();
+    deskMq.addEventListener("change", applyAccMode);
+  }
+
   /* ---- Preise: per Sprungmarke das passende Dropdown öffnen ---- */
   function openHashDetails() {
     if (!location.hash) return;

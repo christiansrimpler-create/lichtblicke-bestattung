@@ -304,6 +304,13 @@ p { margin: 0 0 1.1rem; }
 .paket-acc[open] .paket-acc-body { animation: accIn .28s var(--ease); }
 @keyframes accIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
+/* Desktop (per JS gesetzt): kein Dropdown, Paket dauerhaft als offene Karte */
+.paket-acc--static .paket-acc-head { cursor: default; }
+.paket-acc--static .paket-acc-head:hover { background: transparent; }
+.paket-acc--static .paket-acc-toggle { display: none; }
+.paket-acc--static[open] { box-shadow: none; border-color: var(--line); }
+.paket-acc--static[open] .paket-acc-body { animation: none; }
+
 /* ==========================================================================
    Split (Bild + Text)
    ========================================================================== */
