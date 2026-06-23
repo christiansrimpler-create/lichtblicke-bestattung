@@ -1,0 +1,113 @@
+---
+layout: layout.njk
+active: start
+title: Würdevolle Bestattung zu fairen Preisen
+desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und bezahlbare Bestattungen für jeden Menschen. 24 Stunden telefonisch erreichbar.
+---
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <p class="kicker reveal">Bestattungen · Vorsorge · Trauerbegleitung</p>
+    <h1 class="reveal">{{ einstellungen.claim }}</h1>
+    <p class="hero-lead reveal">{{ einstellungen.hero_text }}</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="{{ '/preise/' | url }}">Pakete &amp; Preise ansehen</a>
+      <a class="btn btn-ghost" href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }} anrufen</a>
+    </div>
+    <p class="hero-note reveal">{{ einstellungen.erreichbarkeit }}</p>
+  </div>
+</section>
+
+<section class="band-quiet">
+  <div class="wrap narrow reveal">
+    <p class="quote-kicker">Der Tod, kein erwünschter Besucher</p>
+    <blockquote class="poem">
+      Er zieht ungefragt und unerwünscht ein.<br>
+      Seine Anwesenheit kostet unglaubliche Energie<br>
+      und hinterlässt verzweifelte Seelen.<br>
+      Ein unliebsamer Besucher, der ein Leben wegnimmt<br>
+      und Menschen in Trauer und Einsamkeit stürzt –<br>
+      und mit vielen Fragen zurücklässt.
+    </blockquote>
+    <p class="poem-after">In diesen Momenten möchten wir an Ihrer Seite stehen.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap narrow center reveal">
+    <p class="eyebrow">Wofür wir stehen</p>
+    <h2>Ein würdevoller Abschied soll keine Frage des Geldbeutels sein</h2>
+    <p class="lead">Wir geben Ihnen so viel Transparenz wie möglich rund um die Themen Vorsorge,
+      Sterben, Bestatten und Trauerbegleitung. Mit einfachen, klaren Paketen und viel
+      Einfühlungsvermögen stehen wir Ihnen zur Seite – ohne versteckte Kosten.</p>
+  </div>
+
+  <div class="wrap werte-grid">
+    <article class="werte-card reveal">
+      <span class="werte-icon" aria-hidden="true">€</span>
+      <h3>Preiswert &amp; fair</h3>
+      <p>Klare Pakete zu ehrlichen Preisen. Sie wissen von Anfang an, woran Sie sind.</p>
+    </article>
+    <article class="werte-card reveal">
+      <span class="werte-icon" aria-hidden="true">☎</span>
+      <h3>Immer erreichbar</h3>
+      <p>Ein Todesfall richtet sich nicht nach Öffnungszeiten. Wir sind rund um die Uhr für Sie da.</p>
+    </article>
+    <article class="werte-card reveal">
+      <span class="werte-icon" aria-hidden="true">♡</span>
+      <h3>Einfühlsam begleitet</h3>
+      <p>Wir verurteilen niemanden und nehmen uns Zeit – für Ihre Wünsche und Ihre Trauer.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Unsere Pakete</p>
+        <h2>Klar, transparent, bezahlbar</h2>
+      </div>
+      <a class="link-arrow" href="{{ '/preise/' | url }}">Alle Leistungen ansehen →</a>
+    </div>
+    <div class="pakete-grid">
+      {%- for paket in pakete %}
+      <article class="paket-card reveal">
+        <span class="paket-tag">{{ paket.art }}</span>
+        <h3>{{ paket.name }}</h3>
+        <p>{{ paket.beschreibung }}</p>
+        <span class="paket-preis">{{ paket.preis }}</span>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="split-media reveal">
+      <img src="{{ '/assets/img/graeser.jpg' | url }}" alt="Gräser im Abendlicht" loading="lazy">
+    </div>
+    <div class="split-text reveal">
+      <p class="eyebrow">Bestattung im Wandel</p>
+      <h2>Ein altes Thema, neu gedacht</h2>
+      <p>Der Wunsch nach „gut und günstig" ist unaufhaltsam – und das ist kein Grund,
+        ihn negativ zu bewerten. Pflegeleichte und kostengünstige Alternativen entsprechen
+        dem Zeitgeist und dem Wunsch vieler Menschen. Das bedeutet keineswegs, dass weniger
+        getrauert wird.</p>
+      <a class="link-arrow" href="{{ '/bestattung-im-wandel/' | url }}">Mehr über unser Konzept →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap center reveal">
+    <h2>Wir beraten Sie gerne</h2>
+    <p>Ob im akuten Trauerfall oder zur Vorsorge – sprechen Sie uns an. Wir nehmen uns Zeit für Sie.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }}</a>
+      <a class="btn btn-ghost" href="{{ '/kontakt/' | url }}">Kontakt &amp; Anfahrt</a>
+    </div>
+  </div>
+</section>

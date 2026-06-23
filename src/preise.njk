@@ -1,0 +1,44 @@
+---
+layout: layout.njk
+permalink: /preise/
+active: preise
+title: Pakete & Preise
+desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und Erdbestattung als Basis- und Standardpaket. Faire Preise, klare Leistungen.
+---
+
+<section class="page-head">
+  <div class="wrap narrow reveal">
+    <p class="eyebrow">Pakete &amp; Preise</p>
+    <h1>Klar, transparent, bezahlbar</h1>
+    <p class="lead">Wir sind stolz darauf, durch unser Konzept preiswerte Bestattungen in
+      hoher Qualität anbieten zu können. Jedes Paket enthält genau das, was Sie brauchen –
+      ohne versteckte Kosten.</p>
+  </div>
+</section>
+
+<section class="section pt-0">
+  <div class="wrap pakete-grid pakete-detail">
+    {%- for paket in pakete %}
+    <article class="paket-card paket-card-lg reveal">
+      <span class="paket-tag">{{ paket.art }} · {{ paket.stufe }}</span>
+      <h2>{{ paket.name }}</h2>
+      <p class="paket-desc">{{ paket.beschreibung }}</p>
+      <ul class="paket-leistungen">
+        {%- for l in paket.leistungen %}
+        <li>{{ l }}</li>
+        {%- endfor %}
+      </ul>
+      <div class="paket-foot">
+        <span class="paket-preis">{{ paket.preis }}</span>
+        <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">Beratung anfragen</a>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+
+  <div class="wrap narrow center reveal">
+    <p class="muted">Sie wünschen sich ein individuelles Angebot oder haben Fragen zu den
+      Leistungen? Rufen Sie uns an – wir beraten Sie ehrlich und unverbindlich.</p>
+    <a class="btn btn-primary" href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }} anrufen</a>
+  </div>
+</section>

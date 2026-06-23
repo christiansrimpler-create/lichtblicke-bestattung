@@ -1,0 +1,63 @@
+/* Lichtblicke Bestattung – mobiles Menü, Einblenden beim Scrollen, Header-Effekt */
+
+(function () {
+  "use strict";
+
+  /* ---- Mobiles Menü ---- */
+  var burger = document.querySelector(".burger");
+  var menu = document.querySelector(".mobile-menu");
+  var closeBtn = document.querySelector(".menu-close");
+
+  function openMenu() {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+    burger.setAttribute("aria-expanded", "true");
+  }
+  function closeMenu() {
+    menu.classList.remove("open");
+    document.body.style.overflow = "";
+    burger.setAttribute("aria-expanded", "false");
+  }
+
+  if (burger && menu) {
+    burger.addEventListener("click", openMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    menu.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") closeMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) closeMenu();
+    });
+  }
+
+  /* ---- Header bekommt beim Scrollen einen Schatten ---- */
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* ---- Dezentes Einblenden beim Scrollen ---- */
+  var revealEls = document.querySelectorAll(".reveal");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reduce || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function (el) { el.classList.add("visible"); });
+  } else {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+    );
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+})();

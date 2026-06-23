@@ -1,0 +1,47 @@
+---
+layout: layout.njk
+permalink: /impressum/
+active: ""
+title: Impressum
+desc: Impressum von Lichtblicke Bestattung – eine Marke der Müller Bestattungen GmbH, Freiburg.
+---
+
+<section class="page-head">
+  <div class="wrap narrow reveal">
+    <p class="eyebrow">Rechtliches</p>
+    <h1>Impressum</h1>
+  </div>
+</section>
+
+<section class="section pt-0">
+  <div class="wrap narrow prose reveal">
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>
+      {{ einstellungen.firmenname }}<br>
+      {{ einstellungen.adresse_strasse }}<br>
+      {{ einstellungen.adresse_ort }}<br>
+      Telefon: {{ einstellungen.telefon }}<br>
+      E-Mail: <a href="mailto:{{ einstellungen.email }}">{{ einstellungen.email }}</a>
+    </p>
+
+    <h2>Eine Marke von</h2>
+    <p>
+      {{ einstellungen.mutter_name }}<br>
+      {{ einstellungen.mutter_strasse }}<br>
+      {{ einstellungen.mutter_ort }}<br>
+      Geschäftsführung: {{ einstellungen.mutter_gf }}<br>
+      {{ einstellungen.mutter_hrb }}<br>
+      USt-ID-Nr.: {{ einstellungen.mutter_ustid }}
+    </p>
+
+    <h2>Inhaltlich verantwortlich gemäß § 18 Abs. 2 MStV</h2>
+    <p>{{ einstellungen.verantwortlich }}</p>
+
+    <h2>Hinweis zur Online-Streitbeilegung</h2>
+    <p>Die EU hat ein Online-Verfahren zur Beilegung von Streitigkeiten zwischen Unternehmern
+      und Verbrauchern geschaffen. Informationen dazu finden Sie unter
+      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.</p>
+    <p>Wir beteiligen uns nicht an einem Streitbeilegungsverfahren vor einer
+      Verbraucherschlichtungsstelle.</p>
+  </div>
+</section>

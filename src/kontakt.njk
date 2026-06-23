@@ -1,0 +1,53 @@
+---
+layout: layout.njk
+permalink: /kontakt/
+active: kontakt
+title: Kontakt
+desc: Lichtblicke Bestattung, Tennenbacher Straße 50, 79106 Freiburg. Telefon 0761 / 27 33 44 – 24 Stunden für Sie erreichbar.
+---
+
+<section class="page-head">
+  <div class="wrap narrow reveal">
+    <p class="eyebrow">Kontakt</p>
+    <h1>Wir sind für Sie da</h1>
+    <p class="lead">Im Trauerfall sind wir rund um die Uhr telefonisch erreichbar. Rufen Sie
+      uns an oder schreiben Sie uns – wir melden uns zeitnah bei Ihnen.</p>
+  </div>
+</section>
+
+<section class="section pt-0">
+  <div class="wrap kontakt-grid">
+    <div class="kontakt-card reveal">
+      <h2>So erreichen Sie uns</h2>
+      <ul class="kontakt-liste">
+        <li>
+          <span class="k-label">Telefon</span>
+          <a href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }}</a>
+          <small>{{ einstellungen.erreichbarkeit }}</small>
+        </li>
+        <li>
+          <span class="k-label">E-Mail</span>
+          <a href="mailto:{{ einstellungen.email }}">{{ einstellungen.email }}</a>
+        </li>
+        <li>
+          <span class="k-label">Adresse</span>
+          {{ einstellungen.adresse_name }}<br>
+          {{ einstellungen.adresse_strasse }}<br>
+          {{ einstellungen.adresse_ort }}
+        </li>
+        <li>
+          <span class="k-label">Öffnungszeiten</span>
+          {{ einstellungen.oeffnungszeiten }}
+        </li>
+      </ul>
+      <a class="btn btn-primary" href="tel:{{ einstellungen.telefon_link }}">Jetzt anrufen</a>
+    </div>
+    <div class="kontakt-map reveal">
+      <iframe
+        title="Standort von {{ einstellungen.firmenname }} auf der Karte"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=7.840%2C47.998%2C7.860%2C48.010&layer=mapnik&marker=48.004%2C7.850"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="map-link" href="https://www.openstreetmap.org/?mlat=48.004&mlon=7.850#map=16/48.004/7.850" target="_blank" rel="noopener">Größere Karte öffnen →</a>
+    </div>
+  </div>
+</section>

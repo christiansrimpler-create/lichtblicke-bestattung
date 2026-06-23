@@ -1,0 +1,50 @@
+# Die vier Bestattungspakete (Namen wie auf der alten Seite).
+# Preise standen dort nicht – daher vorerst "auf Anfrage". Leistungen sind ein
+# Entwurf und sollten von Lichtblicke geprüft/angepasst werden.
+- name: "Feuerbestattung BasisPaket"
+  art: "Feuerbestattung"
+  stufe: "Basis"
+  preis: "auf Anfrage"
+  beschreibung: "Die schlichte, würdevolle Einäscherung mit allen notwendigen Leistungen – klar und ohne versteckte Kosten."
+  leistungen:
+    - "Persönliches Beratungsgespräch"
+    - "Überführung und hygienische Versorgung"
+    - "Schlichter Sarg zur Einäscherung"
+    - "Erledigung sämtlicher Formalitäten"
+    - "Organisation der Einäscherung"
+
+- name: "Erdbestattung BasisPaket"
+  art: "Erdbestattung"
+  stufe: "Basis"
+  preis: "auf Anfrage"
+  beschreibung: "Die klassische Erdbestattung in würdevoller, einfacher Form – mit allem, was rechtlich und organisatorisch dazugehört."
+  leistungen:
+    - "Persönliches Beratungsgespräch"
+    - "Überführung und hygienische Versorgung"
+    - "Schlichter Sarg mit Innenausstattung"
+    - "Erledigung sämtlicher Formalitäten"
+    - "Organisation der Beisetzung"
+
+- name: "Feuerbestattung StandardPaket"
+  art: "Feuerbestattung"
+  stufe: "Standard"
+  preis: "auf Anfrage"
+  beschreibung: "Die Einäscherung mit etwas mehr Raum für persönliche Wünsche und eine kleine Abschiedsfeier."
+  leistungen:
+    - "Alle Leistungen des BasisPakets"
+    - "Hochwertigere Sargausstattung"
+    - "Organisation einer Trauerfeier"
+    - "Trauerdruck (Karten und Anzeige)"
+    - "Begleitung zur Beisetzung"
+
+- name: "Erdbestattung StandardPaket"
+  art: "Erdbestattung"
+  stufe: "Standard"
+  preis: "auf Anfrage"
+  beschreibung: "Die Erdbestattung mit zusätzlicher Trauerfeier und individueller Gestaltung des Abschieds."
+  leistungen:
+    - "Alle Leistungen des BasisPakets"
+    - "Hochwertigerer Sarg mit Ausstattung"
+    - "Organisation einer Trauerfeier"
+    - "Trauerdruck (Karten und Anzeige)"
+    - "Begleitung zur Beisetzung"

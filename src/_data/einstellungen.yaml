@@ -1,0 +1,25 @@
+# Zentrale Angaben – hier an einer Stelle pflegbar, erscheinen überall auf der Seite
+firmenname: "Lichtblicke Bestattung"
+claim: "Preiswert & Fair."
+hero_text: "Eine würdevolle Bestattung soll keine Frage des Geldbeutels sein. Wir begleiten Sie einfühlsam, transparent und zu fairen Preisen."
+
+telefon: "0761 / 27 33 44"
+telefon_link: "+49761273344"
+email: "info@lichtblicke-bestattung.de"
+erreichbarkeit: "24 Stunden telefonisch für Sie erreichbar"
+oeffnungszeiten: "Nach telefonischer Absprache"
+
+adresse_name: "Lichtblicke Bestattung"
+adresse_strasse: "Tennenbacher Straße 50"
+adresse_ort: "79106 Freiburg"
+
+# Mutterunternehmen / rechtliche Angaben (Impressum)
+mutter_name: "Müller Bestattungen GmbH"
+mutter_strasse: "Tennenbacher Str. 46"
+mutter_ort: "D-79106 Freiburg"
+mutter_gf: "Karl-Heinz Müller, Mario Müller, Sandra Müller"
+mutter_hrb: "HRB 731264, Registergericht Freiburg"
+mutter_ustid: "DE142052951"
+verantwortlich: "Sandra Müller"
+
+footer_text: "Lichtblicke Bestattung steht für würdevolle Abschiede zu fairen Preisen – einfühlsam, transparent und für jeden Menschen. Eine Marke der Müller Bestattungen GmbH in Freiburg."
