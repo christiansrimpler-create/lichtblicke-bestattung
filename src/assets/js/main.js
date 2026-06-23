@@ -60,16 +60,4 @@
     );
     revealEls.forEach(function (el) { io.observe(el); });
   }
-
-  /* ---- Preise: per Sprungmarke das passende Dropdown öffnen ---- */
-  function openHashDetails() {
-    if (!location.hash) return;
-    var el = document.getElementById(location.hash.slice(1));
-    if (el && el.tagName === "DETAILS") {
-      el.open = true;
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
-  window.addEventListener("hashchange", openHashDetails);
-  if (location.hash) setTimeout(openHashDetails, 60);
 })();
