@@ -3,7 +3,7 @@ layout: layout.njk
 permalink: /preise/
 active: preise
 title: Pakete & Preise
-desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und Erdbestattung als Basis- und Standardpaket. Faire Preise, klare Leistungen.
+desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und Erdbestattung als Basis- und Standardpaket, ab 1.990 € inkl. MwSt. Klare Leistungen, faire Preise.
 ---
 
 <section class="page-head">
@@ -12,7 +12,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
     <h1>Klar, transparent, bezahlbar</h1>
     <p class="lead">Wir sind stolz darauf, durch unser Konzept preiswerte Bestattungen in
       hoher Qualität anbieten zu können. Jedes Paket enthält genau das, was Sie brauchen –
-      ohne versteckte Kosten.</p>
+      zu einem festen Preis und ohne versteckte Kosten.</p>
   </div>
 </section>
 
@@ -22,18 +22,38 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
     <article class="paket-card paket-card-lg reveal">
       <span class="paket-tag">{{ paket.art }} · {{ paket.stufe }}</span>
       <h2>{{ paket.name }}</h2>
+      <div class="paket-preis-zeile">
+        <span class="paket-preis">{{ paket.preis }}</span>
+        <small>{{ paket.preis_zusatz }}</small>
+      </div>
       <p class="paket-desc">{{ paket.beschreibung }}</p>
+
+      <h3 class="paket-sub">Unsere Leistungen</h3>
       <ul class="paket-leistungen">
         {%- for l in paket.leistungen %}
         <li>{{ l }}</li>
         {%- endfor %}
       </ul>
+
+      <h3 class="paket-sub">Unsere Lieferungen</h3>
+      <ul class="paket-leistungen">
+        {%- for l in paket.lieferungen %}
+        <li>{{ l }}</li>
+        {%- endfor %}
+      </ul>
+
       <div class="paket-foot">
-        <span class="paket-preis">{{ paket.preis }}</span>
         <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">Beratung anfragen</a>
       </div>
     </article>
     {%- endfor %}
+  </div>
+
+  <div class="wrap narrow reveal">
+    <p class="preis-fussnote">
+      <span>* Aufbewahrung im Kühlraum für max. 4 Tage, jeder weitere Tag 50,- €.</span>
+      <span>** Zzgl. Auslagen wie Sterbeurkunden, Arztkosten, Kremation und Friedhofsgebühren.</span>
+    </p>
   </div>
 
   <div class="wrap narrow center reveal">

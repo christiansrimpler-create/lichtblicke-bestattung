@@ -44,7 +44,7 @@ git add -A && git commit -m "Inhalt aktualisiert" && git push
 
 ## Offene Punkte (vor dem echten Livegang)
 
-- **Preise** der vier Pakete ergänzen (stehen aktuell auf „auf Anfrage“).
-- **Paket-Leistungen** prüfen – sie sind ein erster Entwurf.
+- **Preise & Leistungen** der vier Pakete von der alten Seite übernommen (1.990 € / 2.490 €
+  inkl. MwSt) – bitte auf Aktualität prüfen.
 - **Datenschutzerklärung** rechtlich prüfen lassen.
 - **Karte** auf dem Kontaktbereich: Marker-Koordinaten ggf. exakt setzen.
