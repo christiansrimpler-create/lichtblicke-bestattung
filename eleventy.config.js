@@ -10,6 +10,10 @@ export default function (eleventyConfig) {
   // Aktuelles Jahr, z. B. fürs Impressum/Footer
   eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 
+  // Cache-Busting: ändert sich bei jedem Build, wird an CSS/JS angehängt,
+  // damit Besucher nach einer Änderung garantiert die frische Datei laden.
+  eleventyConfig.addGlobalData("assetVersion", Date.now());
+
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },
     // Vorschau läuft unter einem Unterpfad (GitHub Pages). Beim Umzug auf
