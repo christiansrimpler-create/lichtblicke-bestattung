@@ -1,0 +1,302 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Sveltia CMS – Konfiguration für die Inhaltspflege von Lichtblicke Bestattung
+#
+#  WICHTIG: Damit der Login funktioniert, muss unten unter "backend.base_url"
+#  die URL des Cloudflare-Auth-Workers eingetragen werden. Schritt-für-Schritt-
+#  Anleitung: siehe CMS-SETUP.md im Projekt-Hauptverzeichnis.
+#
+#  Hinweis für Entwickler: Das CMS schreibt beim Speichern die jeweilige Datei
+#  KOMPLETT neu. Jedes Feld muss hier deklariert sein – sonst geht es beim
+#  Speichern verloren. Auch Kommentare in den Datendateien werden dann entfernt.
+# ─────────────────────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: christiansrimpler-create/lichtblicke-bestattung
+  branch: main
+  # TODO: URL des deployten Auth-Workers eintragen, z. B.
+  # https://sveltia-cms-auth.DEIN-SUBDOMAIN.workers.dev
+  base_url: https://sveltia-cms-auth.BITTE-EINTRAGEN.workers.dev
+  commit_messages:
+    create: "CMS: {{collection}} „{{slug}}“ angelegt"
+    update: "CMS: {{collection}} „{{slug}}“ aktualisiert"
+    delete: "CMS: {{collection}} „{{slug}}“ gelöscht"
+    uploadMedia: "CMS: Medien hochgeladen – {{path}}"
+    deleteMedia: "CMS: Medien gelöscht – {{path}}"
+
+# Oberfläche auf Deutsch
+locale: de
+
+# Link zur veröffentlichten Seite (für „Seite ansehen“ im CMS)
+site_url: https://christiansrimpler-create.github.io/lichtblicke-bestattung
+display_url: https://christiansrimpler-create.github.io/lichtblicke-bestattung
+
+# Medien (Bilder) liegen im Projekt unter src/assets/img und werden beim Build
+# nach /assets/img kopiert.
+media_folder: "src/assets/img"
+public_folder: "/assets/img"
+
+collections:
+  # ───────────────────────────────────────────────────────────────────────────
+  #  1) Einstellungen & Kontaktdaten (global)
+  # ───────────────────────────────────────────────────────────────────────────
+  - name: einstellungen
+    label: "Einstellungen & Kontakt"
+    description: "Globale Angaben, die überall auf der Seite erscheinen."
+    delete: false
+    files:
+      - name: allgemein
+        label: "Einstellungen & Kontakt"
+        file: "src/_data/einstellungen.yaml"
+        fields:
+          - { name: firmenname, label: "Firmenname", widget: string }
+          - { name: claim, label: "Claim (große Überschrift auf der Startseite)", widget: string }
+          - { name: hero_text, label: "Einleitungstext (Startseite, unter dem Claim)", widget: text }
+          - { name: telefon, label: "Telefon (Anzeige)", widget: string, hint: "So wie es angezeigt wird, z. B. 0761 / 27 33 44" }
+          - { name: telefon_link, label: "Telefon (Wählformat)", widget: string, hint: "Für den Anruf-Button, ohne Leerzeichen, mit Ländervorwahl: +49761273344" }
+          - { name: email, label: "E-Mail", widget: string }
+          - { name: erreichbarkeit, label: "Erreichbarkeit (Hinweistext)", widget: string }
+          - { name: oeffnungszeiten, label: "Öffnungszeiten", widget: string }
+          - { name: adresse_name, label: "Adresse – Name", widget: string }
+          - { name: adresse_strasse, label: "Adresse – Straße & Hausnummer", widget: string }
+          - { name: adresse_ort, label: "Adresse – PLZ & Ort", widget: string }
+          - { name: footer_text, label: "Footer-Text", widget: text }
+          - { name: mutter_name, label: "Mutterunternehmen – Name", widget: string }
+          - { name: mutter_strasse, label: "Mutterunternehmen – Straße", widget: string }
+          - { name: mutter_ort, label: "Mutterunternehmen – PLZ & Ort", widget: string }
+          - { name: mutter_gf, label: "Geschäftsführung", widget: string }
+          - { name: mutter_hrb, label: "Handelsregister (HRB)", widget: string }
+          - { name: mutter_ustid, label: "USt-ID-Nr.", widget: string }
+          - { name: verantwortlich, label: "Inhaltlich verantwortlich (Impressum)", widget: string }
+          - { name: site_url, label: "Basis-URL (Technik – nur beim Domain-Umzug ändern)", widget: string, required: false }
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  2) Bestattungspakete (Preise & Leistungen)
+  # ───────────────────────────────────────────────────────────────────────────
+  - name: pakete
+    label: "Pakete & Preise"
+    description: "Die Bestattungspakete mit Preisen, Leistungen und Lieferungen."
+    delete: false
+    files:
+      - name: liste
+        label: "Bestattungspakete"
+        file: "src/_data/pakete.yaml"
+        fields:
+          - name: pakete
+            label: "Pakete"
+            label_singular: "Paket"
+            widget: list
+            summary: "{{fields.name}} – {{fields.preis}}"
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - name: art
+                label: "Bestattungsart"
+                widget: select
+                options: ["Feuerbestattung", "Erdbestattung"]
+                hint: "Steuert die Gruppierung auf der Preise-Seite."
+              - { name: stufe, label: "Stufe", widget: string, hint: "z. B. Basis oder Standard" }
+              - { name: preis, label: "Preis", widget: string, hint: "z. B. 1.990,00 €" }
+              - { name: preis_zusatz, label: "Preis-Zusatz", widget: string, hint: "z. B. inkl. 19 % MwSt **" }
+              - { name: beschreibung, label: "Kurzbeschreibung", widget: text }
+              - name: leistungen
+                label: "Leistungen"
+                label_singular: "Leistung"
+                widget: list
+                field: { name: text, label: "Leistung", widget: text }
+              - name: lieferungen
+                label: "Lieferungen"
+                label_singular: "Lieferung"
+                widget: list
+                field: { name: text, label: "Lieferung", widget: text }
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  3) Seiten-Texte
+  # ───────────────────────────────────────────────────────────────────────────
+  - name: seiten
+    label: "Seiten (Texte)"
+    description: "Die Texte der einzelnen Seiten. Layout & Bilder bleiben fix."
+    delete: false
+    files:
+      # ── Startseite ──────────────────────────────────────────────────────────
+      - name: start
+        label: "Startseite"
+        file: "src/_data/seiten/start.yaml"
+        fields:
+          - name: hero
+            label: "Kopfbereich (Hero)"
+            widget: object
+            hint: "Große Überschrift & Einleitung stehen unter „Einstellungen & Kontakt“."
+            fields:
+              - { name: kicker, label: "Kleiner Text über der Überschrift", widget: string }
+              - { name: cta_preise, label: "Button-Text (zu den Preisen)", widget: string }
+          - name: gedicht
+            label: "Zitat / Gedicht"
+            widget: object
+            fields:
+              - { name: kicker, label: "Überschrift des Zitats", widget: string }
+              - name: zeilen
+                label: "Zeilen"
+                label_singular: "Zeile"
+                widget: list
+                field: { name: zeile, label: "Zeile", widget: string }
+              - { name: nachsatz, label: "Satz unter dem Zitat", widget: text }
+          - name: schritte
+            label: "Abschnitt „So begleiten wir Sie“"
+            widget: object
+            fields:
+              - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+              - { name: titel, label: "Überschrift", widget: string }
+              - { name: lead, label: "Einleitungstext", widget: text }
+              - name: punkte
+                label: "Schritte"
+                label_singular: "Schritt"
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+                  - { name: titel, label: "Titel", widget: string }
+                  - { name: text, label: "Text", widget: text }
+          - name: werte
+            label: "Abschnitt „Wofür wir stehen“"
+            widget: object
+            fields:
+              - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+              - { name: titel, label: "Überschrift", widget: string }
+              - { name: lead, label: "Einleitungstext", widget: text }
+              - name: karten
+                label: "Werte-Karten"
+                label_singular: "Karte"
+                widget: list
+                summary: "{{fields.titel}}"
+                hint: "Genau 3 Karten – das Symbol je Karte ist im Layout fest hinterlegt."
+                fields:
+                  - { name: titel, label: "Titel", widget: string }
+                  - { name: text, label: "Text", widget: text }
+          - name: pakete_teaser
+            label: "Abschnitt „Unsere Pakete“ (Vorschau)"
+            widget: object
+            fields:
+              - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+              - { name: titel, label: "Überschrift", widget: string }
+              - { name: link, label: "Link-Text (zu allen Leistungen)", widget: string }
+              - { name: cta_karte, label: "Button-Text auf den Paketkarten", widget: string }
+          - name: wandel_teaser
+            label: "Abschnitt „Bestattung im Wandel“ (Vorschau)"
+            widget: object
+            fields:
+              - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+              - { name: titel, label: "Überschrift", widget: string }
+              - { name: text, label: "Text", widget: text }
+              - { name: link, label: "Link-Text", widget: string }
+          - name: cta
+            label: "Abschluss-Aufruf (CTA)"
+            widget: object
+            fields:
+              - { name: titel, label: "Überschrift", widget: string }
+              - { name: text, label: "Text", widget: text }
+              - { name: kontakt_label, label: "Button-Text (Kontakt)", widget: string }
+
+      # ── Über uns ─────────────────────────────────────────────────────────────
+      - name: ueberuns
+        label: "Über uns"
+        file: "src/_data/seiten/ueberuns.yaml"
+        fields:
+          - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+          - { name: titel, label: "Überschrift (H1)", widget: string }
+          - { name: lead, label: "Einleitungstext (hervorgehoben)", widget: text }
+          - name: absaetze
+            label: "Absätze"
+            label_singular: "Absatz"
+            widget: list
+            field: { name: absatz, label: "Absatz", widget: text }
+          - { name: schluss, label: "Schluss-Hinweis (klein)", widget: text }
+
+      # ── Bestattung im Wandel ─────────────────────────────────────────────────
+      - name: wandel
+        label: "Bestattung im Wandel"
+        file: "src/_data/seiten/wandel.yaml"
+        fields:
+          - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+          - { name: titel, label: "Überschrift (H1)", widget: string }
+          - name: absaetze
+            label: "Absätze"
+            label_singular: "Absatz"
+            widget: list
+            field: { name: absatz, label: "Absatz", widget: text }
+          - { name: pull_quote, label: "Hervorgehobenes Zitat", widget: text }
+          - name: callout
+            label: "Hinweis-Box"
+            widget: object
+            fields:
+              - { name: titel, label: "Titel", widget: string }
+              - { name: button, label: "Button-Text", widget: string }
+
+      # ── Kontakt ──────────────────────────────────────────────────────────────
+      - name: kontakt
+        label: "Kontakt"
+        file: "src/_data/seiten/kontakt.yaml"
+        fields:
+          - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+          - { name: titel, label: "Überschrift (H1)", widget: string }
+          - { name: lead, label: "Einleitungstext", widget: text }
+          - { name: card_titel, label: "Überschrift der Kontakt-Box", widget: string }
+          - { name: button, label: "Button-Text (Anrufen)", widget: string }
+          - name: labels
+            label: "Bezeichnungen in der Kontaktliste"
+            widget: object
+            fields:
+              - { name: telefon, label: "Bezeichnung Telefon", widget: string }
+              - { name: email, label: "Bezeichnung E-Mail", widget: string }
+              - { name: adresse, label: "Bezeichnung Adresse", widget: string }
+              - { name: oeffnungszeiten, label: "Bezeichnung Öffnungszeiten", widget: string }
+          - { name: karte_link, label: "Link-Text unter der Karte", widget: string }
+
+      # ── Preise (Seitentexte; Pakete siehe oben) ──────────────────────────────
+      - name: preise
+        label: "Preise (Seitentexte)"
+        file: "src/_data/seiten/preise.yaml"
+        fields:
+          - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+          - { name: titel, label: "Überschrift (H1)", widget: string }
+          - { name: lead, label: "Einleitungstext", widget: text }
+          - { name: toggle_label, label: "Aufklapp-Hinweis je Paket", widget: string }
+          - { name: spalte_leistungen, label: "Spaltentitel „Leistungen“", widget: string }
+          - { name: spalte_lieferungen, label: "Spaltentitel „Lieferungen“", widget: string }
+          - { name: button_paket, label: "Button-Text je Paket", widget: string }
+          - name: fussnote
+            label: "Fußnoten (* / **)"
+            label_singular: "Fußnote"
+            widget: list
+            field: { name: zeile, label: "Zeile", widget: text }
+          - { name: schluss, label: "Schluss-Absatz", widget: text }
+
+      # ── Impressum ────────────────────────────────────────────────────────────
+      - name: impressum
+        label: "Impressum (Überschriften)"
+        file: "src/_data/seiten/impressum.yaml"
+        fields:
+          - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+          - { name: titel, label: "Überschrift (H1)", widget: string }
+          - { name: h_angaben, label: "Überschrift „Angaben gemäß § 5 TMG“", widget: string }
+          - { name: h_marke, label: "Überschrift „Eine Marke von“", widget: string }
+          - { name: h_verantwortlich, label: "Überschrift „Inhaltlich verantwortlich“", widget: string }
+          - { name: h_odr, label: "Überschrift „Online-Streitbeilegung“", widget: string }
+          - { name: odr_text_1, label: "ODR – Text vor dem Link", widget: text }
+          - { name: odr_text_2, label: "ODR – Text danach", widget: text }
+
+      # ── Datenschutz ──────────────────────────────────────────────────────────
+      - name: datenschutz
+        label: "Datenschutzerklärung"
+        file: "src/_data/seiten/datenschutz.yaml"
+        fields:
+          - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
+          - { name: titel, label: "Überschrift (H1)", widget: string }
+          - { name: h_verantwortlich, label: "Überschrift „Verantwortlicher“", widget: string }
+          - name: abschnitte
+            label: "Abschnitte"
+            label_singular: "Abschnitt"
+            widget: list
+            summary: "{{fields.heading}}"
+            fields:
+              - { name: heading, label: "Überschrift", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - { name: hinweis, label: "Schluss-Hinweis (klein)", widget: text }

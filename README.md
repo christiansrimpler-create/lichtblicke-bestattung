@@ -11,15 +11,30 @@ https://christiansrimpler-create.github.io/lichtblicke-bestattung/
 
 ## Inhalte bearbeiten
 
-Alle Inhalte liegen im Ordner `src/`:
+### Komfortabel im Browser (CMS)
+
+Alle Texte, Kontaktdaten und Pakete lassen sich ohne Code über das eingebaute
+Redaktionssystem **Sveltia CMS** pflegen:
+
+```
+https://christiansrimpler-create.github.io/lichtblicke-bestattung/admin/
+```
+
+Einmalige Einrichtung des Logins (GitHub-OAuth-App + Cloudflare-Worker):
+siehe **[CMS-SETUP.md](CMS-SETUP.md)**.
+
+### Direkt in den Dateien
+
+Alle Inhalte liegen als reine Daten in `src/_data/` – die `.njk`-Dateien sind
+nur noch das Layout und greifen auf diese Daten zu:
 
 | Was | Datei |
 | --- | --- |
-| Kontaktdaten, Telefon, Texte (zentral) | `src/_data/einstellungen.yaml` |
+| Kontaktdaten, Telefon, Claim, Footer, Impressum-Daten (zentral) | `src/_data/einstellungen.yaml` |
 | Die vier Bestattungspakete & Leistungen | `src/_data/pakete.yaml` |
-| Startseite | `src/index.njk` |
-| Über uns / Preise / Bestattung im Wandel / Kontakt | `src/*.njk` |
-| Impressum & Datenschutz | `src/impressum.njk`, `src/datenschutz.njk` |
+| Texte der einzelnen Seiten | `src/_data/seiten/*.yaml` |
+| Layout/HTML der Seiten | `src/*.njk` |
+| CMS-Oberfläche & Feld-Konfiguration | `src/admin/` |
 | Logo & Bilder | `src/assets/img/` |
 | Gestaltung (Farben, Schrift) | `src/assets/css/style.css` |
 
