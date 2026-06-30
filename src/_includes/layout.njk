@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }} · {{ einstellungen.firmenname }}</title>
   <meta name="description" content="{{ desc }}">
+  {% if not erlaubeIndexierung %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <meta name="theme-color" content="#3c5320">
   <link rel="icon" href="{{ einstellungen.favicon | url }}">
   <link rel="canonical" href="{{ einstellungen.site_url }}{{ page.url | url }}">

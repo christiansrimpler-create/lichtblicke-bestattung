@@ -23,6 +23,15 @@ export default function (eleventyConfig) {
   // damit Besucher nach einer Änderung garantiert die frische Datei laden.
   eleventyConfig.addGlobalData("assetVersion", Date.now());
 
+  // Suchmaschinen-Indexierung nur auf der echten Domain (Root-Pfad "/") erlauben.
+  // Die Vorschau unter dem GitHub-Pages-Unterpfad bekommt "noindex", damit sie
+  // nicht bei Google landet. Beim Domain-Umzug PATH_PREFIX auf "/" setzen –
+  // dann ist die Seite automatisch indexierbar.
+  eleventyConfig.addGlobalData(
+    "erlaubeIndexierung",
+    (process.env.PATH_PREFIX || "/") === "/"
+  );
+
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },
     // Vorschau läuft unter einem Unterpfad (GitHub Pages). Beim Umzug auf
