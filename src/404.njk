@@ -1,0 +1,27 @@
+---
+layout: layout.njk
+permalink: /404.html
+eleventyExcludeFromCollections: true
+title: Seite nicht gefunden
+desc: Die aufgerufene Seite gibt es leider nicht.
+---
+<section class="page-head">
+  <div class="wrap narrow reveal">
+    <p class="eyebrow">Fehler 404</p>
+    <h1>Diese Seite gibt es leider nicht</h1>
+  </div>
+</section>
+
+<section class="section pt-0">
+  <div class="wrap narrow prose reveal">
+    <p class="lead">Vielleicht wurde die Adresse falsch eingegeben oder die Seite
+      wurde verschoben. Wir helfen Ihnen gern weiter.</p>
+
+    <div class="info-callout">
+      <strong>Zurück zum Anfang</strong>
+      <a class="btn btn-primary" href="{{ '/' | url }}">Zur Startseite</a>
+    </div>
+
+    <p><a class="link-arrow" href="{{ '/kontakt/' | url }}">Oder direkt Kontakt aufnehmen →</a></p>
+  </div>
+</section>
