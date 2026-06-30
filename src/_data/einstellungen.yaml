@@ -28,3 +28,8 @@ mutter_ustid: "DE142052951"
 verantwortlich: "Sandra Müller"
 
 footer_text: "Lichtblicke Bestattung steht für würdevolle Abschiede zu fairen Preisen – einfühlsam, transparent und für jeden Menschen. Eine Marke der Müller Bestattungen GmbH in Freiburg."
+
+# Bilder (auch über das CMS austauschbar)
+logo: /assets/img/logo.png
+favicon: /assets/img/logo-kreis.png
+vorschaubild: /assets/img/graeser.jpg

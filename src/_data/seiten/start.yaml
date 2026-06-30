@@ -55,6 +55,8 @@ wandel_teaser:
   titel: "Ein altes Thema, neu gedacht"
   text: "Der Wunsch nach „gut und günstig“ ist unaufhaltsam – und das ist kein Grund, ihn negativ zu bewerten. Pflegeleichte und kostengünstige Alternativen entsprechen dem Zeitgeist und dem Wunsch vieler Menschen. Das bedeutet keineswegs, dass weniger getrauert wird."
   link: "Mehr über unser Konzept →"
+  bild: /assets/img/graeser.jpg
+  bild_alt: "Gräser im Abendlicht"
 
 cta:
   titel: "Wir beraten Sie gerne"

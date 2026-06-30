@@ -47,6 +47,9 @@ collections:
         file: "src/_data/einstellungen.yaml"
         fields:
           - { name: firmenname, label: "Firmenname", widget: string }
+          - { name: logo, label: "Logo", widget: image, hint: "Erscheint in Kopf, Menü und Fuß. Querformat mit ähnlichen Proportionen wie bisher (ca. 3,7:1), am besten PNG mit transparentem Hintergrund." }
+          - { name: favicon, label: "Favicon (Symbol im Browser-Tab)", widget: image, hint: "Kleines, möglichst quadratisches Bild (PNG)." }
+          - { name: vorschaubild, label: "Vorschaubild beim Teilen (WhatsApp/Facebook/Google)", widget: image, hint: "Wird angezeigt, wenn ein Link zur Seite geteilt wird. Querformat, ca. 1200×630 px." }
           - { name: claim, label: "Claim (große Überschrift auf der Startseite)", widget: string }
           - { name: hero_text, label: "Einleitungstext (Startseite, unter dem Claim)", widget: text }
           - { name: telefon, label: "Telefon (Anzeige)", widget: string, hint: "So wie es angezeigt wird, z. B. 0761 / 27 33 44" }
@@ -184,6 +187,8 @@ collections:
               - { name: titel, label: "Überschrift", widget: string }
               - { name: text, label: "Text", widget: text }
               - { name: link, label: "Link-Text", widget: string }
+              - { name: bild, label: "Großes Foto", widget: image, hint: "Erscheint neben diesem Abschnitt auf der Startseite." }
+              - { name: bild_alt, label: "Foto-Beschreibung (für Screenreader & Google)", widget: string }
           - name: cta
             label: "Abschluss-Aufruf (CTA)"
             widget: object
