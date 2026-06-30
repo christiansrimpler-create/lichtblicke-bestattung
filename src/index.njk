@@ -6,7 +6,7 @@ desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und beza
 ---
 {% set s = seiten.start %}
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" style="background-image: url('{{ s.hero.bild | url }}');"></div>
   <div class="wrap hero-inner">
     <p class="kicker reveal">{{ s.hero.kicker }}</p>
     <h1 class="reveal">{{ einstellungen.claim }}</h1>

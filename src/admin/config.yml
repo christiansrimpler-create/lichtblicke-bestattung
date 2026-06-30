@@ -127,6 +127,7 @@ collections:
             widget: object
             hint: "Große Überschrift & Einleitung stehen unter „Einstellungen & Kontakt“."
             fields:
+              - { name: bild, label: "Hintergrundbild (großes Bild oben)", widget: image, hint: "Das große Bild im Kopfbereich der Startseite. Querformat, mindestens ca. 1600 px breit." }
               - { name: kicker, label: "Kleiner Text über der Überschrift", widget: string }
               - { name: cta_preise, label: "Button-Text (zu den Preisen)", widget: string }
           - name: gedicht

@@ -6,6 +6,7 @@
 # werden – dort ändern.
 
 hero:
+  bild: /assets/img/graeser.jpg
   kicker: "Bestattungen · Vorsorge · Trauerbegleitung"
   cta_preise: "Pakete & Preise ansehen"
 
