@@ -5,17 +5,17 @@ active: ""
 title: Impressum
 desc: Impressum von Lichtblicke Bestattung – eine Marke der Müller Bestattungen GmbH, Freiburg.
 ---
-
+{% set s = seiten.impressum %}
 <section class="page-head">
   <div class="wrap narrow reveal">
-    <p class="eyebrow">Rechtliches</p>
-    <h1>Impressum</h1>
+    <p class="eyebrow">{{ s.eyebrow }}</p>
+    <h1>{{ s.titel }}</h1>
   </div>
 </section>
 
 <section class="section pt-0">
   <div class="wrap narrow prose reveal">
-    <h2>Angaben gemäß § 5 TMG</h2>
+    <h2>{{ s.h_angaben }}</h2>
     <p>
       {{ einstellungen.firmenname }}<br>
       {{ einstellungen.adresse_strasse }}<br>
@@ -24,7 +24,7 @@ desc: Impressum von Lichtblicke Bestattung – eine Marke der Müller Bestattung
       E-Mail: <a href="mailto:{{ einstellungen.email }}">{{ einstellungen.email }}</a>
     </p>
 
-    <h2>Eine Marke von</h2>
+    <h2>{{ s.h_marke }}</h2>
     <p>
       {{ einstellungen.mutter_name }}<br>
       {{ einstellungen.mutter_strasse }}<br>
@@ -34,14 +34,12 @@ desc: Impressum von Lichtblicke Bestattung – eine Marke der Müller Bestattung
       USt-ID-Nr.: {{ einstellungen.mutter_ustid }}
     </p>
 
-    <h2>Inhaltlich verantwortlich gemäß § 18 Abs. 2 MStV</h2>
+    <h2>{{ s.h_verantwortlich }}</h2>
     <p>{{ einstellungen.verantwortlich }}</p>
 
-    <h2>Hinweis zur Online-Streitbeilegung</h2>
-    <p>Die EU hat ein Online-Verfahren zur Beilegung von Streitigkeiten zwischen Unternehmern
-      und Verbrauchern geschaffen. Informationen dazu finden Sie unter
+    <h2>{{ s.h_odr }}</h2>
+    <p>{{ s.odr_text_1 }}
       <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.</p>
-    <p>Wir beteiligen uns nicht an einem Streitbeilegungsverfahren vor einer
-      Verbraucherschlichtungsstelle.</p>
+    <p>{{ s.odr_text_2 }}</p>
   </div>
 </section>

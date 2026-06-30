@@ -5,14 +5,12 @@ active: preise
 title: Pakete & Preise
 desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und Erdbestattung als Basis- und Standardpaket, ab 1.990 € inkl. MwSt. Klare Leistungen, faire Preise.
 ---
-
+{% set s = seiten.preise %}
 <section class="page-head">
   <div class="wrap narrow reveal">
-    <p class="eyebrow">Pakete &amp; Preise</p>
-    <h1>Klar, transparent, bezahlbar</h1>
-    <p class="lead">Wir sind stolz darauf, durch unser Konzept preiswerte Bestattungen in
-      hoher Qualität anbieten zu können. Klappen Sie ein Paket auf, um alle Leistungen zu sehen –
-      zu einem festen Preis und ohne versteckte Kosten.</p>
+    <p class="eyebrow">{{ s.eyebrow }}</p>
+    <h1>{{ s.titel }}</h1>
+    <p class="lead">{{ s.lead }}</p>
   </div>
 </section>
 
@@ -20,7 +18,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
   <div class="wrap">
     {# Nach Bestattungsart gruppiert: erst beide Erdbestattungen, dann beide Feuerbestattungen #}
     <div class="pakete-akkordeon">
-    {%- for paket in pakete | sort(attribute="art") %}
+    {%- for paket in pakete.pakete | sort(attribute="art") %}
     <details class="paket-acc reveal" id="{{ (paket.art + '-' + paket.stufe) | lower }}">
       <summary class="paket-acc-head">
         <span class="paket-acc-info">
@@ -34,7 +32,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
             <small>{{ paket.preis_zusatz }}</small>
           </span>
           <span class="paket-acc-toggle">
-            <span class="paket-acc-toggle-label">Leistungen ansehen</span>
+            <span class="paket-acc-toggle-label">{{ s.toggle_label }}</span>
             <svg class="paket-acc-chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </span>
@@ -42,7 +40,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
       <div class="paket-acc-body">
         <div class="paket-acc-cols">
           <div>
-            <h3 class="paket-sub">Unsere Leistungen</h3>
+            <h3 class="paket-sub">{{ s.spalte_leistungen }}</h3>
             <ul class="paket-leistungen">
               {%- for l in paket.leistungen %}
               <li>{{ l }}</li>
@@ -50,7 +48,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
             </ul>
           </div>
           <div>
-            <h3 class="paket-sub">Unsere Lieferungen</h3>
+            <h3 class="paket-sub">{{ s.spalte_lieferungen }}</h3>
             <ul class="paket-leistungen">
               {%- for l in paket.lieferungen %}
               <li>{{ l }}</li>
@@ -58,7 +56,7 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
             </ul>
           </div>
         </div>
-        <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">Beratung anfragen</a>
+        <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">{{ s.button_paket }}</a>
       </div>
     </details>
     {%- endfor %}
@@ -67,14 +65,14 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
 
   <div class="wrap narrow reveal">
     <p class="preis-fussnote">
-      <span>* Aufbewahrung im Kühlraum für max. 4 Tage, jeder weitere Tag 50,- €.</span>
-      <span>** Zzgl. Auslagen wie Sterbeurkunden, Arztkosten, Kremation und Friedhofsgebühren.</span>
+      {%- for zeile in s.fussnote %}
+      <span>{{ zeile }}</span>
+      {%- endfor %}
     </p>
   </div>
 
   <div class="wrap narrow center reveal">
-    <p class="muted">Sie wünschen sich ein individuelles Angebot oder haben Fragen zu den
-      Leistungen? Rufen Sie uns an – wir beraten Sie ehrlich und unverbindlich.</p>
+    <p class="muted">{{ s.schluss }}</p>
     <a class="btn btn-primary" href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }} anrufen</a>
   </div>
 </section>

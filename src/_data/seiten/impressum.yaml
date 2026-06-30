@@ -1,0 +1,12 @@
+# Texte/Überschriften des Impressums. Die eigentlichen Daten (Firma, Adresse,
+# Geschäftsführung, HRB, USt-ID, Verantwortliche) stehen in einstellungen.yaml.
+# Layout steckt in src/impressum.njk.
+
+eyebrow: "Rechtliches"
+titel: "Impressum"
+h_angaben: "Angaben gemäß § 5 TMG"
+h_marke: "Eine Marke von"
+h_verantwortlich: "Inhaltlich verantwortlich gemäß § 18 Abs. 2 MStV"
+h_odr: "Hinweis zur Online-Streitbeilegung"
+odr_text_1: "Die EU hat ein Online-Verfahren zur Beilegung von Streitigkeiten zwischen Unternehmern und Verbrauchern geschaffen. Informationen dazu finden Sie unter"
+odr_text_2: "Wir beteiligen uns nicht an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle."

@@ -1,0 +1,14 @@
+# Texte der Preise-Seite. Die Pakete selbst stehen in pakete.yaml.
+# Layout steckt in src/preise.njk.
+
+eyebrow: "Pakete & Preise"
+titel: "Klar, transparent, bezahlbar"
+lead: "Wir sind stolz darauf, durch unser Konzept preiswerte Bestattungen in hoher Qualität anbieten zu können. Klappen Sie ein Paket auf, um alle Leistungen zu sehen – zu einem festen Preis und ohne versteckte Kosten."
+toggle_label: "Leistungen ansehen"
+spalte_leistungen: "Unsere Leistungen"
+spalte_lieferungen: "Unsere Lieferungen"
+button_paket: "Beratung anfragen"
+fussnote:
+  - "* Aufbewahrung im Kühlraum für max. 4 Tage, jeder weitere Tag 50,- €."
+  - "** Zzgl. Auslagen wie Sterbeurkunden, Arztkosten, Kremation und Friedhofsgebühren."
+schluss: "Sie wünschen sich ein individuelles Angebot oder haben Fragen zu den Leistungen? Rufen Sie uns an – wir beraten Sie ehrlich und unverbindlich."

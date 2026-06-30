@@ -1,0 +1,62 @@
+# Texte der Startseite. Layout/Struktur stecken im Template src/index.njk –
+# hier werden nur die Inhalte gepflegt (im CMS unter "Seiten → Startseite").
+#
+# Hinweis: Die große Überschrift (claim) und der Einleitungstext (hero_text)
+# stehen zentral in einstellungen.yaml, weil sie auch an anderer Stelle genutzt
+# werden – dort ändern.
+
+hero:
+  kicker: "Bestattungen · Vorsorge · Trauerbegleitung"
+  cta_preise: "Pakete & Preise ansehen"
+
+gedicht:
+  kicker: "Der Tod, kein erwünschter Besucher"
+  zeilen:
+    - "Er zieht ungefragt und unerwünscht ein."
+    - "Seine Anwesenheit kostet unglaubliche Energie"
+    - "und hinterlässt verzweifelte Seelen."
+    - "Ein unliebsamer Besucher, der ein Leben wegnimmt"
+    - "und Menschen in Trauer und Einsamkeit stürzt –"
+    - "und mit vielen Fragen zurücklässt."
+  nachsatz: "In diesen Momenten möchten wir an Ihrer Seite stehen."
+
+schritte:
+  eyebrow: "Im Trauerfall"
+  titel: "So begleiten wir Sie – ruhig, Schritt für Schritt"
+  lead: "Wenn ein Mensch stirbt, müssen Sie nicht wissen, was zu tun ist. Ein Anruf genügt – um alles Weitere kümmern wir uns gemeinsam mit Ihnen."
+  punkte:
+    - titel: "Rufen Sie uns an"
+      text: "Tag und Nacht erreichbar. Wir hören zu und besprechen die ersten, wichtigsten Schritte – ganz in Ruhe."
+    - titel: "Wir besprechen alles"
+      text: "In einem persönlichen Gespräch klären wir Ihre Wünsche und alle Formalitäten – verständlich und ohne Druck."
+    - titel: "Wir kümmern uns"
+      text: "Von der Überführung bis zur Trauerfeier übernehmen wir die Organisation. Sie haben Zeit für das, was wirklich zählt."
+
+werte:
+  eyebrow: "Wofür wir stehen"
+  titel: "Ein würdevoller Abschied soll keine Frage des Geldbeutels sein"
+  lead: "Wir geben Ihnen so viel Transparenz wie möglich rund um die Themen Vorsorge, Sterben, Bestatten und Trauerbegleitung. Mit einfachen, klaren Paketen und viel Einfühlungsvermögen stehen wir Ihnen zur Seite – ohne versteckte Kosten."
+  karten:
+    - titel: "Preiswert & fair"
+      text: "Klare Pakete zu ehrlichen Preisen. Sie wissen von Anfang an, woran Sie sind."
+    - titel: "Immer erreichbar"
+      text: "Ein Todesfall richtet sich nicht nach Öffnungszeiten. Wir sind rund um die Uhr für Sie da."
+    - titel: "Einfühlsam begleitet"
+      text: "Wir verurteilen niemanden und nehmen uns Zeit – für Ihre Wünsche und Ihre Trauer."
+
+pakete_teaser:
+  eyebrow: "Unsere Pakete"
+  titel: "Klar, transparent, bezahlbar"
+  link: "Alle Leistungen ansehen →"
+  cta_karte: "Details ansehen →"
+
+wandel_teaser:
+  eyebrow: "Bestattung im Wandel"
+  titel: "Ein altes Thema, neu gedacht"
+  text: "Der Wunsch nach „gut und günstig“ ist unaufhaltsam – und das ist kein Grund, ihn negativ zu bewerten. Pflegeleichte und kostengünstige Alternativen entsprechen dem Zeitgeist und dem Wunsch vieler Menschen. Das bedeutet keineswegs, dass weniger getrauert wird."
+  link: "Mehr über unser Konzept →"
+
+cta:
+  titel: "Wir beraten Sie gerne"
+  text: "Ob im akuten Trauerfall oder zur Vorsorge – sprechen Sie uns an. Wir nehmen uns Zeit für Sie."
+  kontakt_label: "Kontakt & Anfahrt"

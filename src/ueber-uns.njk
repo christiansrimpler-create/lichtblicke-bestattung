@@ -5,34 +5,27 @@ active: ueber-uns
 title: Über uns
 desc: Lichtblicke Bestattung in Freiburg – transparente Beratung rund um Vorsorge, Sterben, Bestatten und Trauerbegleitung. Eine Marke der Müller Bestattungen GmbH.
 ---
-
+{% set s = seiten.ueberuns %}
 <section class="page-head">
   <div class="wrap narrow reveal">
-    <p class="eyebrow">Über uns</p>
-    <h1>Menschlich, transparent, an Ihrer Seite</h1>
+    <p class="eyebrow">{{ s.eyebrow }}</p>
+    <h1>{{ s.titel }}</h1>
   </div>
 </section>
 
 <section class="section pt-0">
   <div class="wrap narrow prose reveal">
-    <p class="lead">Wir, Lichtblicke Bestattung, geben Ihnen so viel Transparenz wie möglich
-      rund um die Themen Vorsorge, Sterben, Bestatten und Trauerbegleitung.</p>
+    <p class="lead">{{ s.lead }}</p>
 
-    <p>Ein Todesfall stellt das Leben auf den Kopf – und wirft viele Fragen auf, oft auch
-      finanzielle. Wir glauben, dass ein würdevoller Abschied jedem Menschen offenstehen
-      sollte, unabhängig vom Geldbeutel. Deshalb arbeiten wir mit einfachen, klaren Paketen
-      und nennen die Kosten offen.</p>
-
-    <p>Wir verurteilen niemanden, dem die Mittel fehlen oder dem ein klassisches Grab nicht
-      zusagt. Vielmehr möchten wir passende Lösungen bieten – mit viel Einfühlungsvermögen
-      und ohne Druck. Sprechen Sie uns an, wir beraten Sie gerne.</p>
+    {%- for absatz in s.absaetze %}
+    <p>{{ absatz }}</p>
+    {%- endfor %}
 
     <div class="info-callout">
       <strong>{{ einstellungen.erreichbarkeit }}</strong>
       <a class="btn btn-primary" href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }} anrufen</a>
     </div>
 
-    <p class="muted">Lichtblicke Bestattung ist eine Marke der {{ einstellungen.mutter_name }}
-      in Freiburg – mit langjähriger Erfahrung im Bestattungswesen.</p>
+    <p class="muted">{{ s.schluss }}</p>
   </div>
 </section>

@@ -1,0 +1,14 @@
+# Texte der Kontaktseite. Layout steckt in src/kontakt.njk.
+# Telefon, E-Mail, Adresse, Öffnungszeiten kommen aus einstellungen.yaml.
+
+eyebrow: "Kontakt"
+titel: "Wir sind für Sie da"
+lead: "Im Trauerfall sind wir rund um die Uhr telefonisch erreichbar. Rufen Sie uns an oder schreiben Sie uns – wir melden uns zeitnah bei Ihnen."
+card_titel: "So erreichen Sie uns"
+button: "Jetzt anrufen"
+labels:
+  telefon: "Telefon"
+  email: "E-Mail"
+  adresse: "Adresse"
+  oeffnungszeiten: "Öffnungszeiten"
+karte_link: "Größere Karte öffnen →"

@@ -4,15 +4,15 @@ active: start
 title: Würdevolle Bestattung zu fairen Preisen
 desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und bezahlbare Bestattungen für jeden Menschen. 24 Stunden telefonisch erreichbar.
 ---
-
+{% set s = seiten.start %}
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="wrap hero-inner">
-    <p class="kicker reveal">Bestattungen · Vorsorge · Trauerbegleitung</p>
+    <p class="kicker reveal">{{ s.hero.kicker }}</p>
     <h1 class="reveal">{{ einstellungen.claim }}</h1>
     <p class="hero-lead reveal">{{ einstellungen.hero_text }}</p>
     <div class="hero-actions reveal">
-      <a class="btn btn-primary" href="{{ '/preise/' | url }}">Pakete &amp; Preise ansehen</a>
+      <a class="btn btn-primary" href="{{ '/preise/' | url }}">{{ s.hero.cta_preise }}</a>
       <a class="btn btn-ghost" href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }} anrufen</a>
     </div>
     <p class="hero-note reveal">{{ einstellungen.erreichbarkeit }}</p>
@@ -21,46 +21,29 @@ desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und beza
 
 <section class="band-quiet">
   <div class="wrap narrow reveal">
-    <p class="quote-kicker">Der Tod, kein erwünschter Besucher</p>
+    <p class="quote-kicker">{{ s.gedicht.kicker }}</p>
     <blockquote class="poem">
-      Er zieht ungefragt und unerwünscht ein.<br>
-      Seine Anwesenheit kostet unglaubliche Energie<br>
-      und hinterlässt verzweifelte Seelen.<br>
-      Ein unliebsamer Besucher, der ein Leben wegnimmt<br>
-      und Menschen in Trauer und Einsamkeit stürzt –<br>
-      und mit vielen Fragen zurücklässt.
+      {{ s.gedicht.zeilen | join("<br>") | safe }}
     </blockquote>
-    <p class="poem-after">In diesen Momenten möchten wir an Ihrer Seite stehen.</p>
+    <p class="poem-after">{{ s.gedicht.nachsatz }}</p>
   </div>
 </section>
 
 <section class="section section-tint">
   <div class="wrap narrow center reveal">
-    <p class="eyebrow">Im Trauerfall</p>
-    <h2>So begleiten wir Sie – ruhig, Schritt für Schritt</h2>
-    <p class="lead">Wenn ein Mensch stirbt, müssen Sie nicht wissen, was zu tun ist. Ein
-      Anruf genügt – um alles Weitere kümmern wir uns gemeinsam mit Ihnen.</p>
+    <p class="eyebrow">{{ s.schritte.eyebrow }}</p>
+    <h2>{{ s.schritte.titel }}</h2>
+    <p class="lead">{{ s.schritte.lead }}</p>
   </div>
 
   <div class="wrap schritte">
+    {%- for punkt in s.schritte.punkte %}
     <article class="schritt reveal">
-      <span class="schritt-num">1</span>
-      <h3>Rufen Sie uns an</h3>
-      <p>Tag und Nacht erreichbar. Wir hören zu und besprechen die ersten, wichtigsten
-        Schritte – ganz in Ruhe.</p>
+      <span class="schritt-num">{{ loop.index }}</span>
+      <h3>{{ punkt.titel }}</h3>
+      <p>{{ punkt.text }}</p>
     </article>
-    <article class="schritt reveal">
-      <span class="schritt-num">2</span>
-      <h3>Wir besprechen alles</h3>
-      <p>In einem persönlichen Gespräch klären wir Ihre Wünsche und alle Formalitäten –
-        verständlich und ohne Druck.</p>
-    </article>
-    <article class="schritt reveal">
-      <span class="schritt-num">3</span>
-      <h3>Wir kümmern uns</h3>
-      <p>Von der Überführung bis zur Trauerfeier übernehmen wir die Organisation. Sie haben
-        Zeit für das, was wirklich zählt.</p>
-    </article>
+    {%- endfor %}
   </div>
 
   <div class="wrap center reveal">
@@ -70,11 +53,9 @@ desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und beza
 
 <section class="section">
   <div class="wrap narrow center reveal">
-    <p class="eyebrow">Wofür wir stehen</p>
-    <h2>Ein würdevoller Abschied soll keine Frage des Geldbeutels sein</h2>
-    <p class="lead">Wir geben Ihnen so viel Transparenz wie möglich rund um die Themen Vorsorge,
-      Sterben, Bestatten und Trauerbegleitung. Mit einfachen, klaren Paketen und viel
-      Einfühlungsvermögen stehen wir Ihnen zur Seite – ohne versteckte Kosten.</p>
+    <p class="eyebrow">{{ s.werte.eyebrow }}</p>
+    <h2>{{ s.werte.titel }}</h2>
+    <p class="lead">{{ s.werte.lead }}</p>
   </div>
 
   <div class="wrap werte-grid">
@@ -82,22 +63,22 @@ desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und beza
       <span class="werte-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.2 11.4 3.3a1 1 0 0 1 .7-.3H19a1.5 1.5 0 0 1 1.5 1.5v6.9a1 1 0 0 1-.3.7l-7.9 7.9a1.5 1.5 0 0 1-2.1 0l-6.7-6.7a1.5 1.5 0 0 1 0-2.1Z"/><circle cx="16" cy="8" r="1.4"/></svg>
       </span>
-      <h3>Preiswert &amp; fair</h3>
-      <p>Klare Pakete zu ehrlichen Preisen. Sie wissen von Anfang an, woran Sie sind.</p>
+      <h3>{{ s.werte.karten[0].titel }}</h3>
+      <p>{{ s.werte.karten[0].text }}</p>
     </article>
     <article class="werte-card reveal">
       <span class="werte-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.5h-2A1.5 1.5 0 0 0 3 5.1C3 13.9 10.1 21 18.9 21a1.5 1.5 0 0 0 1.6-1.5v-2a1.5 1.5 0 0 0-1.3-1.5l-2.9-.4a1.5 1.5 0 0 0-1.4.6l-.9 1.2a12.6 12.6 0 0 1-5.4-5.4l1.2-.9a1.5 1.5 0 0 0 .6-1.4l-.4-2.9A1.5 1.5 0 0 0 6.4 3.5Z"/></svg>
       </span>
-      <h3>Immer erreichbar</h3>
-      <p>Ein Todesfall richtet sich nicht nach Öffnungszeiten. Wir sind rund um die Uhr für Sie da.</p>
+      <h3>{{ s.werte.karten[1].titel }}</h3>
+      <p>{{ s.werte.karten[1].text }}</p>
     </article>
     <article class="werte-card reveal">
       <span class="werte-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.3S3.6 15.5 3.6 9.9A4.4 4.4 0 0 1 12 7.3a4.4 4.4 0 0 1 8.4 2.6c0 5.6-8.4 10.4-8.4 10.4Z"/></svg>
       </span>
-      <h3>Einfühlsam begleitet</h3>
-      <p>Wir verurteilen niemanden und nehmen uns Zeit – für Ihre Wünsche und Ihre Trauer.</p>
+      <h3>{{ s.werte.karten[2].titel }}</h3>
+      <p>{{ s.werte.karten[2].text }}</p>
     </article>
   </div>
 </section>
@@ -106,20 +87,20 @@ desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und beza
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="eyebrow">Unsere Pakete</p>
-        <h2>Klar, transparent, bezahlbar</h2>
+        <p class="eyebrow">{{ s.pakete_teaser.eyebrow }}</p>
+        <h2>{{ s.pakete_teaser.titel }}</h2>
       </div>
-      <a class="link-arrow" href="{{ '/preise/' | url }}">Alle Leistungen ansehen →</a>
+      <a class="link-arrow" href="{{ '/preise/' | url }}">{{ s.pakete_teaser.link }}</a>
     </div>
     <div class="pakete-grid">
-      {%- for paket in pakete %}
+      {%- for paket in pakete.pakete %}
       <a class="paket-card paket-card-link reveal" href="{{ '/preise/' | url }}#{{ (paket.art + '-' + paket.stufe) | lower }}">
         <span class="paket-tag">{{ paket.art }}</span>
         <h3>{{ paket.name }}</h3>
         <p>{{ paket.beschreibung }}</p>
         <span class="paket-card-foot">
           <span class="paket-preis">{{ paket.preis }}</span>
-          <span class="paket-card-cta">Details ansehen →</span>
+          <span class="paket-card-cta">{{ s.pakete_teaser.cta_karte }}</span>
         </span>
       </a>
       {%- endfor %}
@@ -133,24 +114,21 @@ desc: Lichtblicke Bestattung in Freiburg – einfühlsame, transparente und beza
       <img src="{{ '/assets/img/graeser.jpg' | url }}" alt="Gräser im Abendlicht" loading="lazy">
     </div>
     <div class="split-text reveal">
-      <p class="eyebrow">Bestattung im Wandel</p>
-      <h2>Ein altes Thema, neu gedacht</h2>
-      <p>Der Wunsch nach „gut und günstig" ist unaufhaltsam – und das ist kein Grund,
-        ihn negativ zu bewerten. Pflegeleichte und kostengünstige Alternativen entsprechen
-        dem Zeitgeist und dem Wunsch vieler Menschen. Das bedeutet keineswegs, dass weniger
-        getrauert wird.</p>
-      <a class="link-arrow" href="{{ '/bestattung-im-wandel/' | url }}">Mehr über unser Konzept →</a>
+      <p class="eyebrow">{{ s.wandel_teaser.eyebrow }}</p>
+      <h2>{{ s.wandel_teaser.titel }}</h2>
+      <p>{{ s.wandel_teaser.text }}</p>
+      <a class="link-arrow" href="{{ '/bestattung-im-wandel/' | url }}">{{ s.wandel_teaser.link }}</a>
     </div>
   </div>
 </section>
 
 <section class="cta">
   <div class="wrap center reveal">
-    <h2>Wir beraten Sie gerne</h2>
-    <p>Ob im akuten Trauerfall oder zur Vorsorge – sprechen Sie uns an. Wir nehmen uns Zeit für Sie.</p>
+    <h2>{{ s.cta.titel }}</h2>
+    <p>{{ s.cta.text }}</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }}</a>
-      <a class="btn btn-ghost" href="{{ '/kontakt/' | url }}">Kontakt &amp; Anfahrt</a>
+      <a class="btn btn-ghost" href="{{ '/kontakt/' | url }}">{{ s.cta.kontakt_label }}</a>
     </div>
   </div>
 </section>

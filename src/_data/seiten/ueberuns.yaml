@@ -1,0 +1,10 @@
+# Texte der Seite „Über uns“. Layout steckt in src/ueber-uns.njk.
+# Kontaktdaten/Erreichbarkeit kommen zentral aus einstellungen.yaml.
+
+eyebrow: "Über uns"
+titel: "Menschlich, transparent, an Ihrer Seite"
+lead: "Wir, Lichtblicke Bestattung, geben Ihnen so viel Transparenz wie möglich rund um die Themen Vorsorge, Sterben, Bestatten und Trauerbegleitung."
+absaetze:
+  - "Ein Todesfall stellt das Leben auf den Kopf – und wirft viele Fragen auf, oft auch finanzielle. Wir glauben, dass ein würdevoller Abschied jedem Menschen offenstehen sollte, unabhängig vom Geldbeutel. Deshalb arbeiten wir mit einfachen, klaren Paketen und nennen die Kosten offen."
+  - "Wir verurteilen niemanden, dem die Mittel fehlen oder dem ein klassisches Grab nicht zusagt. Vielmehr möchten wir passende Lösungen bieten – mit viel Einfühlungsvermögen und ohne Druck. Sprechen Sie uns an, wir beraten Sie gerne."
+schluss: "Lichtblicke Bestattung ist eine Marke der Müller Bestattungen GmbH in Freiburg – mit langjähriger Erfahrung im Bestattungswesen."

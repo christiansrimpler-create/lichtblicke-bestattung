@@ -1,0 +1,14 @@
+# Texte der Seite „Bestattung im Wandel“. Layout steckt in src/bestattung-im-wandel.njk.
+
+eyebrow: "Unser Konzept"
+titel: "Bestattung im Wandel – ein altes Thema neu gedacht"
+absaetze:
+  - "Der Bestattungsmarkt wandelt sich genau wie unsere Gesellschaft. Diese Veränderung ist oft bewusst gewollt: Der Wunsch nach „gut und günstig“ ist unaufhaltsam. Das ist kein Grund, dies negativ zu bewerten, denn es sind bei Weitem nicht nur einkommensschwache Schichten, die so denken."
+  - "Wer nach dem Motto „Ich lebe im Hier und Jetzt“ handelt, hinterlässt oft kein großes Erbe, und auch die Angehörigen verfügen häufig über keine großen Rücklagen. Doch selbst wenn gespart wurde, zehrt oft lange Pflegebedürftigkeit das Vermögen auf. Der Tod tritt dann – finanziell betrachtet – meist unpassend und mit hohen Kosten verbunden ein."
+  - "Zudem haben sich unsere Lebensumstände geändert. Familien leben oft über Länder verstreut. Ein Grab kann, wenn überhaupt, nur selten an Feiertagen besucht werden. Eine aufwendige Dauergrabpflege kommt daher für viele nicht mehr infrage."
+  - "Pflegeleichte und kostengünstige Alternativen entsprechen also dem Zeitgeist und dem Wunsch der Mehrheit. Das bedeutet keineswegs, dass weniger getrauert wird. Trauer ist individuell: Der eine baut sich zu Hause einen kleinen Gedenkplatz mit Kerzen, der andere trägt das Foto des Verstorbenen täglich im Geldbeutel."
+  - "Wir verurteilen niemanden, dem die Mittel fehlen oder dem ein klassisches Grab nicht zusagt. Vielmehr möchten wir passende Lösungen bieten. Mit einfachen, transparenten Paketen und viel Einfühlungsvermögen stehen wir Ihnen zur Seite. Da staatliche Aufklärung zur Bestattungsvorsorge oft fehlt, sehen wir es als unsere Aufgabe an, hier zu helfen."
+pull_quote: "Wir sind stolz darauf, durch unser Konzept preiswerte Bestattungen in hoher Qualität anbieten zu können."
+callout:
+  titel: "Fragen zu unserem Konzept?"
+  button: "Kontakt aufnehmen"

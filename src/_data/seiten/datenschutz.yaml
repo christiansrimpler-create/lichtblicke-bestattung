@@ -1,0 +1,16 @@
+# Texte der Datenschutzerklärung. Die Verantwortlichen-Daten kommen aus
+# einstellungen.yaml. Layout steckt in src/datenschutz.njk.
+
+eyebrow: "Rechtliches"
+titel: "Datenschutzerklärung"
+h_verantwortlich: "Verantwortlicher"
+abschnitte:
+  - heading: "Erhebung von Daten beim Besuch dieser Website"
+    text: "Beim Aufrufen unserer Website werden durch den Browser automatisch Informationen an den Server unserer Website gesendet (z. B. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, übertragene Datenmenge, Browsertyp). Diese Daten dienen der technischen Auslieferung und Sicherheit der Website und werden nicht mit anderen Datenquellen zusammengeführt."
+  - heading: "Kontaktaufnahme"
+    text: "Wenn Sie uns per Telefon oder E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung Ihrer Anfrage und für mögliche Anschlussfragen gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter."
+  - heading: "Karten-Einbindung (OpenStreetMap)"
+    text: "Zur Anzeige unseres Standorts binden wir eine Karte von OpenStreetMap ein. Dabei kann Ihre IP-Adresse an den Kartendienst übermittelt werden. Anbieter ist die OpenStreetMap Foundation."
+  - heading: "Ihre Rechte"
+    text: "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Wenden Sie sich dazu an die oben genannten Kontaktdaten. Zudem steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu."
+hinweis: "Hinweis: Diese Datenschutzerklärung ist eine Grundfassung für die neue Seite und sollte vor dem endgültigen Livegang rechtlich geprüft und an die tatsächlich eingesetzten Dienste angepasst werden."
