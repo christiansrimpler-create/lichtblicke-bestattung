@@ -63,3 +63,18 @@ git add -A && git commit -m "Inhalt aktualisiert" && git push
   inkl. MwSt) – bitte auf Aktualität prüfen.
 - **Datenschutzerklärung** rechtlich prüfen lassen.
 - **Karte** auf dem Kontaktbereich: Marker-Koordinaten ggf. exakt setzen.
+
+### Beim Domain-Umzug (SEO)
+
+Solange die Seite unter dem GitHub-Pages-Unterpfad läuft, ist sie bewusst auf
+`noindex` gesetzt (reine Kundenvorschau). Beim Wechsel auf die echte Domain:
+
+- `PATH_PREFIX` in `.github/workflows/pages.yml` auf `/` setzen → entfernt
+  automatisch das `noindex` und macht die Seite indexierbar.
+- `site_url` in `src/_data/einstellungen.yaml` auf die echte Domain ändern
+  (wirkt auf Canonical, Sitemap und Social-Vorschau).
+- **Sitemap** (`/sitemap.xml`) in der **Google Search Console** einreichen.
+- **Titel & Meta-Descriptions** fürs lokale SEO optimieren (Stichwort „Freiburg“
+  / „Bestatter“) – z. B. Start: „Bestatter Freiburg – würdevoll & bezahlbar“.
+- **Google-Unternehmensprofil** anlegen/beanspruchen (stärkster lokaler Hebel),
+  mit identischen Adress-/Telefondaten (NAP).
