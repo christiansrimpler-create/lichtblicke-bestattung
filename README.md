@@ -20,8 +20,8 @@ Redaktionssystem **Sveltia CMS** pflegen:
 https://christiansrimpler-create.github.io/lichtblicke-bestattung/admin/
 ```
 
-Einmalige Einrichtung des Logins (GitHub-OAuth-App + Cloudflare-Worker):
-siehe **[CMS-SETUP.md](CMS-SETUP.md)**.
+Login per **Access Token** (Personal Access Token) – kein Server/Worker nötig.
+Einrichtung siehe **[CMS-SETUP.md](CMS-SETUP.md)**.
 
 ### Direkt in den Dateien
 

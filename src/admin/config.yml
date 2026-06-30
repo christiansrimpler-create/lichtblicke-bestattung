@@ -1,9 +1,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
 #  Sveltia CMS – Konfiguration für die Inhaltspflege von Lichtblicke Bestattung
 #
-#  WICHTIG: Damit der Login funktioniert, muss unten unter "backend.base_url"
-#  die URL des Cloudflare-Auth-Workers eingetragen werden. Schritt-für-Schritt-
-#  Anleitung: siehe CMS-SETUP.md im Projekt-Hauptverzeichnis.
+#  Login: per GitHub Personal Access Token ("Sign In with Token" im Login-
+#  Bildschirm). Kein OAuth-Server/Worker nötig. Anleitung: siehe CMS-SETUP.md.
 #
 #  Hinweis für Entwickler: Das CMS schreibt beim Speichern die jeweilige Datei
 #  KOMPLETT neu. Jedes Feld muss hier deklariert sein – sonst geht es beim
@@ -14,9 +13,7 @@ backend:
   name: github
   repo: christiansrimpler-create/lichtblicke-bestattung
   branch: main
-  # TODO: URL des deployten Auth-Workers eintragen, z. B.
-  # https://sveltia-cms-auth.DEIN-SUBDOMAIN.workers.dev
-  base_url: https://sveltia-cms-auth.BITTE-EINTRAGEN.workers.dev
+  automatic_deployments: true
   commit_messages:
     create: "CMS: {{collection}} „{{slug}}“ angelegt"
     update: "CMS: {{collection}} „{{slug}}“ aktualisiert"
