@@ -3,37 +3,32 @@
 
    Gestaltungsidee: „Licht am Horizont“.
    Ein Lichtblick ist der Moment, in dem Licht in die Dunkelheit fällt –
-   die dunklen Flächen (Gedicht, CTA, Footer) tragen deshalb ein warmes
-   Morgenlicht, und das Horizont-Motiv (Haarlinie mit Lichtkreis, abgeleitet
-   vom runden Logo) markiert die Stellen, an denen die Marke ihr Versprechen
-   gibt. Typografie: Cormorant Garamond + Inter.
+   die dunklen Flächen (Gedicht, CTA, Footer) tragen deshalb ein leises,
+   aufgehendes Licht, und das Horizont-Motiv (Haarlinie mit Lichtkreis in
+   Logo-Grün) markiert die Stellen, an denen die Marke ihr Versprechen gibt.
+   Farben ausschließlich aus dem Logo: helles Lime + tiefes Grün, dazu
+   warme Neutraltöne. Typografie: Cormorant Garamond + Inter.
    ========================================================================== */
 
 :root {
   /* Grün aus dem Logo */
-  --lime: #84ae1e;          /* helles Logo-Grün – Akzente */
-  --lime-dark: #6b9018;     /* Hover */
-  --leaf: #55731a;          /* dunkleres Blattgrün – kleine Textlabel (Kontrast) */
-  --lime-soft: #eef3da;     /* sehr helle grüne Fläche */
-  --green: #3c5320;         /* tiefes Grün – Buttons, Markenfarbe */
-  --green-dark: #2c3d17;
-
-  /* Nacht & Licht – der zweite Pol der Gestaltung */
-  --night: #1e2a10;         /* Nachtgrün: Gedicht, CTA */
-  --night-deep: #161f0b;    /* noch dunkler: Footer */
-  --dawn: #f0e2ba;          /* warmes Morgenlicht */
+  --lime: #84ae1e;          /* helles Logo-Grün – Akzente, Lichtpunkte */
+  --lime-dark: #6b9018;     /* Hover, kleine Auszeichnungen */
+  --lime-soft: #f1f5e4;     /* sehr helle grüne Fläche */
+  --green: #3c5320;         /* tiefes Grün – dunkle Flächen, Buttons */
+  --green-dark: #2c3d17;    /* Footer */
 
   /* Warme Neutraltöne */
-  --bg: #f8f6ee;
-  --surface: #fffdf7;
-  --tint: #efecdf;
-  --ink: #262b1c;
-  --ink-soft: #5c5f4d;
-  --line: #ded9c6;
+  --bg: #faf8f3;
+  --surface: #ffffff;
+  --tint: #f2efe7;
+  --ink: #2a2a25;
+  --ink-soft: #5d5d54;
+  --line: #e7e2d6;
 
   --wrap: 1140px;
   --radius: 6px;
-  --shadow: 0 16px 40px -28px rgba(30, 42, 16, .4);
+  --shadow: 0 18px 50px -28px rgba(44, 61, 23, .35);
   --ease: cubic-bezier(.22, .61, .36, 1);
 
   --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -61,7 +56,7 @@ a:hover { color: var(--lime-dark); }
 /* Sichtbarer Fokus für Tastatur-Navigation (Barrierefreiheit) */
 :focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
 a:focus-visible, button:focus-visible, summary:focus-visible, .btn:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
-.hero :focus-visible, .cta :focus-visible, .band-quiet :focus-visible, .site-footer :focus-visible { outline-color: var(--dawn); }
+.hero :focus-visible, .cta :focus-visible, .band-quiet :focus-visible, .site-footer :focus-visible { outline-color: #fff; }
 
 h1, h2, h3, h4 {
   font-family: var(--serif);
@@ -94,7 +89,7 @@ p { margin: 0 0 1.1rem; }
   letter-spacing: .2em;
   font-size: .78rem;
   font-weight: 600;
-  color: var(--leaf);
+  color: var(--lime-dark);
   margin: 0 0 1rem;
 }
 
@@ -120,8 +115,8 @@ p { margin: 0 0 1.1rem; }
   width: 10px; height: 10px; border-radius: 50%;
   background: var(--horizon-dot);
 }
-.horizon--dark { --horizon-line: rgba(240, 226, 186, .3); --horizon-dot: var(--dawn); }
-.horizon--dark::before { box-shadow: 0 0 24px 7px rgba(240, 226, 186, .35); }
+.horizon--dark { --horizon-line: rgba(255, 255, 255, .28); --horizon-dot: var(--lime); }
+.horizon--dark::before { box-shadow: 0 0 24px 7px rgba(132, 174, 30, .45); }
 
 /* ---- Buttons: ruhige, „briefpapierhafte“ Rechtecke ---- */
 .btn {
@@ -136,20 +131,21 @@ p { margin: 0 0 1.1rem; }
 .btn-ghost { background: transparent; color: var(--green); border-color: var(--green); }
 .btn-ghost:hover { background: var(--green); color: #fff; }
 
-/* Auf dunklen Flächen: der Primär-Button trägt das Morgenlicht */
+/* Auf dunkelgrünen Flächen würde der grüne Primär-Button untergehen
+   → heller Button mit grüner Schrift, damit er sich klar abhebt. */
 .hero .btn-primary,
 .cta .btn-primary {
-  background: var(--dawn); color: var(--night);
+  background: #fff; color: var(--green);
 }
 .hero .btn-primary:hover,
-.cta .btn-primary:hover { background: #fff; color: var(--night); }
+.cta .btn-primary:hover { background: var(--lime-soft); color: var(--green-dark); }
 .hero .btn-ghost,
 .cta .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .55); }
 .hero .btn-ghost:hover,
 .cta .btn-ghost:hover { background: rgba(255, 255, 255, .12); color: #fff; }
 
-.btn-call { background: var(--green); color: #fff; padding: .55rem 1.1rem; font-size: .95rem; }
-.btn-call:hover { background: var(--green-dark); color: #fff; }
+.btn-call { background: var(--lime); color: #20300d; padding: .55rem 1.1rem; font-size: .95rem; }
+.btn-call:hover { background: var(--lime-dark); color: #fff; }
 .btn-call svg { width: 17px; height: 17px; fill: currentColor; }
 
 .link-arrow {
@@ -163,12 +159,12 @@ p { margin: 0 0 1.1rem; }
    ========================================================================== */
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(248, 246, 238, .92);
+  background: rgba(250, 248, 243, .92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
-.site-header.scrolled { box-shadow: 0 6px 24px -18px rgba(22, 31, 11, .5); border-bottom-color: var(--line); }
+.site-header.scrolled { box-shadow: 0 6px 24px -16px rgba(0, 0, 0, .4); border-bottom-color: var(--line); }
 .header-inner { display: flex; align-items: center; gap: 1.5rem; min-height: 78px; }
 .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
 .brand img { height: 46px; width: auto; }
@@ -220,7 +216,7 @@ p { margin: 0 0 1.1rem; }
    Hero – der Abend fällt: das Foto dunkelt nach unten in die Nacht ab
    und geht nahtlos in das Gedicht-Band über.
    ========================================================================== */
-.hero { position: relative; color: #fff; overflow: hidden; background: var(--night); }
+.hero { position: relative; color: #fff; overflow: hidden; background: var(--green); }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
   background-position: center 60%; background-size: cover; background-repeat: no-repeat;
@@ -229,16 +225,16 @@ p { margin: 0 0 1.1rem; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(180deg, rgba(30, 42, 16, 0) 40%, rgba(30, 42, 16, .55) 78%, var(--night) 100%),
-    linear-gradient(100deg, rgba(22, 31, 11, .88) 0%, rgba(30, 42, 16, .55) 52%, rgba(30, 42, 16, .18) 100%);
+    linear-gradient(180deg, rgba(60, 83, 32, 0) 40%, rgba(44, 61, 23, .6) 78%, var(--green) 100%),
+    linear-gradient(100deg, rgba(28, 40, 14, .88) 0%, rgba(44, 61, 23, .55) 52%, rgba(44, 61, 23, .18) 100%);
 }
 @keyframes heroZoom { to { transform: scale(1); } }
 .hero-inner { position: relative; z-index: 2; padding: clamp(4.5rem, 12vw, 8.5rem) 24px clamp(5rem, 12vw, 9rem); max-width: 860px; }
-.hero .kicker { color: var(--dawn); }
+.hero .kicker { color: var(--lime); }
 .hero h1 { color: #fff; font-size: clamp(2.9rem, 7vw, 5.2rem); font-weight: 600; margin-bottom: .35em; }
 .hero-lead { font-size: clamp(1.12rem, 2.2vw, 1.35rem); color: rgba(255, 255, 255, .92); max-width: 600px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
-.hero-note { margin-top: 1.6rem; font-size: .95rem; color: var(--dawn); display: inline-flex; align-items: center; gap: .55rem; }
+.hero-note { margin-top: 1.6rem; font-size: .95rem; color: rgba(255, 255, 255, .85); display: inline-flex; align-items: center; gap: .55rem; }
 .hero-note::before { content: ""; flex-shrink: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 0 rgba(132,174,30,.6); animation: pulse 2.4s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(132,174,30,.55); } 70% { box-shadow: 0 0 0 10px rgba(132,174,30,0); } 100% { box-shadow: 0 0 0 0 rgba(132,174,30,0); } }
 
@@ -247,17 +243,17 @@ p { margin: 0 0 1.1rem; }
    ein warmer Lichtschein auf, in dem das Versprechen der Marke steht. */
 .band-quiet {
   background:
-    radial-gradient(ellipse 75% 55% at 50% 112%, rgba(240, 226, 186, .16), transparent 68%),
-    var(--night);
+    radial-gradient(ellipse 75% 55% at 50% 112%, rgba(241, 245, 228, .14), transparent 68%),
+    var(--green);
   color: #fff; padding: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(4rem, 9vw, 6.5rem); text-align: center;
 }
-.band-quiet .quote-kicker { color: rgba(240, 226, 186, .7); }
+.band-quiet .quote-kicker { color: var(--lime); }
 .poem {
   font-family: var(--serif); font-size: clamp(1.3rem, 2.6vw, 1.8rem);
   font-style: italic; font-weight: 400; line-height: 1.85; margin: 0;
   color: rgba(255, 255, 255, .95);
 }
-.poem-after { margin: 0 auto; color: var(--dawn); font-size: clamp(1.05rem, 1.8vw, 1.2rem); max-width: 34em; }
+.poem-after { margin: 0 auto; color: rgba(255, 255, 255, .88); font-size: clamp(1.05rem, 1.8vw, 1.2rem); max-width: 34em; }
 
 /* ==========================================================================
    Werte – ruhige Spalten statt Karten
@@ -277,7 +273,7 @@ p { margin: 0 0 1.1rem; }
 .schritte::before {
   content: ""; position: absolute; top: 26px; height: 1px;
   left: calc(100% / 6); right: calc(100% / 6);
-  background: linear-gradient(90deg, var(--line), #cbc5ae, var(--line));
+  background: linear-gradient(90deg, var(--line), #d8d2c2, var(--line));
 }
 .schritt { text-align: center; padding: 0 .6rem; position: relative; }
 .schritt-num {
@@ -317,9 +313,9 @@ p { margin: 0 0 1.1rem; }
 .paket-card-link:hover .paket-card-cta { color: var(--lime-dark); }
 .paket-card-link:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
 .paket-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--lime); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
-.paket-card:hover { border-color: #c6c0a8; box-shadow: var(--shadow); }
+.paket-card:hover { border-color: #dde7c4; box-shadow: var(--shadow); }
 .paket-card:hover::before { transform: scaleX(1); }
-.paket-tag { display: inline-block; font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--leaf); margin-bottom: .8rem; }
+.paket-tag { display: inline-block; font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--lime-dark); margin-bottom: .8rem; }
 .paket-card h2, .paket-card h3 { margin: 0 0 .5rem; }
 .paket-card p { color: var(--ink-soft); }
 .paket-preis { display: inline-block; font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--green); margin-top: .4rem; }
@@ -332,7 +328,7 @@ p { margin: 0 0 1.1rem; }
   border: 1.5px solid var(--lime); background: transparent;
 }
 
-.paket-sub { font-family: var(--sans); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; color: var(--leaf); margin: 1.6rem 0 .6rem; }
+.paket-sub { font-family: var(--sans); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; color: var(--lime-dark); margin: 1.6rem 0 .6rem; }
 .paket-sub:first-of-type { margin-top: .5rem; }
 
 .preis-fussnote { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; color: var(--ink-soft); background: var(--tint); border-radius: var(--radius); padding: 1.1rem 1.4rem; margin: 0 0 2.5rem; }
@@ -356,7 +352,7 @@ p { margin: 0 0 1.1rem; }
   overflow: hidden; scroll-margin-top: 100px;
   transition: box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
-.paket-acc[open] { box-shadow: var(--shadow); border-color: #cfd8b3; }
+.paket-acc[open] { box-shadow: var(--shadow); border-color: #dde7c4; }
 .paket-acc-head {
   display: flex; align-items: center; justify-content: space-between; gap: 1.6rem;
   padding: 1.4rem 1.6rem; cursor: pointer; list-style: none;
@@ -414,7 +410,7 @@ p { margin: 0 0 1.1rem; }
 
 .info-callout {
   display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
-  background: var(--lime-soft); border: 1px solid #dbe3bd; border-radius: var(--radius);
+  background: var(--lime-soft); border: 1px solid #dde7c4; border-radius: var(--radius);
   padding: 1.5rem 1.8rem; margin: 2.5rem 0;
 }
 .info-callout strong { font-size: 1.15rem; color: var(--green-dark); }
@@ -428,7 +424,7 @@ p { margin: 0 0 1.1rem; }
 .kontakt-liste { list-style: none; margin: 0 0 1.8rem; padding: 0; }
 .kontakt-liste li { padding: 1rem 0; border-bottom: 1px solid var(--line); }
 .kontakt-liste li:last-child { border-bottom: 0; }
-.k-label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: .16em; color: var(--leaf); font-weight: 600; margin-bottom: .25rem; }
+.k-label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: .16em; color: var(--lime-dark); font-weight: 600; margin-bottom: .25rem; }
 .kontakt-liste a { font-size: 1.1rem; text-decoration: none; font-weight: 500; }
 .kontakt-liste a[href^="tel"] { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; }
 .kontakt-liste small { display: block; color: var(--ink-soft); margin-top: .15rem; }
@@ -442,8 +438,8 @@ p { margin: 0 0 1.1rem; }
    ========================================================================== */
 .cta {
   background:
-    radial-gradient(ellipse 70% 60% at 50% -10%, rgba(240, 226, 186, .17), transparent 62%),
-    var(--night);
+    radial-gradient(ellipse 70% 60% at 50% -10%, rgba(241, 245, 228, .14), transparent 62%),
+    var(--green);
   color: #fff; padding: clamp(4rem, 9vw, 6.5rem) 0; text-align: center;
 }
 .cta h2 { color: #fff; }
@@ -452,27 +448,27 @@ p { margin: 0 0 1.1rem; }
 .cta-tel {
   display: inline-block; font-family: var(--serif); font-weight: 600;
   font-size: clamp(2.1rem, 5.5vw, 3.4rem); line-height: 1.1; letter-spacing: .01em;
-  color: var(--dawn); text-decoration: none; margin: .6rem 0 .4rem;
+  color: #fff; text-decoration: none; margin: .6rem 0 .4rem;
   transition: color .25s var(--ease);
 }
-.cta-tel:hover { color: #fff; }
+.cta-tel:hover { color: var(--lime); }
 .cta .hero-note { display: flex; justify-content: center; margin: 0 auto 1.8rem; }
 .cta .hero-actions { justify-content: center; margin-top: 0; }
 
 /* ==========================================================================
    Footer – die tiefste Stunde der Nacht, mit Resten des Lichts
    ========================================================================== */
-.site-footer { background: var(--night-deep); color: rgba(255, 255, 255, .8); padding-top: 3.5rem; }
+.site-footer { background: var(--green-dark); color: rgba(255, 255, 255, .82); padding-top: 3.5rem; }
 .footer-main { display: grid; grid-template-columns: 1.6fr 1fr 1.2fr; gap: 2.5rem; padding-bottom: 2.5rem; }
 .footer-logo { height: 52px; width: auto; background: #fff; padding: 8px 12px; border-radius: var(--radius); margin-bottom: 1.1rem; }
 .footer-brand p { color: rgba(255, 255, 255, .68); font-size: .95rem; }
-.site-footer h4 { color: var(--dawn); font-family: var(--sans); font-size: .8rem; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 1rem; }
+.site-footer h4 { color: #fff; font-family: var(--sans); font-size: .8rem; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 1rem; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
 .site-footer li { margin-bottom: .6rem; }
 .site-footer a { color: rgba(255, 255, 255, .8); text-decoration: none; }
-.site-footer a:hover { color: var(--dawn); }
-.footer-kontakt .erreichbar { color: var(--dawn); font-weight: 500; margin-top: .4rem; }
-.footer-legal { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .8rem; padding: 1.4rem 24px; border-top: 1px solid rgba(240, 226, 186, .14); font-size: .85rem; color: rgba(255, 255, 255, .55); }
+.site-footer a:hover { color: var(--lime); }
+.footer-kontakt .erreichbar { color: var(--lime); font-weight: 500; margin-top: .4rem; }
+.footer-legal { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .8rem; padding: 1.4rem 24px; border-top: 1px solid rgba(255, 255, 255, .12); font-size: .85rem; color: rgba(255, 255, 255, .55); }
 .footer-legal-links a { margin-left: 1.2rem; }
 
 /* ==========================================================================
