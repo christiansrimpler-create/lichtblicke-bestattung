@@ -17,6 +17,7 @@
   --lime-soft: #f1f5e4;     /* sehr helle grüne Fläche */
   --green: #3c5320;         /* tiefes Grün – dunkle Flächen, Buttons */
   --green-dark: #2c3d17;    /* Footer */
+  --dawn: #f0e2ba;          /* warmes Licht – nur für das Horizont-Motiv */
 
   /* Warme Neutraltöne */
   --bg: #faf8f3;
@@ -115,8 +116,8 @@ p { margin: 0 0 1.1rem; }
   width: 10px; height: 10px; border-radius: 50%;
   background: var(--horizon-dot);
 }
-.horizon--dark { --horizon-line: rgba(255, 255, 255, .28); --horizon-dot: var(--lime); }
-.horizon--dark::before { box-shadow: 0 0 24px 7px rgba(132, 174, 30, .45); }
+.horizon--dark { --horizon-line: rgba(240, 226, 186, .3); --horizon-dot: var(--dawn); }
+.horizon--dark::before { box-shadow: 0 0 24px 7px rgba(240, 226, 186, .35); }
 
 /* ---- Buttons: ruhige, „briefpapierhafte“ Rechtecke ---- */
 .btn {
