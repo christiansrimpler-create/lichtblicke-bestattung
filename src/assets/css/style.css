@@ -6,7 +6,7 @@
    die dunklen Flächen (Gedicht, CTA, Footer) tragen deshalb ein warmes
    Morgenlicht, und das Horizont-Motiv (Haarlinie mit Lichtkreis, abgeleitet
    vom runden Logo) markiert die Stellen, an denen die Marke ihr Versprechen
-   gibt. Typografie: Literata (Buch-Serif) + Source Sans 3.
+   gibt. Typografie: Cormorant Garamond + Inter.
    ========================================================================== */
 
 :root {
@@ -36,8 +36,8 @@
   --shadow: 0 16px 40px -28px rgba(30, 42, 16, .4);
   --ease: cubic-bezier(.22, .61, .36, 1);
 
-  --serif: "Literata", Georgia, "Times New Roman", serif;
-  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -50,7 +50,7 @@ body {
   color: var(--ink);
   background: var(--bg);
   line-height: 1.7;
-  font-size: 17.5px;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,7 +65,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .btn:focus-visible
 
 h1, h2, h3, h4 {
   font-family: var(--serif);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   color: var(--ink);
   margin: 0 0 .5em;
@@ -235,7 +235,7 @@ p { margin: 0 0 1.1rem; }
 @keyframes heroZoom { to { transform: scale(1); } }
 .hero-inner { position: relative; z-index: 2; padding: clamp(4.5rem, 12vw, 8.5rem) 24px clamp(5rem, 12vw, 9rem); max-width: 860px; }
 .hero .kicker { color: var(--dawn); }
-.hero h1 { color: #fff; font-size: clamp(2.9rem, 7vw, 5.2rem); font-weight: 500; margin-bottom: .35em; }
+.hero h1 { color: #fff; font-size: clamp(2.9rem, 7vw, 5.2rem); font-weight: 600; margin-bottom: .35em; }
 .hero-lead { font-size: clamp(1.12rem, 2.2vw, 1.35rem); color: rgba(255, 255, 255, .92); max-width: 600px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
 .hero-note { margin-top: 1.6rem; font-size: .95rem; color: var(--dawn); display: inline-flex; align-items: center; gap: .55rem; }
@@ -285,7 +285,7 @@ p { margin: 0 0 1.1rem; }
   width: 52px; height: 52px; border-radius: 50%; margin-bottom: 1.2rem;
   background: var(--tint); border: 1px solid var(--green);
   color: var(--green); position: relative; z-index: 1;
-  font-family: var(--serif); font-size: 1.45rem; font-weight: 500; line-height: 1;
+  font-family: var(--serif); font-size: 1.45rem; font-weight: 600; line-height: 1;
 }
 .schritt h3 { margin-bottom: .35rem; }
 .schritt p { color: var(--ink-soft); margin: 0; }
@@ -322,7 +322,7 @@ p { margin: 0 0 1.1rem; }
 .paket-tag { display: inline-block; font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--leaf); margin-bottom: .8rem; }
 .paket-card h2, .paket-card h3 { margin: 0 0 .5rem; }
 .paket-card p { color: var(--ink-soft); }
-.paket-preis { display: inline-block; font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--green); margin-top: .4rem; }
+.paket-preis { display: inline-block; font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--green); margin-top: .4rem; }
 
 .paket-leistungen { list-style: none; margin: 0 0 1.5rem; padding: 0; }
 .paket-leistungen li { position: relative; padding: .45rem 0 .45rem 1.7rem; border-bottom: 1px solid var(--line); color: var(--ink); }
@@ -365,7 +365,7 @@ p { margin: 0 0 1.1rem; }
 .paket-acc-head:hover { background: var(--lime-soft); }
 .paket-acc-info { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
 .paket-acc .paket-tag { margin: 0; align-self: flex-start; }
-.paket-acc-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; line-height: 1.15; color: var(--ink); }
+.paket-acc-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; line-height: 1.15; color: var(--ink); }
 .paket-acc-desc { color: var(--ink-soft); font-size: .96rem; max-width: 46ch; }
 .paket-acc-right { display: flex; align-items: center; gap: 1.3rem; flex-shrink: 0; }
 .paket-acc-preis-wrap { display: flex; flex-direction: column; text-align: right; }
@@ -430,7 +430,7 @@ p { margin: 0 0 1.1rem; }
 .kontakt-liste li:last-child { border-bottom: 0; }
 .k-label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: .16em; color: var(--leaf); font-weight: 600; margin-bottom: .25rem; }
 .kontakt-liste a { font-size: 1.1rem; text-decoration: none; font-weight: 500; }
-.kontakt-liste a[href^="tel"] { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; }
+.kontakt-liste a[href^="tel"] { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; }
 .kontakt-liste small { display: block; color: var(--ink-soft); margin-top: .15rem; }
 .kontakt-map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--surface); display: flex; flex-direction: column; min-height: 360px; }
 .kontakt-map iframe { width: 100%; flex: 1; border: 0; min-height: 320px; }
@@ -450,7 +450,7 @@ p { margin: 0 0 1.1rem; }
 .cta p { color: rgba(255, 255, 255, .82); max-width: 560px; margin-left: auto; margin-right: auto; }
 .cta .horizon { margin-top: 0; }
 .cta-tel {
-  display: inline-block; font-family: var(--serif); font-weight: 500;
+  display: inline-block; font-family: var(--serif); font-weight: 600;
   font-size: clamp(2.1rem, 5.5vw, 3.4rem); line-height: 1.1; letter-spacing: .01em;
   color: var(--dawn); text-decoration: none; margin: .6rem 0 .4rem;
   transition: color .25s var(--ease);
@@ -521,9 +521,9 @@ p { margin: 0 0 1.1rem; }
   .footer-main { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 620px) {
-  body { font-size: 16.5px; }
+  body { font-size: 16px; }
   /* Verszeilen möglichst ohne Umbruch halten */
-  .poem { font-size: 1.12rem; line-height: 2; }
+  .poem { font-size: 1.22rem; line-height: 1.9; }
   .pakete-grid { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr; gap: 1.8rem; }
   .info-callout { flex-direction: column; align-items: flex-start; }
