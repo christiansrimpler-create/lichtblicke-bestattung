@@ -260,7 +260,8 @@ p { margin: 0 0 1.1rem; }
    Werte – ruhige Spalten statt Karten
    ========================================================================== */
 .werte-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3rem; }
-.werte-item { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.werte-item { position: relative; padding-top: 1.5rem; }
+.werte-item::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: var(--line); }
 .werte-icon { display: inline-flex; color: var(--lime-dark); margin-bottom: .9rem; }
 .werte-icon svg { width: 28px; height: 28px; }
 .werte-item h3 { margin-bottom: .35rem; font-size: 1.3rem; }
@@ -477,14 +478,29 @@ p { margin: 0 0 1.1rem; }
    ========================================================================== */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s var(--ease), transform .65s var(--ease); }
 .reveal.visible { opacity: 1; transform: none; }
-.werte-grid .reveal:nth-child(2) { transition-delay: .1s; }
-.werte-grid .reveal:nth-child(3) { transition-delay: .2s; }
+/* „Wofür wir stehen“: eigene Choreografie statt Fade – die Trennlinie wächst
+   von links, das Icon zeichnet sich nach, dann folgt der Text. */
+.werte-item.reveal { opacity: 1; transform: none; transition: none; }
+.werte-grid .werte-item:nth-child(2) { --wd: .18s; }
+.werte-grid .werte-item:nth-child(3) { --wd: .36s; }
+.werte-item.reveal::before { transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease) var(--wd, 0s); }
+.werte-item.reveal .werte-icon svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s var(--ease) calc(var(--wd, 0s) + .25s); }
+.werte-item.reveal h3,
+.werte-item.reveal p { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease) calc(var(--wd, 0s) + .45s), transform .6s var(--ease) calc(var(--wd, 0s) + .45s); }
+.werte-item.reveal p { transition-delay: calc(var(--wd, 0s) + .58s); }
+.werte-item.reveal.visible::before { transform: scaleX(1); }
+.werte-item.reveal.visible .werte-icon svg * { stroke-dashoffset: 0; }
+.werte-item.reveal.visible h3,
+.werte-item.reveal.visible p { opacity: 1; transform: none; }
 .pakete-grid .reveal:nth-child(2) { transition-delay: .08s; }
 .pakete-grid .reveal:nth-child(3) { transition-delay: .16s; }
 .pakete-grid .reveal:nth-child(4) { transition-delay: .24s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .werte-item.reveal::before { transform: none; transition: none; }
+  .werte-item.reveal .werte-icon svg * { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
+  .werte-item.reveal h3, .werte-item.reveal p { opacity: 1; transform: none; transition: none; }
   .hero-bg { animation: none; transform: none; }
   .hero-note::before { animation: none; }
   .paket-acc[open] .paket-acc-body { animation: none; }
