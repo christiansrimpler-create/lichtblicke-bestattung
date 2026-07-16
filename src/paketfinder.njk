@@ -83,7 +83,7 @@ desc: Stellen Sie sich Ihre Bestattung in wenigen Schritten selbst zusammen.
       frage: "Welche zusätzlichen Leistungen wünschen Sie?",
       hinweis: "Optional – Sie können mehrere Leistungen auswählen oder diesen Schritt überspringen.",
       optionen: [
-        { wert: "abschiednahme", titel: "Abschiednahme", text: "Persönliche Abschiednahme im Aufbahrungsraum", preis: null },
+        { wert: "aufbahrung", titel: "Paket „Aufbahrung im Hauptfriedhof“", text: "Persönliche Abschiednahme im Aufbahrungsraum des Hauptfriedhofs (1 Tag)", posten: "Paket „Aufbahrung im Hauptfriedhof“", preis: "{% for w in pakete.weitere %}{% if 'Aufbahrung' in w.name %}{{ w.preis }}{% endif %}{% endfor %}" },
         { wert: "blumen", titel: "Blumenschmuck", text: "Sarg- oder Urnenschmuck über unsere regionalen Partner", preis: null },
         { wert: "trauerdruck", titel: "Trauerdruck", text: "Trauerkarten und Traueranzeigen", preis: null }
       ]

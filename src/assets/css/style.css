@@ -303,6 +303,8 @@ p { margin: 0 0 1.1rem; }
 .pakete-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
 .pakete-grid > .paket-card { grid-column: span 2; }
 .pakete-grid > .paket-card:nth-child(n+4) { grid-column: span 3; }
+/* Ab sechs Kacheln: zweite Reihe drittelt wie die erste */
+.pakete-grid:has(> .paket-card:nth-child(6)) > .paket-card:nth-child(n+4) { grid-column: span 2; }
 .paket-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.9rem; position: relative; overflow: hidden; scroll-margin-top: 100px;
@@ -408,6 +410,8 @@ p { margin: 0 0 1.1rem; }
   .pakete-akkordeon { grid-template-columns: repeat(6, 1fr); gap: 1.5rem; max-width: none; }
   .pakete-akkordeon > .paket-acc { grid-column: span 2; }
   .pakete-akkordeon > .paket-acc:nth-child(n+4) { grid-column: span 3; }
+  /* Ab sechs Kacheln: zweite Reihe drittelt wie die erste */
+  .pakete-akkordeon:has(> .paket-acc:nth-child(6)) > .paket-acc:nth-child(n+4) { grid-column: span 2; }
   /* Gleich hohe Karten: "Beratung anfragen" unten ausrichten, damit beide Spalten fluchten.
      Chrome kapselt den <details>-Inhalt in ::details-content – dieses Element muss die
      Höhe mit strecken, sonst bricht die Flex-Kette (Safari/Firefox: Body ist direktes Kind). */
@@ -583,6 +587,7 @@ p { margin: 0 0 1.1rem; }
 .pakete-grid .reveal:nth-child(2) { transition-delay: .08s; }
 .pakete-grid .reveal:nth-child(3) { transition-delay: .16s; }
 .pakete-grid .reveal:nth-child(5) { transition-delay: .08s; }
+.pakete-grid .reveal:nth-child(6) { transition-delay: .16s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
