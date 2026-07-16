@@ -41,6 +41,18 @@ desc: Stellen Sie sich Ihre Bestattung in wenigen Schritten selbst zusammen.
   var zaehler = wrap.querySelector(".finder-zaehler");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Zusatzpakete aus den Website-Daten – Namen und Preise bleiben automatisch
+     synchron mit pakete.yaml, auch bei Umbenennungen im CMS. */
+  var ZUSATZ = {{ pakete.weitere | dump | safe }};
+  function zusatz(stichwort) {
+    for (var i = 0; i < ZUSATZ.length; i++) {
+      if (ZUSATZ[i].name && ZUSATZ[i].name.indexOf(stichwort) !== -1) return ZUSATZ[i];
+    }
+    return {};
+  }
+  var abschiedsfeierPaket = zusatz("Abschiedsfeier");
+  var aufbahrungPaket = zusatz("Aufbahrung");
+
   /* ---- Schritte des Konfigurators ----
      typ "einzel": ein Klick wählt aus und führt weiter.
      typ "mehrfach": mehrere Optionen wählbar, "Weiter"-Button.
@@ -72,7 +84,7 @@ desc: Stellen Sie sich Ihre Bestattung in wenigen Schritten selbst zusammen.
       frage: "Wie möchten Sie Abschied nehmen?",
       wenn: function (a) { return a.anonym !== "ja"; },
       optionen: [
-        { wert: "abschiedsfeier", titel: "Paket „Abschiedsfeier“", text: "Persönlich gestaltete Feier (ca. 30 Minuten) mit Musik, Dekoration und gerahmtem Foto", posten: "Paket „Abschiedsfeier“", preis: "{% for w in pakete.weitere %}{% if 'Abschiedsfeier' in w.name %}{{ w.preis }}{% endif %}{% endfor %}" },
+        { wert: "abschiedsfeier", titel: abschiedsfeierPaket.name || "Paket „Abschiedsfeier“", text: "Persönlich gestaltete Feier (ca. 30 Minuten) mit Musik, Dekoration und gerahmtem Foto", posten: abschiedsfeierPaket.name, preis: abschiedsfeierPaket.preis || null },
         { wert: "individuell", titel: "Individuelle Trauerfeier", text: "Ganz nach Ihren Wünschen gestaltet – wir beraten Sie persönlich", posten: "Individuelle Trauerfeier", preis: "Preis auf Anfrage" },
         { wert: "keine", titel: "Keine Trauerfeier", text: "Stille Beisetzung im engsten Kreis", posten: "Ohne Trauerfeier (stille Beisetzung)", preis: null }
       ]
@@ -83,7 +95,7 @@ desc: Stellen Sie sich Ihre Bestattung in wenigen Schritten selbst zusammen.
       frage: "Welche zusätzlichen Leistungen wünschen Sie?",
       hinweis: "Optional – Sie können mehrere Leistungen auswählen oder diesen Schritt überspringen.",
       optionen: [
-        { wert: "aufbahrung", titel: "Paket „Aufbahrung im Hauptfriedhof“", text: "Persönliche Abschiednahme im Aufbahrungsraum des Hauptfriedhofs (1 Tag)", posten: "Paket „Aufbahrung im Hauptfriedhof“", preis: "{% for w in pakete.weitere %}{% if 'Aufbahrung' in w.name %}{{ w.preis }}{% endif %}{% endfor %}" },
+        { wert: "aufbahrung", titel: aufbahrungPaket.name || "Paket „Aufbahrung“", text: "Persönliche Abschiednahme im Aufbahrungsraum des Hauptfriedhofs (1 Tag)", posten: aufbahrungPaket.name, preis: aufbahrungPaket.preis || null },
         { wert: "blumen", titel: "Blumenschmuck", text: "Sarg- oder Urnenschmuck über unsere regionalen Partner", preis: null },
         { wert: "trauerdruck", titel: "Trauerdruck", text: "Trauerkarten und Traueranzeigen", preis: null }
       ]
