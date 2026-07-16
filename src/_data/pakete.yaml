@@ -1,48 +1,10 @@
-# Die vier Bestattungspakete – Inhalte und Preise von der alten Seite übernommen.
-# Preise inkl. 19 % MwSt. Fußnoten (* / **) siehe Hinweis auf der Preise-Seite.
+# Die Bestattungspakete – Reihenfolge hier bestimmt die Reihenfolge auf der Website.
+# Preise inkl. 19 % MwSt. Fußnoten (* / ** / ***) siehe Hinweis auf der Preise-Seite.
 #
 # Hinweis: Die Pakete liegen unter dem Schlüssel "pakete:", damit sie im CMS
 # (Sveltia) als bearbeitbare Liste verwaltet werden können. In den Templates
 # daher über "pakete.pakete" ansprechen.
 pakete:
-  - name: "Feuerbestattung BasisPaket"
-    art: "Feuerbestattung"
-    stufe: "Basis"
-    preis: "1.990,00 €"
-    preis_zusatz: "inkl. 19 % MwSt **"
-    beschreibung: "Die würdevolle Einäscherung mit allen notwendigen Leistungen – klar kalkuliert und ohne versteckte Kosten."
-    leistungen:
-      - "Beratung für eine Feuerbestattung mit Trauerfeier: Grab- und Friedhofswahl, Auswahl des Sarges, Vermittlung und Termine mit Behörden, Pfarramt und Organist"
-      - "Überführung vom Sterbeort im Stadtgebiet Freiburg, inkl. Überführungstrage mit Hygienelaken"
-      - "Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg"
-      - "Aufbewahrung in einem Kühlraum bis zur Einäscherung *"
-      - "Überführung zum Krematorium sowie Rückholung der Aschenkapsel"
-      - "Überführung der Urne zu einem Friedhof im Stadtgebiet Freiburg"
-      - "Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)"
-    lieferungen:
-      - "Kiefernsarg, roh und unbehandeltes Vollholz, Innenausschlag aus Viskose"
-      - "Sterbetalar aus Viskose in Weiß"
-      - "Decke und Kissen aus Viskose mit Volant in Weiß"
-      - "Urnenkapsel"
-
-  - name: "Erdbestattung BasisPaket"
-    art: "Erdbestattung"
-    stufe: "Basis"
-    preis: "1.990,00 €"
-    preis_zusatz: "inkl. 19 % MwSt **"
-    beschreibung: "Die klassische Erdbestattung in würdevoller, schlichter Form – mit allem, was organisatorisch dazugehört."
-    leistungen:
-      - "Beratung für eine Erdbestattung mit Trauerfeier: Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik, Termine mit Behörden, Pfarramt und Organist"
-      - "Überführung vom Sterbeort im Stadtgebiet Freiburg, inkl. Überführungstrage mit Hygienelaken"
-      - "Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg"
-      - "Aufbewahrung in einem Kühlraum bis zur Beerdigung *"
-      - "Überführung zu einem Friedhof im Stadtgebiet Freiburg"
-      - "Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)"
-    lieferungen:
-      - "Kiefernsarg Nr. 12/195, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose"
-      - "Herren- oder Damentalar in Weiß"
-      - "Schlichte Decke und Kissen aus Viskose mit Volant in Weiß"
-
   - name: "Feuerbestattung StandardPaket"
     art: "Feuerbestattung"
     stufe: "Standard"
@@ -85,3 +47,25 @@ pakete:
       - "Kiefernsarg Nr. 12/195, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose"
       - "Herren- oder Damentalar in Weiß"
       - "Schlichte Decke und Kissen aus Viskose mit Volant in Weiß"
+
+  - name: "Anonyme Feuerbestattung KomplettPaket"
+    art: "Feuerbestattung"
+    stufe: "Anonym"
+    preis: "2.250,00 €"
+    preis_zusatz: "inkl. 19 % MwSt ***"
+    beschreibung: "Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung innerhalb ganz Deutschlands."
+    leistungen:
+      - "Persönliche und einfühlsame Beratung – telefonisch oder in einem persönlichen Gespräch vor Ort"
+      - "Abholung der verstorbenen Person sowie würdevolle Überführung vom Sterbeort zum Krematorium und anschließend zum Beisetzungsort innerhalb Deutschlands"
+      - "Fachgerechte Kühlung ab dem Zeitpunkt der Abholung"
+      - "Sorgfältige Versorgung der verstorbenen Person, Ankleiden mit Sterbehemd und würdevolle Einbettung"
+      - "Organisation der Einäscherung einschließlich der gesetzlich vorgeschriebenen zweiten Leichenschau sowie aller anfallenden Leistungen des Krematoriums"
+      - "Sichere Verwahrung der Urne bis zum Termin der Beisetzung"
+      - "Anmeldung der Beisetzung und Überführung der Urne zum gewünschten Friedhof oder Beisetzungsort"
+      - "Erledigung der Formalitäten beim Standesamt, einschließlich Sterbefallanzeige und Beantragung einer Sterbeurkunde"
+      - "Abmeldung bei Krankenkasse und Rentenversicherung sowie – sofern möglich – Beantragung des Sterbevierteljahres (dreimonatige Übergangsrente für Witwen und Witwer)"
+      - "Auf Wunsch: Beschaffung fehlender Unterlagen wie Eheurkunde oder Scheidungsurteil innerhalb Deutschlands (Aufpreis 50 €)"
+    lieferungen:
+      - "Schlichter Einäscherungssarg inklusive Innenausstattung"
+      - "Sterbehemd"
+    hinweis: "Bei einer anonymen Bestattung erhält das Grab keine namentliche Kennzeichnung. In den meisten Fällen ist eine Teilnahme der Angehörigen an der Beisetzung nicht möglich, damit die Anonymität der Grabstätte gewahrt bleibt."

@@ -296,7 +296,7 @@ p { margin: 0 0 1.1rem; }
 .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 .section-head h2 { margin: 0; }
 
-.pakete-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.pakete-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .paket-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.9rem; position: relative; overflow: hidden; scroll-margin-top: 100px;
@@ -333,14 +333,15 @@ p { margin: 0 0 1.1rem; }
 .paket-sub { font-family: var(--sans); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; color: var(--lime-dark); margin: 1.6rem 0 .6rem; }
 .paket-sub:first-of-type { margin-top: .5rem; }
 
+.paket-hinweis { margin: 0 0 1.6rem; padding: .9rem 1.2rem; background: var(--tint); border-radius: var(--radius); font-size: .9rem; color: var(--ink-soft); }
+
 .preis-fussnote { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; color: var(--ink-soft); background: var(--tint); border-radius: var(--radius); padding: 1.1rem 1.4rem; margin: 0 0 2.5rem; }
 
 /* ---- Pakete als Aufklapp-Dropdowns (mit Kurzinfo im geschlossenen Zustand) ---- */
-/* Mobile: eine Spalte, lesefreundlich zentriert. Desktop: zwei Kacheln nebeneinander
-   (oben beide Erdbestattungen, darunter beide Feuerbestattungen). */
+/* Mobile: eine Spalte, lesefreundlich zentriert. Desktop: alle drei Kacheln in einer Reihe. */
 .pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
 @media (min-width: 920px) {
-  .pakete-akkordeon { grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: var(--wrap); }
+  .pakete-akkordeon { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: var(--wrap); }
   /* Gleich hohe Karten: "Beratung anfragen" unten ausrichten, damit beide Spalten fluchten.
      Chrome kapselt den <details>-Inhalt in ::details-content – dieses Element muss die
      Höhe mit strecken, sonst bricht die Flex-Kette (Safari/Firefox: Body ist direktes Kind). */
@@ -494,7 +495,6 @@ p { margin: 0 0 1.1rem; }
 .werte-item.reveal.visible p { opacity: 1; transform: none; }
 .pakete-grid .reveal:nth-child(2) { transition-delay: .08s; }
 .pakete-grid .reveal:nth-child(3) { transition-delay: .16s; }
-.pakete-grid .reveal:nth-child(4) { transition-delay: .24s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
@@ -532,12 +532,12 @@ p { margin: 0 0 1.1rem; }
   .split-media { order: -1; }
   .kontakt-grid { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr 1fr; }
+  .pakete-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) {
   body { font-size: 16px; }
   /* Verszeilen möglichst ohne Umbruch halten */
   .poem { font-size: 1.22rem; line-height: 1.9; }
-  .pakete-grid { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr; gap: 1.8rem; }
   .info-callout { flex-direction: column; align-items: flex-start; }
   .info-callout .btn { width: 100%; justify-content: center; }

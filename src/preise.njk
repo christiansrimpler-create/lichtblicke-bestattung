@@ -3,7 +3,7 @@ layout: layout.njk
 permalink: /preise/
 active: preise
 title: Pakete & Preise
-desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und Erdbestattung als Basis- und Standardpaket, ab 1.990 € inkl. MwSt. Klare Leistungen, faire Preise.
+desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und Erdbestattung als StandardPaket sowie anonyme Feuerbestattung komplett, ab 2.250 € inkl. MwSt. Klare Leistungen, faire Preise.
 ---
 {% set s = seiten.preise %}
 <section class="page-head">
@@ -16,9 +16,9 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
 
 <section class="section pt-0">
   <div class="wrap">
-    {# Nach Bestattungsart gruppiert: erst beide Erdbestattungen, dann beide Feuerbestattungen #}
+    {# Reihenfolge kommt aus pakete.yaml – dort umsortieren, nicht hier #}
     <div class="pakete-akkordeon">
-    {%- for paket in pakete.pakete | sort(attribute="art") %}
+    {%- for paket in pakete.pakete %}
     <details class="paket-acc reveal" id="{{ (paket.art + '-' + paket.stufe) | lower }}">
       <summary class="paket-acc-head">
         <span class="paket-acc-info">
@@ -56,6 +56,9 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
             </ul>
           </div>
         </div>
+        {%- if paket.hinweis %}
+        <p class="paket-hinweis">{{ paket.hinweis }}</p>
+        {%- endif %}
         <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">{{ s.button_paket }}</a>
       </div>
     </details>
