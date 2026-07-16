@@ -61,6 +61,12 @@ collections:
           - { name: adresse_strasse, label: "Adresse – Straße & Hausnummer", widget: string }
           - { name: adresse_ort, label: "Adresse – PLZ & Ort", widget: string }
           - { name: footer_text, label: "Footer-Text", widget: text }
+          - name: standorte
+            label: "Standorte (rotieren im Fußbereich)"
+            label_singular: "Standort"
+            widget: list
+            required: false
+            field: { name: text, label: "Standort", widget: string }
           - { name: mutter_name, label: "Mutterunternehmen – Name", widget: string }
           - { name: mutter_strasse, label: "Mutterunternehmen – Straße", widget: string }
           - { name: mutter_ort, label: "Mutterunternehmen – PLZ & Ort", widget: string }
