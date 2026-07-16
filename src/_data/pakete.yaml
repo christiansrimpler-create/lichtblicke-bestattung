@@ -21,7 +21,7 @@ pakete:
       - Schlichte Decke und Kissen aus Viskose mit Volant in Weiß
       - Urnenkapsel
       - Schmuckurne (Naturstoff, einfach)
-    hinweis: ''
+    hinweis: '**Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.'
   - name: Erdbestattung StandardPaket
     art: Erdbestattung
     stufe: Standard
@@ -41,7 +41,7 @@ pakete:
       - Kiefernsarg, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose
       - Herren- oder Damentalar in Weiß
       - Schlichte Decke und Kissen aus Viskose mit Volant in Weiß
-    hinweis: ''
+    hinweis: '**Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.'
   - name: Komfortpaket Anonyme Bestattung
     art: Feuerbestattung
     stufe: Anonym
@@ -62,7 +62,10 @@ pakete:
     lieferungen:
       - Schlichter Einäscherungssarg inklusive Innenausstattung
       - Sterbehemd
-    hinweis: Bei einer anonymen Bestattung erhält das Grab keine namentliche Kennzeichnung. In den meisten Fällen ist eine Teilnahme der Angehörigen an der Beisetzung nicht möglich, damit die Anonymität der Grabstätte gewahrt bleibt.
+    hinweis: |-
+      **Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.
+
+      Außerdem erhält das Grab bei einer anonymen Bestattung keine namentliche Kennzeichnung.
 weitere:
   - name: Paket „Abschiedsfeier“
     tag: Zusatzpaket
