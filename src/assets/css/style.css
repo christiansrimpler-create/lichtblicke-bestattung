@@ -74,6 +74,8 @@ p { margin: 0 0 1.1rem; }
 
 /* ---- Layout-Hilfen ---- */
 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+/* Breitere Variante für die dreispaltigen Paket-Reihen */
+.wrap-breit { max-width: 1400px; }
 .narrow { max-width: 760px; }
 .narrow-left { max-width: 700px; }
 .center { text-align: center; margin-left: auto; margin-right: auto; }
@@ -341,7 +343,7 @@ p { margin: 0 0 1.1rem; }
 /* Mobile: eine Spalte, lesefreundlich zentriert. Desktop: alle drei Kacheln in einer Reihe. */
 .pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
 @media (min-width: 920px) {
-  .pakete-akkordeon { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: var(--wrap); }
+  .pakete-akkordeon { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: none; }
   /* Gleich hohe Karten: "Beratung anfragen" unten ausrichten, damit beide Spalten fluchten.
      Chrome kapselt den <details>-Inhalt in ::details-content – dieses Element muss die
      Höhe mit strecken, sonst bricht die Flex-Kette (Safari/Firefox: Body ist direktes Kind). */
