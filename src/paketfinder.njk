@@ -72,7 +72,7 @@ desc: Stellen Sie sich Ihre Bestattung in wenigen Schritten selbst zusammen.
       frage: "Wie möchten Sie Abschied nehmen?",
       wenn: function (a) { return a.anonym !== "ja"; },
       optionen: [
-        { wert: "abschiedsfeier", titel: "Paket „Abschiedsfeier“", text: "Persönlich gestaltete Feier (ca. 30 Minuten) mit Musik, Dekoration und gerahmtem Foto", posten: "Paket „Abschiedsfeier“", preis: "650,00 €" },
+        { wert: "abschiedsfeier", titel: "Paket „Abschiedsfeier“", text: "Persönlich gestaltete Feier (ca. 30 Minuten) mit Musik, Dekoration und gerahmtem Foto", posten: "Paket „Abschiedsfeier“", preis: "{% for w in pakete.weitere %}{% if 'Abschiedsfeier' in w.name %}{{ w.preis }}{% endif %}{% endfor %}" },
         { wert: "individuell", titel: "Individuelle Trauerfeier", text: "Ganz nach Ihren Wünschen gestaltet – wir beraten Sie persönlich", posten: "Individuelle Trauerfeier", preis: "Preis auf Anfrage" },
         { wert: "keine", titel: "Keine Trauerfeier", text: "Stille Beisetzung im engsten Kreis", posten: "Ohne Trauerfeier (stille Beisetzung)", preis: null }
       ]
