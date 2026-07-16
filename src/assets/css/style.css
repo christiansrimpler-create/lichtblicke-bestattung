@@ -337,31 +337,15 @@ p { margin: 0 0 1.1rem; }
 
 .paket-hinweis { margin: 0 0 1.6rem; padding: .9rem 1.2rem; background: var(--tint); border-radius: var(--radius); font-size: .9rem; color: var(--ink-soft); }
 
-/* Weitere Pakete: breite Karten unterhalb der drei Paket-Spalten */
-.pakete-breit-liste { display: grid; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
-.paket-breit {
-  display: grid; grid-template-columns: 1fr auto; gap: .5rem 3.5rem; align-items: start;
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 1.9rem; scroll-margin-top: 100px;
-}
-.paket-breit-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; line-height: 1.15; color: var(--ink); margin: .35rem 0 .6rem; }
-.paket-breit-info p { color: var(--ink-soft); margin: 0 0 .8rem; max-width: 68ch; }
-.paket-breit-info p:last-child { margin-bottom: 0; }
-.paket-breit-info .paket-sub { margin-top: 1.2rem; }
-.paket-breit-info .paket-leistungen { max-width: 68ch; }
-.paket-breit-aktion { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
-@media (min-width: 920px) {
-  .pakete-breit-liste { gap: 1.5rem; max-width: none; margin: 0 0 2.5rem; }
-}
-.paket-card-breit { margin-top: 1.5rem; }
+.paket-acc-text { color: var(--ink-soft); margin: 0 0 1.6rem; }
 
 .preis-fussnote { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; color: var(--ink-soft); background: var(--tint); border-radius: var(--radius); padding: 1.1rem 1.4rem; margin: 0 0 2.5rem; }
 
 /* ---- Pakete als Aufklapp-Dropdowns (mit Kurzinfo im geschlossenen Zustand) ---- */
 /* Mobile: eine Spalte, lesefreundlich zentriert. Desktop: alle drei Kacheln in einer Reihe. */
-.pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto .9rem; }
+.pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
 @media (min-width: 920px) {
-  .pakete-akkordeon { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: none; margin-bottom: 1.5rem; }
+  .pakete-akkordeon { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: none; }
   /* Gleich hohe Karten: "Beratung anfragen" unten ausrichten, damit beide Spalten fluchten.
      Chrome kapselt den <details>-Inhalt in ::details-content – dieses Element muss die
      Höhe mit strecken, sonst bricht die Flex-Kette (Safari/Firefox: Body ist direktes Kind). */
@@ -515,6 +499,7 @@ p { margin: 0 0 1.1rem; }
 .werte-item.reveal.visible p { opacity: 1; transform: none; }
 .pakete-grid .reveal:nth-child(2) { transition-delay: .08s; }
 .pakete-grid .reveal:nth-child(3) { transition-delay: .16s; }
+.pakete-grid .reveal:nth-child(5) { transition-delay: .08s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
@@ -569,8 +554,5 @@ p { margin: 0 0 1.1rem; }
   .paket-acc-cols { gap: 1.2rem; }
   .paket-acc-body { padding-left: 1.2rem; padding-right: 1.2rem; }
   .paket-acc-body .btn { width: 100%; justify-content: center; }
-  .paket-breit { grid-template-columns: 1fr; padding: 1.4rem 1.2rem; }
-  .paket-breit-aktion { align-items: flex-start; width: 100%; margin-top: .6rem; }
-  .paket-breit-aktion .btn { width: 100%; justify-content: center; }
   .hero-actions .btn { flex: 1 1 100%; }
 }

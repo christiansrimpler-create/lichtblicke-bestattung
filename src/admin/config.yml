@@ -110,7 +110,7 @@ collections:
                 field: { name: text, label: "Lieferung", widget: text }
               - { name: hinweis, label: "Hinweis (optional)", widget: text, required: false, hint: "Erscheint unter den Leistungen, z. B. der Hinweis zur Anonymität." }
           - name: weitere
-            label: "Weitere Pakete (breite Karten unter den Spalten)"
+            label: "Weitere Pakete (Kacheln unter den Bestattungspaketen)"
             label_singular: "Weiteres Paket"
             widget: list
             summary: "{{fields.name}} – {{fields.preis}}"

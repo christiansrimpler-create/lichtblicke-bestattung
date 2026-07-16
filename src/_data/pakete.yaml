@@ -70,7 +70,7 @@ pakete:
       - "Sterbehemd"
     hinweis: "Bei einer anonymen Bestattung erhält das Grab keine namentliche Kennzeichnung. In den meisten Fällen ist eine Teilnahme der Angehörigen an der Beisetzung nicht möglich, damit die Anonymität der Grabstätte gewahrt bleibt."
 
-# Weitere Pakete erscheinen als breite Karten unterhalb der drei Paket-Spalten
+# Weitere Pakete erscheinen als normale Kacheln unterhalb der drei Bestattungspakete
 # (Startseite und Preise-Seite). "beschreibung" dient auch als Teaser-Text,
 # Leistungsliste und weiterer Text sind optional und nur auf der Preise-Seite zu sehen.
 weitere:
