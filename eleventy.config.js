@@ -1,6 +1,12 @@
 import yaml from "js-yaml";
+import markdownIt from "markdown-it";
+
+const md = markdownIt({ html: false });
 
 export default function (eleventyConfig) {
+  // Markdown in Textfeldern rendern (z. B. **fett** in den Paket-Hinweisen aus dem CMS)
+  eleventyConfig.addFilter("markdown", (text) => md.render(String(text || "")));
+
   // Inhalte/Einstellungen als YAML pflegbar
   eleventyConfig.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
 

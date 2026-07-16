@@ -336,6 +336,8 @@ p { margin: 0 0 1.1rem; }
 .paket-sub:first-of-type { margin-top: .5rem; }
 
 .paket-hinweis { margin: 0 0 1.6rem; padding: .9rem 1.2rem; background: var(--tint); border-radius: var(--radius); font-size: .9rem; color: var(--ink-soft); }
+.paket-hinweis p { margin: 0 0 .6rem; }
+.paket-hinweis p:last-child { margin-bottom: 0; }
 
 .paket-acc-text { color: var(--ink-soft); margin: 0 0 1.6rem; }
 

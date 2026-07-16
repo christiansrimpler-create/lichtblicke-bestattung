@@ -40,7 +40,7 @@
       </div>
     </div>
     {%- if paket.hinweis %}
-    <p class="paket-hinweis">{{ paket.hinweis }}</p>
+    <div class="paket-hinweis">{{ paket.hinweis | markdown | safe }}</div>
     {%- endif %}
     <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">{{ seiten.preise.button_paket }}</a>
   </div>
