@@ -298,7 +298,11 @@ p { margin: 0 0 1.1rem; }
 .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 .section-head h2 { margin: 0; }
 
-.pakete-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+/* 6er-Raster: die drei Bestattungspakete je 2 Spalten breit (Reihe 1),
+   die weiteren Pakete je 3 Spalten (Reihe 2 als zwei Hälften) */
+.pakete-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
+.pakete-grid > .paket-card { grid-column: span 2; }
+.pakete-grid > .paket-card:nth-child(n+4) { grid-column: span 3; }
 .paket-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.9rem; position: relative; overflow: hidden; scroll-margin-top: 100px;
@@ -345,7 +349,10 @@ p { margin: 0 0 1.1rem; }
 /* Mobile: eine Spalte, lesefreundlich zentriert. Desktop: alle drei Kacheln in einer Reihe. */
 .pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
 @media (min-width: 920px) {
-  .pakete-akkordeon { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: none; }
+  /* 6er-Raster wie beim Startseiten-Teaser: Reihe 1 drittelt, Reihe 2 halbiert */
+  .pakete-akkordeon { grid-template-columns: repeat(6, 1fr); gap: 1.5rem; max-width: none; }
+  .pakete-akkordeon > .paket-acc { grid-column: span 2; }
+  .pakete-akkordeon > .paket-acc:nth-child(n+4) { grid-column: span 3; }
   /* Gleich hohe Karten: "Beratung anfragen" unten ausrichten, damit beide Spalten fluchten.
      Chrome kapselt den <details>-Inhalt in ::details-content – dieses Element muss die
      Höhe mit strecken, sonst bricht die Flex-Kette (Safari/Firefox: Body ist direktes Kind). */
@@ -560,6 +567,7 @@ p { margin: 0 0 1.1rem; }
   .kontakt-grid { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .pakete-grid { grid-template-columns: 1fr; }
+  .pakete-grid > .paket-card { grid-column: auto; }
 }
 @media (max-width: 620px) {
   body { font-size: 16px; }
