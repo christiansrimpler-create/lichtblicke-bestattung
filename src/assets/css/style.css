@@ -480,24 +480,27 @@ p { margin: 0 0 1.1rem; }
 .page-head { padding: clamp(3.2rem, 7vw, 5.2rem) 0 clamp(1.5rem, 3vw, 2.5rem); background: linear-gradient(var(--tint), var(--bg)); }
 .page-head h1 { margin-bottom: .3em; }
 
-/* Seitenkopf mit Hintergrundbild und dem grünen Overlay des Heros */
-.page-head--bild {
-  position: relative; overflow: hidden; background: var(--green); color: #fff;
-  padding: clamp(5rem, 12vw, 9rem) 0 clamp(3.5rem, 8vw, 6rem);
-}
-.page-head-bg {
+/* Ganzseitiges Hintergrundbild (Über uns): das Bild liegt hinter Kopf und
+   Inhalt, das grüne Overlay wird nach unten dichter und mündet im Footer-Grün */
+.bild-seite { position: relative; background: var(--green); }
+.bild-seite-bg {
   position: absolute; inset: 0; z-index: 0;
-  background-position: center; background-size: cover; background-repeat: no-repeat;
+  background-position: center top; background-size: cover; background-repeat: no-repeat;
 }
-.page-head--bild::after {
+.bild-seite::before {
   content: ""; position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(180deg, rgba(60, 83, 32, 0) 40%, rgba(44, 61, 23, .6) 78%, var(--green) 100%),
-    linear-gradient(100deg, rgba(28, 40, 14, .88) 0%, rgba(44, 61, 23, .55) 52%, rgba(44, 61, 23, .18) 100%);
+    linear-gradient(180deg, rgba(28, 40, 14, .2) 0%, rgba(28, 40, 14, .74) 34%, rgba(44, 61, 23, .9) 70%, var(--green-dark) 100%),
+    linear-gradient(100deg, rgba(28, 40, 14, .7) 0%, rgba(44, 61, 23, .4) 55%, rgba(44, 61, 23, .12) 100%);
 }
-.page-head--bild .wrap { position: relative; z-index: 2; }
-.page-head--bild .eyebrow { color: var(--lime); }
-.page-head--bild h1 { color: #fff; }
+.bild-seite > section { position: relative; z-index: 2; }
+.bild-seite .page-head { background: none; padding: clamp(4.5rem, 10vw, 7.5rem) 0 clamp(1.5rem, 3vw, 2.5rem); }
+.bild-seite .page-head h1 { color: #fff; }
+.bild-seite .eyebrow { color: var(--lime); }
+.bild-seite .prose p { color: rgba(255, 255, 255, .88); }
+.bild-seite .lead { color: rgba(255, 255, 255, .95); }
+.bild-seite .muted { color: rgba(255, 255, 255, .66); }
+.bild-seite .info-callout { color: var(--ink); }
 
 .prose p { color: var(--ink); }
 .prose h2 { margin-top: 2.4rem; font-size: 1.7rem; }
