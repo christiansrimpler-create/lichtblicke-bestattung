@@ -299,15 +299,8 @@ p { margin: 0 0 1.1rem; }
 .section-head h2 { margin: 0; }
 
 /* 6er-Raster: die drei Bestattungspakete je 2 Spalten breit (Reihe 1),
-   die weiteren Pakete je 3 Spalten (Reihe 2 als zwei Hälften).
-   Auf Mobile ersetzt .pakete-akkordeon-mobil die Karten durch Dropdowns. */
+   die weiteren Pakete je 3 Spalten (Reihe 2 als zwei Hälften) */
 .pakete-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
-.pakete-akkordeon-mobil { display: none; }
-@media (max-width: 760px) {
-  .pakete-grid { display: none; }
-  .pakete-akkordeon-mobil { display: block; margin-top: 2rem; }
-  .pakete-akkordeon-mobil .pakete-akkordeon { margin-bottom: 0; }
-}
 .pakete-grid > .paket-card { grid-column: span 2; }
 .pakete-grid > .paket-card:nth-child(n+4) { grid-column: span 3; }
 .paket-card {
