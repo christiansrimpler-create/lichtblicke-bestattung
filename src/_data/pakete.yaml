@@ -45,7 +45,7 @@ pakete:
   - name: Komfortpaket Anonyme Bestattung
     art: Feuerbestattung
     stufe: Anonym
-    preis: 3000,00 €
+    preis: 3.000,00 €
     preis_zusatz: inkl. 19 % MwSt ***
     beschreibung: Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung innerhalb ganz Deutschlands.
     leistungen:
