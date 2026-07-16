@@ -69,3 +69,12 @@ pakete:
       - "Schlichter Einäscherungssarg inklusive Innenausstattung"
       - "Sterbehemd"
     hinweis: "Bei einer anonymen Bestattung erhält das Grab keine namentliche Kennzeichnung. In den meisten Fällen ist eine Teilnahme der Angehörigen an der Beisetzung nicht möglich, damit die Anonymität der Grabstätte gewahrt bleibt."
+
+# Das Wunschpaket erscheint als breite Karte unterhalb der drei Paket-Spalten
+# (Startseite und Preise-Seite). "beschreibung" dient auch als Teaser-Text.
+wunschpaket:
+  name: "Individuelles Wunschpaket"
+  tag: "Individuell"
+  preis: "Preis auf Anfrage"
+  beschreibung: "Sie haben besondere Wünsche oder möchten einzelne Leistungen ganz nach Ihren Vorstellungen gestalten? Kein Problem. Gemeinsam finden wir eine passende und würdevolle Lösung, die Ihren persönlichen Bedürfnissen entspricht."
+  text: "Sprechen Sie uns einfach an – wir nehmen uns Zeit für Ihre Anliegen und setzen alles daran, Ihre Wünsche nach Möglichkeit zu erfüllen. Gerne erstellen wir Ihnen ein individuelles Angebot, das genau auf Ihre Vorstellungen und Anforderungen abgestimmt ist."

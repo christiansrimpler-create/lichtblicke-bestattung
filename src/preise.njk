@@ -64,6 +64,20 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
     </details>
     {%- endfor %}
     </div>
+
+    {%- set wp = pakete.wunschpaket %}
+    <article class="paket-breit reveal" id="wunschpaket">
+      <div class="paket-breit-info">
+        <span class="paket-tag">{{ wp.tag }}</span>
+        <h2 class="paket-breit-name">{{ wp.name }}</h2>
+        <p>{{ wp.beschreibung }}</p>
+        <p>{{ wp.text }}</p>
+      </div>
+      <div class="paket-breit-aktion">
+        <span class="paket-preis">{{ wp.preis }}</span>
+        <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">{{ s.button_paket }}</a>
+      </div>
+    </article>
   </div>
 
   <div class="wrap narrow reveal">

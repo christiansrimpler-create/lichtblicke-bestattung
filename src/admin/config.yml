@@ -109,6 +109,15 @@ collections:
                 widget: list
                 field: { name: text, label: "Lieferung", widget: text }
               - { name: hinweis, label: "Hinweis (optional)", widget: text, required: false, hint: "Erscheint unter den Leistungen, z. B. der Hinweis zur Anonymität." }
+          - name: wunschpaket
+            label: "Wunschpaket (breite Karte unter den Paketen)"
+            widget: object
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: tag, label: "Tag", widget: string, hint: "Kleine Zeile über dem Namen, z. B. Individuell" }
+              - { name: preis, label: "Preis-Angabe", widget: string, hint: "z. B. Preis auf Anfrage" }
+              - { name: beschreibung, label: "Beschreibung", widget: text, hint: "Erscheint auch als Teaser auf der Startseite." }
+              - { name: text, label: "Weiterer Text", widget: text, hint: "Erscheint nur auf der Preise-Seite." }
 
   # ───────────────────────────────────────────────────────────────────────────
   #  3) Seiten-Texte
