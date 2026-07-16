@@ -366,16 +366,21 @@ p { margin: 0 0 1.1rem; }
 .finder-hinweis { color: var(--ink-soft); margin: 0 0 1.6rem; }
 .finder-antworten { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
 .finder-antwort {
-  display: flex; flex-direction: column; gap: .35rem; text-align: left;
+  position: relative; display: flex; flex-direction: column; gap: .35rem; text-align: left;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 1.4rem 1.5rem; cursor: pointer; font: inherit; color: inherit;
+  padding: 1.4rem 2.4rem 1.4rem 1.5rem; cursor: pointer; font: inherit; color: inherit;
   transition: border-color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
 }
 .finder-antwort:hover { border-color: #dde7c4; box-shadow: var(--shadow); transform: translateY(-2px); }
 .finder-antwort:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
 .finder-antwort.gewaehlt { border-color: var(--lime-dark); box-shadow: var(--shadow); }
+.finder-antwort.gewaehlt::after { content: "✓"; position: absolute; top: 1.1rem; right: 1.1rem; color: var(--lime-dark); font-weight: 700; }
 .finder-antwort strong { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--ink); }
 .finder-antwort span { color: var(--ink-soft); font-size: .95rem; }
+.finder-antwort .finder-preis { font-style: normal; font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--green); margin-top: .4rem; }
+.finder-antwort .finder-preis-offen { font-family: var(--sans); font-size: .82rem; font-weight: 500; color: var(--ink-soft); }
+.finder-weiter { margin-top: 1.6rem; }
+.finder-angaben strong.finder-preis-offen { color: var(--ink-soft); font-weight: 500; }
 .finder-ergebnis { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem; }
 .finder-paket { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: .3rem 0 .6rem; outline: none; }
 .finder-ergebnis > p { color: var(--ink-soft); margin: 0 0 1.2rem; }

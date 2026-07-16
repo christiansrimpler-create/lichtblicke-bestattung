@@ -4,11 +4,12 @@ permalink: /paketfinder/
 eleventyExcludeFromCollections: true
 erlaubeIndexierung: false
 title: Paketfinder
-desc: In wenigen Schritten zum passenden Bestattungspaket – beantworten Sie einige kurze Fragen.
+desc: Stellen Sie sich Ihre Bestattung in wenigen Schritten selbst zusammen.
 ---
 {# Testseite: bewusst nicht in Navigation und Sitemap, noindex über layout.njk.
-   Fragen, Verzweigung und Empfehlung stecken im Skript unten – Preise werden
-   ergänzt, sobald die Preisliste je Option vorliegt. #}
+   Konfigurator: Schritte, Optionen und Preise stecken im Skript unten –
+   Preise werden ergänzt, sobald die Preisliste je Option vorliegt
+   (preis: null erscheint als "Preis folgt"). #}
 <section class="finder">
   <div class="wrap finder-wrap"
        data-finder
@@ -17,13 +18,13 @@ desc: In wenigen Schritten zum passenden Bestattungspaket – beantworten Sie ei
        data-kontakt-url="{{ '/kontakt/' | url }}"
        data-preise-url="{{ '/preise/' | url }}">
     <header class="finder-kopf">
-      <p class="eyebrow">Paketfinder</p>
+      <p class="eyebrow">Stellen Sie sich Ihren Abschied zusammen</p>
       <div class="finder-fortschritt" aria-hidden="true"><span class="finder-balken"></span></div>
       <p class="finder-zaehler"></p>
     </header>
     <div class="finder-buehne"></div>
     <noscript>
-      <p>Für den Paketfinder wird JavaScript benötigt. Sie können sich stattdessen
+      <p>Für diese Seite wird JavaScript benötigt. Sie können sich stattdessen
       <a href="{{ '/preise/' | url }}">alle Pakete ansehen</a> oder uns direkt anrufen:
       <a href="tel:{{ einstellungen.telefon_link }}">{{ einstellungen.telefon }}</a>.</p>
     </noscript>
@@ -40,82 +41,95 @@ desc: In wenigen Schritten zum passenden Bestattungspaket – beantworten Sie ei
   var zaehler = wrap.querySelector(".finder-zaehler");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Fragen: "wenn" steuert Verzweigungen, Reihenfolge = Ablauf ---- */
-  var FRAGEN = [
+  /* ---- Schritte des Konfigurators ----
+     typ "einzel": ein Klick wählt aus und führt weiter.
+     typ "mehrfach": mehrere Optionen wählbar, "Weiter"-Button.
+     "wenn" steuert Verzweigungen. "posten" ist der Name in der Zusammenstellung,
+     "preis" der angezeigte Preis (null = "Preis folgt"). ---- */
+  var SCHRITTE = [
     {
       id: "art",
+      typ: "einzel",
       frage: "Welche Art der Bestattung suchen Sie?",
-      antworten: [
-        { wert: "feuer", titel: "Feuerbestattung", text: "Einäscherung und Beisetzung der Urne" },
-        { wert: "erde", titel: "Erdbestattung", text: "Beisetzung im Sarg auf einem Friedhof" }
+      optionen: [
+        { wert: "feuer", titel: "Feuerbestattung", text: "Einäscherung und Beisetzung der Urne", posten: "Feuerbestattung – Grundleistungen", preis: null },
+        { wert: "erde", titel: "Erdbestattung", text: "Beisetzung im Sarg auf einem Friedhof", posten: "Erdbestattung – Grundleistungen", preis: null }
       ]
     },
     {
       id: "anonym",
+      typ: "einzel",
       frage: "Soll die Bestattung anonym erfolgen?",
       hinweis: "Bei einer anonymen Bestattung erhält das Grab keine namentliche Kennzeichnung.",
-      antworten: [
-        { wert: "ja", titel: "Ja", text: "Ohne namentliche Kennzeichnung der Grabstätte" },
-        { wert: "nein", titel: "Nein", text: "Mit eigener, namentlich gekennzeichneter Grabstätte" }
+      optionen: [
+        { wert: "ja", titel: "Ja", text: "Beisetzung ohne namentliche Kennzeichnung", posten: "Anonyme Beisetzung", preis: null },
+        { wert: "nein", titel: "Nein", text: "Mit eigener, namentlich gekennzeichneter Grabstätte", posten: "Grabstätte mit namentlicher Kennzeichnung", preis: null }
       ]
     },
     {
-      id: "trauerfeier",
-      frage: "Wünschen Sie eine Trauerfeier?",
+      id: "feier",
+      typ: "einzel",
+      frage: "Wie möchten Sie Abschied nehmen?",
       wenn: function (a) { return a.anonym !== "ja"; },
-      antworten: [
-        { wert: "ja", titel: "Ja", text: "Mit Zeremonie und gemeinsamer Abschiednahme" },
-        { wert: "nein", titel: "Nein", text: "Stille Beisetzung im engsten Kreis" }
+      optionen: [
+        { wert: "abschiedsfeier", titel: "Paket „Abschiedsfeier“", text: "Persönlich gestaltete Feier (ca. 30 Minuten) mit Musik, Dekoration und gerahmtem Foto", posten: "Paket „Abschiedsfeier“", preis: "650,00 €" },
+        { wert: "individuell", titel: "Individuelle Trauerfeier", text: "Ganz nach Ihren Wünschen gestaltet – wir beraten Sie persönlich", posten: "Individuelle Trauerfeier", preis: "Preis auf Anfrage" },
+        { wert: "keine", titel: "Keine Trauerfeier", text: "Stille Beisetzung im engsten Kreis", posten: "Ohne Trauerfeier (stille Beisetzung)", preis: null }
+      ]
+    },
+    {
+      id: "extras",
+      typ: "mehrfach",
+      frage: "Welche zusätzlichen Leistungen wünschen Sie?",
+      hinweis: "Optional – Sie können mehrere Leistungen auswählen oder diesen Schritt überspringen.",
+      optionen: [
+        { wert: "abschiednahme", titel: "Abschiednahme", text: "Persönliche Abschiednahme im Aufbahrungsraum", preis: null },
+        { wert: "blumen", titel: "Blumenschmuck", text: "Sarg- oder Urnenschmuck über unsere regionalen Partner", preis: null },
+        { wert: "trauerdruck", titel: "Trauerdruck", text: "Trauerkarten und Traueranzeigen", preis: null }
       ]
     },
     {
       id: "region",
+      typ: "einzel",
       frage: "Wo befindet sich der Sterbeort?",
-      antworten: [
-        { wert: "freiburg", titel: "In Freiburg", text: "Im Stadtgebiet Freiburg" },
-        { wert: "umgebung", titel: "Rund um Freiburg", text: "z. B. Gundelfingen, Denzlingen, March oder Umkirch" },
-        { wert: "weiter", titel: "Weiter entfernt", text: "Überführung innerhalb Deutschlands" }
+      optionen: [
+        { wert: "freiburg", titel: "In Freiburg", text: "Im Stadtgebiet Freiburg", posten: "Überführung im Stadtgebiet Freiburg", preis: null },
+        { wert: "umgebung", titel: "Rund um Freiburg", text: "z. B. Gundelfingen, Denzlingen, March oder Umkirch", posten: "Überführung in Freiburg und Umgebung", preis: null },
+        { wert: "weiter", titel: "Weiter entfernt", text: "Überführung innerhalb Deutschlands", posten: "Überführung innerhalb Deutschlands", preis: null }
       ]
     }
   ];
-
-  /* ---- Empfehlung aus den Antworten ableiten ---- */
-  function empfehlung(a) {
-    if (a.anonym === "ja") {
-      return {
-        paket: "Komfortpaket Anonyme Bestattung",
-        text: "Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung innerhalb ganz Deutschlands.",
-        zusatz: a.art === "erde" ? "Hinweis: Anonyme Bestattungen führen wir in der Regel als Feuerbestattung durch. Gerne besprechen wir persönliche Alternativen mit Ihnen." : ""
-      };
-    }
-    if (a.trauerfeier === "nein" || a.region === "weiter") {
-      return {
-        paket: "Individuelles Wunschpaket",
-        text: "Ihre Wünsche passen nicht ganz in ein festes Paket – gemeinsam stellen wir eine würdevolle Lösung zusammen, die genau Ihren Vorstellungen entspricht.",
-        zusatz: ""
-      };
-    }
-    return {
-      paket: a.art === "feuer" ? "Feuerbestattung StandardPaket" : "Erdbestattung StandardPaket",
-      text: a.art === "feuer"
-        ? "Die Einäscherung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg."
-        : "Die Erdbestattung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.",
-      zusatz: ""
-    };
-  }
 
   var antworten = {};
   var verlauf = [];
 
   function route() {
-    return FRAGEN.filter(function (f) { return !f.wenn || f.wenn(antworten); });
+    return SCHRITTE.filter(function (s) { return !s.wenn || s.wenn(antworten); });
   }
 
-  function antwortTitel(frage, wert) {
-    for (var i = 0; i < frage.antworten.length; i++) {
-      if (frage.antworten[i].wert === wert) return frage.antworten[i].titel;
+  function findeOption(schritt, wert) {
+    for (var i = 0; i < schritt.optionen.length; i++) {
+      if (schritt.optionen[i].wert === wert) return schritt.optionen[i];
     }
-    return "";
+    return null;
+  }
+
+  /* ---- Zusammenstellung aus den gewählten Optionen ---- */
+  function zusammenstellung() {
+    var posten = [];
+    route().forEach(function (schritt) {
+      var wahl = antworten[schritt.id];
+      if (schritt.typ === "mehrfach") {
+        (wahl || []).forEach(function (wert) {
+          var o = findeOption(schritt, wert);
+          if (o) posten.push({ name: o.posten || o.titel, preis: o.preis });
+        });
+      } else if (wahl) {
+        var o = findeOption(schritt, wahl);
+        if (o) posten.push({ name: o.posten || o.titel, preis: o.preis });
+      }
+    });
+    return posten;
   }
 
   /* ---- Schritt-Wechsel mit sanfter Schiebe-/Blendanimation ---- */
@@ -148,15 +162,22 @@ desc: In wenigen Schritten zum passenden Bestattungspaket – beantworten Sie ei
 
   function fortschritt(pos, gesamt, fertig) {
     balken.style.width = (fertig ? 100 : (pos - 1) / gesamt * 100) + "%";
-    zaehler.textContent = fertig ? "Ihre Empfehlung" : "Frage " + pos + " von " + gesamt;
+    zaehler.textContent = fertig ? "Ihre Zusammenstellung" : "Schritt " + pos + " von " + gesamt;
   }
 
-  function zeigeFrage(frage, richtung) {
+  function weiterNach(schritt) {
     var r = route();
-    fortschritt(r.indexOf(frage) + 1, r.length, false);
+    var i = r.indexOf(schritt);
+    if (i >= 0 && i + 1 < r.length) zeigeSchritt(r[i + 1], 1);
+    else zeigeErgebnis();
+  }
 
-    var schritt = document.createElement("div");
-    schritt.className = "finder-schritt";
+  function zeigeSchritt(schritt, richtung) {
+    var r = route();
+    fortschritt(r.indexOf(schritt) + 1, r.length, false);
+
+    var el = document.createElement("div");
+    el.className = "finder-schritt";
 
     if (verlauf.length) {
       var zurueck = document.createElement("button");
@@ -164,96 +185,130 @@ desc: In wenigen Schritten zum passenden Bestattungspaket – beantworten Sie ei
       zurueck.className = "finder-zurueck";
       zurueck.innerHTML = "&#8592; Zurück";
       zurueck.addEventListener("click", geheZurueck);
-      schritt.appendChild(zurueck);
+      el.appendChild(zurueck);
     }
 
     var h = document.createElement("h1");
     h.className = "finder-frage";
-    h.textContent = frage.frage;
-    schritt.appendChild(h);
+    h.textContent = schritt.frage;
+    el.appendChild(h);
 
-    if (frage.hinweis) {
+    if (schritt.hinweis) {
       var p = document.createElement("p");
       p.className = "finder-hinweis";
-      p.textContent = frage.hinweis;
-      schritt.appendChild(p);
+      p.textContent = schritt.hinweis;
+      el.appendChild(p);
     }
 
     var liste = document.createElement("div");
     liste.className = "finder-antworten";
-    frage.antworten.forEach(function (antwort) {
+
+    schritt.optionen.forEach(function (option) {
+      var gewaehlt = schritt.typ === "mehrfach"
+        ? (antworten[schritt.id] || []).indexOf(option.wert) !== -1
+        : antworten[schritt.id] === option.wert;
+
       var knopf = document.createElement("button");
       knopf.type = "button";
-      knopf.className = "finder-antwort" + (antworten[frage.id] === antwort.wert ? " gewaehlt" : "");
-      knopf.innerHTML = "<strong>" + antwort.titel + "</strong><span>" + antwort.text + "</span>";
-      knopf.addEventListener("click", function () {
-        antworten[frage.id] = antwort.wert;
-        verlauf.push(frage.id);
-        var r2 = route();
-        var i = r2.indexOf(frage);
-        if (i >= 0 && i + 1 < r2.length) zeigeFrage(r2[i + 1], 1);
-        else zeigeErgebnis();
-      });
+      knopf.className = "finder-antwort" + (gewaehlt ? " gewaehlt" : "");
+      knopf.innerHTML =
+        "<strong>" + option.titel + "</strong>" +
+        "<span>" + option.text + "</span>" +
+        (option.preis ? '<em class="finder-preis">' + option.preis + "</em>" : '<em class="finder-preis finder-preis-offen">Preis folgt</em>');
+
+      if (schritt.typ === "mehrfach") {
+        knopf.setAttribute("aria-pressed", gewaehlt ? "true" : "false");
+        knopf.addEventListener("click", function () {
+          var wahl = antworten[schritt.id] || [];
+          var pos = wahl.indexOf(option.wert);
+          if (pos === -1) wahl.push(option.wert); else wahl.splice(pos, 1);
+          antworten[schritt.id] = wahl;
+          knopf.classList.toggle("gewaehlt");
+          knopf.setAttribute("aria-pressed", knopf.classList.contains("gewaehlt") ? "true" : "false");
+        });
+      } else {
+        knopf.addEventListener("click", function () {
+          antworten[schritt.id] = option.wert;
+          verlauf.push(schritt.id);
+          weiterNach(schritt);
+        });
+      }
       liste.appendChild(knopf);
     });
-    schritt.appendChild(liste);
+    el.appendChild(liste);
 
-    wechsel(schritt, richtung);
+    if (schritt.typ === "mehrfach") {
+      var weiterZeile = document.createElement("div");
+      weiterZeile.className = "finder-weiter";
+      var weiter = document.createElement("button");
+      weiter.type = "button";
+      weiter.className = "btn btn-primary";
+      weiter.textContent = "Weiter";
+      weiter.addEventListener("click", function () {
+        if (!antworten[schritt.id]) antworten[schritt.id] = [];
+        verlauf.push(schritt.id);
+        weiterNach(schritt);
+      });
+      weiterZeile.appendChild(weiter);
+      el.appendChild(weiterZeile);
+    }
+
+    wechsel(el, richtung);
   }
 
   function geheZurueck() {
     var letzteId = verlauf.pop();
     var r = route();
     for (var i = 0; i < r.length; i++) {
-      if (r[i].id === letzteId) { zeigeFrage(r[i], -1); return; }
+      if (r[i].id === letzteId) { zeigeSchritt(r[i], -1); return; }
     }
-    zeigeFrage(r[0], -1);
+    zeigeSchritt(r[0], -1);
   }
 
   function zeigeErgebnis() {
     var r = route();
     fortschritt(r.length, r.length, true);
-    var e = empfehlung(antworten);
 
-    var schritt = document.createElement("div");
-    schritt.className = "finder-schritt";
+    var el = document.createElement("div");
+    el.className = "finder-schritt";
 
     var zurueck = document.createElement("button");
     zurueck.type = "button";
     zurueck.className = "finder-zurueck";
     zurueck.innerHTML = "&#8592; Zurück";
     zurueck.addEventListener("click", geheZurueck);
-    schritt.appendChild(zurueck);
+    el.appendChild(zurueck);
+
+    var posten = zusammenstellung();
+    var zeilen = "";
+    posten.forEach(function (p) {
+      zeilen += "<li><span>" + p.name + "</span><strong" + (p.preis ? "" : ' class="finder-preis-offen"') + ">" + (p.preis || "Preis folgt") + "</strong></li>";
+    });
 
     var karte = document.createElement("div");
     karte.className = "finder-ergebnis";
-    var angaben = "";
-    r.forEach(function (frage) {
-      angaben += "<li><span>" + frage.frage + "</span><strong>" + antwortTitel(frage, antworten[frage.id]) + "</strong></li>";
-    });
     karte.innerHTML =
-      '<span class="paket-tag">Unsere Empfehlung</span>' +
-      '<h1 class="finder-paket">' + e.paket + "</h1>" +
-      "<p>" + e.text + "</p>" +
-      (e.zusatz ? '<p class="finder-hinweis">' + e.zusatz + "</p>" : "") +
-      '<ul class="finder-angaben">' + angaben + "</ul>" +
-      '<p class="finder-preis-hinweis">Ihren persönlichen Preis nennen wir Ihnen gerne in einem unverbindlichen Gespräch.</p>' +
+      '<span class="paket-tag">Ihre Auswahl</span>' +
+      '<h1 class="finder-paket">Ihre Zusammenstellung</h1>' +
+      "<p>So haben Sie sich den Abschied zusammengestellt – jede Position lässt sich im Gespräch noch anpassen.</p>" +
+      '<ul class="finder-angaben">' + zeilen + "</ul>" +
+      '<p class="finder-preis-hinweis">Ihren Gesamtpreis nennen wir Ihnen gerne in einem unverbindlichen Gespräch – rufen Sie uns an oder schreiben Sie uns.</p>' +
       '<div class="finder-aktionen">' +
       '<a class="btn btn-primary" href="' + wrap.getAttribute("data-kontakt-url") + '">Beratung anfragen</a>' +
       '<a class="btn btn-primary" href="tel:' + wrap.getAttribute("data-telefon-link") + '">' + wrap.getAttribute("data-telefon") + " anrufen</a>" +
       "</div>" +
       '<p class="finder-fuss"><a href="' + wrap.getAttribute("data-preise-url") + '">Alle Pakete ansehen</a> · <button type="button" class="finder-neustart">Neu starten</button></p>';
-    schritt.appendChild(karte);
+    el.appendChild(karte);
 
     karte.querySelector(".finder-neustart").addEventListener("click", function () {
       antworten = {};
       verlauf = [];
-      zeigeFrage(route()[0], -1);
+      zeigeSchritt(route()[0], -1);
     });
 
-    wechsel(schritt, 1);
+    wechsel(el, 1);
   }
 
-  zeigeFrage(route()[0], 1);
+  zeigeSchritt(route()[0], 1);
 })();
 </script>
