@@ -2,7 +2,7 @@ pakete:
   - name: Feuerbestattung StandardPaket
     art: Feuerbestattung
     stufe: Standard
-    preis: '2.250'
+    preis: 2.250,00 €
     preis_zusatz: inkl. 19 % MwSt **
     beschreibung: Die Einäscherung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
@@ -25,7 +25,7 @@ pakete:
   - name: Erdbestattung StandardPaket
     art: Erdbestattung
     stufe: Standard
-    preis: '2.800'
+    preis: 2.800,00 €
     preis_zusatz: inkl. 19 % MwSt **
     beschreibung: Die Erdbestattung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
@@ -45,7 +45,7 @@ pakete:
   - name: Komfortpaket Anonyme Bestattung
     art: Feuerbestattung
     stufe: Anonym
-    preis: '3000'
+    preis: 3000,00 €
     preis_zusatz: inkl. 19 % MwSt ***
     beschreibung: Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung innerhalb ganz Deutschlands.
     leistungen:
