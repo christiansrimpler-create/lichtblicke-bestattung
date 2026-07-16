@@ -469,10 +469,24 @@ p { margin: 0 0 1.1rem; }
 .footer-main { display: grid; grid-template-columns: 1.6fr 1fr 1.2fr; gap: 2.5rem; padding-bottom: 2.5rem; }
 .footer-logo { height: 52px; width: auto; background: #fff; padding: 8px 12px; border-radius: var(--radius); }
 .footer-brand-boxen { display: flex; align-items: stretch; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.1rem; }
-/* Standorte: gleich großes Fenster neben dem Logo, Orte wechseln per Fade (siehe main.js) */
-.footer-standorte { display: inline-flex; align-items: center; justify-content: center; height: 52px; width: 170px; background: #fff; padding: 8px 12px; border-radius: var(--radius); }
-.footer-standorte-name { font-size: .85rem; font-weight: 600; color: var(--green); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity .4s var(--ease); }
-.footer-standorte-name.ist-aus { opacity: 0; }
+/* Standorte: gleich großes Fenster neben dem Logo, Orte laufen als Band
+   von links nach rechts durch (Band doppelt für den nahtlosen Loop) */
+.footer-standorte {
+  height: 52px; width: 170px; background: #fff; border-radius: var(--radius);
+  overflow: hidden; display: flex; align-items: center; position: relative;
+}
+/* Weiche Kanten: Text läuft in Weiß aus, die Box selbst bleibt scharf */
+.footer-standorte::before,
+.footer-standorte::after { content: ""; position: absolute; top: 0; bottom: 0; width: 14px; z-index: 1; pointer-events: none; }
+.footer-standorte::before { left: 0; background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0)); }
+.footer-standorte::after { right: 0; background: linear-gradient(270deg, #fff, rgba(255, 255, 255, 0)); }
+.footer-standorte-band { display: flex; width: max-content; animation: standorte-lauf 180s linear infinite; }
+.footer-standorte-lauf { white-space: nowrap; font-size: .85rem; font-weight: 600; color: var(--green); }
+.footer-standorte-lauf::after { content: " · "; white-space: pre; }
+@keyframes standorte-lauf {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
 .footer-brand p { color: rgba(255, 255, 255, .68); font-size: .95rem; }
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
@@ -517,7 +531,7 @@ p { margin: 0 0 1.1rem; }
   .hero-note::before { animation: none; }
   .paket-acc[open] .paket-acc-body { animation: none; }
   .paket-acc-chevron { transition: none; }
-  .footer-standorte-name { transition: none; }
+  .footer-standorte-band { animation: none; }
   html { scroll-behavior: auto; }
 }
 

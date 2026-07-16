@@ -106,8 +106,11 @@
       <div class="footer-brand">
         <div class="footer-brand-boxen">
           <img src="{{ einstellungen.logo | url }}" alt="{{ einstellungen.firmenname }}" width="220" height="60" class="footer-logo">
-          <div class="footer-standorte" aria-hidden="true" data-standorte="{{ einstellungen.standorte | dump }}">
-            <span class="footer-standorte-name">{{ einstellungen.standorte[0] }}</span>
+          <div class="footer-standorte" aria-hidden="true">
+            <div class="footer-standorte-band">
+              <span class="footer-standorte-lauf">{{ einstellungen.standorte | join(" · ") }}</span>
+              <span class="footer-standorte-lauf">{{ einstellungen.standorte | join(" · ") }}</span>
+            </div>
           </div>
           <span class="visually-hidden">Unsere Standorte: Freiburg und Umgebung.</span>
         </div>

@@ -96,27 +96,4 @@
   }
   window.addEventListener("hashchange", openHashDetails);
   if (location.hash) setTimeout(openHashDetails, 60);
-
-  /* ---- Footer: Standorte im Wechsel ein- und ausblenden ---- */
-  var standorteBox = document.querySelector(".footer-standorte");
-  if (standorteBox) {
-    var orte = [];
-    try { orte = JSON.parse(standorteBox.getAttribute("data-standorte")) || []; } catch (e) {}
-    var ortEl = standorteBox.querySelector(".footer-standorte-name");
-    if (ortEl && orte.length > 1) {
-      var ortIndex = 0;
-      var naechsterOrt = function () {
-        ortIndex = (ortIndex + 1) % orte.length;
-        ortEl.textContent = orte[ortIndex];
-      };
-      setInterval(function () {
-        if (reduce) { naechsterOrt(); return; }
-        ortEl.classList.add("ist-aus");
-        setTimeout(function () {
-          naechsterOrt();
-          ortEl.classList.remove("ist-aus");
-        }, 420);
-      }, 3400);
-    }
-  }
 })();
