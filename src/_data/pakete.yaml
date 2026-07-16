@@ -25,7 +25,7 @@ pakete:
   - name: Erdbestattung StandardPaket
     art: Erdbestattung
     stufe: Standard
-    preis: 2.490,00 €
+    preis: '2.800'
     preis_zusatz: inkl. 19 % MwSt **
     beschreibung: Die Erdbestattung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
