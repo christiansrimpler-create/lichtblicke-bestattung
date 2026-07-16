@@ -17,6 +17,34 @@ desc: Transparente Bestattungspakete von Lichtblicke Bestattung – Feuer- und E
 <section class="section pt-0">
   <div class="wrap wrap-breit">
     {% include "pakete-akkordeon.njk" %}
+
+    {# Zusatzpakete als breite Karten untereinander #}
+    <div class="pakete-breit-liste">
+      {%- for wp in pakete.weitere %}
+      <article class="paket-breit reveal" id="{{ wp.name | slugify }}">
+        <div class="paket-breit-info">
+          <span class="paket-tag">{{ wp.tag }}</span>
+          <h2 class="paket-breit-name">{{ wp.name }}</h2>
+          <p>{{ wp.beschreibung }}</p>
+          {%- if wp.leistungen %}
+          <h3 class="paket-sub">{{ wp.leistungen_titel }}</h3>
+          <ul class="paket-leistungen">
+            {%- for l in wp.leistungen %}
+            <li>{{ l }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+          {%- if wp.text %}
+          <p>{{ wp.text }}</p>
+          {%- endif %}
+        </div>
+        <div class="paket-breit-aktion">
+          <span class="paket-preis">{{ wp.preis }}</span>
+          <a class="btn btn-primary" href="{{ '/kontakt/' | url }}">{{ s.button_paket }}</a>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
   </div>
 
   <div class="wrap narrow reveal">

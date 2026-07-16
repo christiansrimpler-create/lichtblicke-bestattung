@@ -298,13 +298,7 @@ p { margin: 0 0 1.1rem; }
 .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 .section-head h2 { margin: 0; }
 
-/* 6er-Raster: die drei Bestattungspakete je 2 Spalten breit (Reihe 1),
-   die weiteren Pakete je 3 Spalten (Reihe 2 als zwei Hälften) */
-.pakete-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
-.pakete-grid > .paket-card { grid-column: span 2; }
-.pakete-grid > .paket-card:nth-child(n+4) { grid-column: span 3; }
-/* Ab sechs Kacheln: zweite Reihe drittelt wie die erste */
-.pakete-grid:has(> .paket-card:nth-child(6)) > .paket-card:nth-child(n+4) { grid-column: span 2; }
+.pakete-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .paket-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 1.9rem; position: relative; overflow: hidden; scroll-margin-top: 100px;
@@ -344,6 +338,24 @@ p { margin: 0 0 1.1rem; }
 .paket-hinweis { margin: 0 0 1.6rem; padding: .9rem 1.2rem; background: var(--tint); border-radius: var(--radius); font-size: .9rem; color: var(--ink-soft); }
 
 .paket-acc-text { color: var(--ink-soft); margin: 0 0 1.6rem; }
+
+/* Zusatzpakete: breite Karten unterhalb der drei Paket-Spalten, untereinander */
+.pakete-breit-liste { display: grid; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
+.paket-breit {
+  display: grid; grid-template-columns: 1fr auto; gap: .5rem 3.5rem; align-items: start;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.9rem; scroll-margin-top: 100px;
+}
+.paket-breit-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; line-height: 1.15; color: var(--ink); margin: .35rem 0 .6rem; }
+.paket-breit-info p { color: var(--ink-soft); margin: 0 0 .8rem; max-width: 68ch; }
+.paket-breit-info p:last-child { margin-bottom: 0; }
+.paket-breit-info .paket-sub { margin-top: 1.2rem; }
+.paket-breit-info .paket-leistungen { max-width: 68ch; }
+.paket-breit-aktion { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+@media (min-width: 920px) {
+  .pakete-breit-liste { gap: 1.5rem; max-width: none; margin: 0 0 2.5rem; }
+}
+.paket-card-breit { margin-top: 1.5rem; }
 
 .preis-fussnote { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; color: var(--ink-soft); background: var(--tint); border-radius: var(--radius); padding: 1.1rem 1.4rem; margin: 0 0 2.5rem; }
 
@@ -404,14 +416,9 @@ p { margin: 0 0 1.1rem; }
 
 /* ---- Pakete als Aufklapp-Dropdowns (mit Kurzinfo im geschlossenen Zustand) ---- */
 /* Mobile: eine Spalte, lesefreundlich zentriert. Desktop: alle drei Kacheln in einer Reihe. */
-.pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
+.pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto .9rem; }
 @media (min-width: 920px) {
-  /* 6er-Raster wie beim Startseiten-Teaser: Reihe 1 drittelt, Reihe 2 halbiert */
-  .pakete-akkordeon { grid-template-columns: repeat(6, 1fr); gap: 1.5rem; max-width: none; }
-  .pakete-akkordeon > .paket-acc { grid-column: span 2; }
-  .pakete-akkordeon > .paket-acc:nth-child(n+4) { grid-column: span 3; }
-  /* Ab sechs Kacheln: zweite Reihe drittelt wie die erste */
-  .pakete-akkordeon:has(> .paket-acc:nth-child(6)) > .paket-acc:nth-child(n+4) { grid-column: span 2; }
+  .pakete-akkordeon { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: none; margin-bottom: 1.5rem; }
   /* Gleich hohe Karten: "Beratung anfragen" unten ausrichten, damit beide Spalten fluchten.
      Chrome kapselt den <details>-Inhalt in ::details-content – dieses Element muss die
      Höhe mit strecken, sonst bricht die Flex-Kette (Safari/Firefox: Body ist direktes Kind). */
@@ -586,8 +593,6 @@ p { margin: 0 0 1.1rem; }
 .werte-item.reveal.visible p { opacity: 1; transform: none; }
 .pakete-grid .reveal:nth-child(2) { transition-delay: .08s; }
 .pakete-grid .reveal:nth-child(3) { transition-delay: .16s; }
-.pakete-grid .reveal:nth-child(5) { transition-delay: .08s; }
-.pakete-grid .reveal:nth-child(6) { transition-delay: .16s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
@@ -628,8 +633,6 @@ p { margin: 0 0 1.1rem; }
   .kontakt-grid { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .pakete-grid { grid-template-columns: 1fr; }
-  .pakete-grid > .paket-card,
-  .pakete-grid > .paket-card:nth-child(n+4) { grid-column: auto; }
 }
 @media (max-width: 620px) {
   body { font-size: 16px; }
@@ -646,5 +649,8 @@ p { margin: 0 0 1.1rem; }
   .paket-acc-cols { gap: 1.2rem; }
   .paket-acc-body { padding-left: 1.2rem; padding-right: 1.2rem; }
   .paket-acc-body .btn { width: 100%; justify-content: center; }
+  .paket-breit { grid-template-columns: 1fr; padding: 1.4rem 1.2rem; }
+  .paket-breit-aktion { align-items: flex-start; width: 100%; margin-top: .6rem; }
+  .paket-breit-aktion .btn { width: 100%; justify-content: center; }
   .hero-actions .btn { flex: 1 1 100%; }
 }
