@@ -38,14 +38,14 @@ pakete:
       - Vorbereitung und Gestaltung der Trauerfeier vor der Beerdigung inkl. Katafalkdecke, Tüchern, Kerzen und Blumenschmuck
       - Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)
     lieferungen:
-      - Kiefernsarg Nr. 12/195, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose
+      - Kiefernsarg, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose
       - Herren- oder Damentalar in Weiß
       - Schlichte Decke und Kissen aus Viskose mit Volant in Weiß
     hinweis: ''
   - name: Komfortpaket Anonyme Bestattung
     art: Feuerbestattung
     stufe: Anonym
-    preis: 3.000,00 €
+    preis: 3000,00 €
     preis_zusatz: inkl. 19 % MwSt ***
     beschreibung: Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung innerhalb ganz Deutschlands.
     leistungen:
