@@ -228,6 +228,7 @@ collections:
         label: "Über uns"
         file: "src/_data/seiten/ueberuns.yaml"
         fields:
+          - { name: bild, label: "Hintergrundbild (Seitenkopf)", widget: image, required: false, hint: "Querformat; wird mit grünem Overlay abgedunkelt. Leer lassen für den schlichten Seitenkopf." }
           - { name: eyebrow, label: "Kleiner Text über der Überschrift", widget: string }
           - { name: titel, label: "Überschrift (H1)", widget: string }
           - { name: lead, label: "Einleitungstext (hervorgehoben)", widget: text }

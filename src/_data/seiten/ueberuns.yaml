@@ -1,6 +1,7 @@
 # Texte der Seite „Über uns“. Layout steckt in src/ueber-uns.njk.
 # Kontaktdaten/Erreichbarkeit kommen zentral aus einstellungen.yaml.
 
+bild: /assets/img/freiburg-altstadt.jpg
 eyebrow: "Über uns"
 titel: "Menschlich, transparent, an Ihrer Seite"
 lead: "Wir, Lichtblicke Bestattung, geben Ihnen so viel Transparenz wie möglich rund um die Themen Vorsorge, Sterben, Bestatten und Trauerbegleitung."

@@ -478,6 +478,25 @@ p { margin: 0 0 1.1rem; }
 .page-head { padding: clamp(3.2rem, 7vw, 5.2rem) 0 clamp(1.5rem, 3vw, 2.5rem); background: linear-gradient(var(--tint), var(--bg)); }
 .page-head h1 { margin-bottom: .3em; }
 
+/* Seitenkopf mit Hintergrundbild und dem grünen Overlay des Heros */
+.page-head--bild {
+  position: relative; overflow: hidden; background: var(--green); color: #fff;
+  padding: clamp(5rem, 12vw, 9rem) 0 clamp(3.5rem, 8vw, 6rem);
+}
+.page-head-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.page-head--bild::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(60, 83, 32, 0) 40%, rgba(44, 61, 23, .6) 78%, var(--green) 100%),
+    linear-gradient(100deg, rgba(28, 40, 14, .88) 0%, rgba(44, 61, 23, .55) 52%, rgba(44, 61, 23, .18) 100%);
+}
+.page-head--bild .wrap { position: relative; z-index: 2; }
+.page-head--bild .eyebrow { color: var(--lime); }
+.page-head--bild h1 { color: #fff; }
+
 .prose p { color: var(--ink); }
 .prose h2 { margin-top: 2.4rem; font-size: 1.7rem; }
 .prose h2:first-child { margin-top: 0; }
