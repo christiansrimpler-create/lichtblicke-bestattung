@@ -345,6 +345,56 @@ p { margin: 0 0 1.1rem; }
 
 .preis-fussnote { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; color: var(--ink-soft); background: var(--tint); border-radius: var(--radius); padding: 1.1rem 1.4rem; margin: 0 0 2.5rem; }
 
+/* ==========================================================================
+   Paketfinder (Testseite /paketfinder/) – Frage für Frage mit Schiebe-Übergang
+   ========================================================================== */
+.finder { padding: 4.5rem 0 5.5rem; min-height: 62vh; }
+.finder-wrap { max-width: 720px; }
+.finder-kopf { margin-bottom: 2rem; }
+.finder-fortschritt { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; margin: 1rem 0 .55rem; }
+.finder-balken { display: block; height: 100%; width: 0; background: var(--lime-dark); border-radius: inherit; transition: width .4s var(--ease); }
+.finder-zaehler { font-size: .85rem; color: var(--ink-soft); margin: 0; }
+.finder-buehne { position: relative; }
+.finder-schritt { transition: opacity .3s var(--ease), transform .3s var(--ease); }
+.finder-raus-links { opacity: 0; transform: translateX(-28px); }
+.finder-raus-rechts { opacity: 0; transform: translateX(28px); }
+.finder-rein-rechts { opacity: 0; transform: translateX(28px); transition: none; }
+.finder-rein-links { opacity: 0; transform: translateX(-28px); transition: none; }
+.finder-zurueck { background: none; border: 0; padding: 0; margin: 0 0 1.4rem; cursor: pointer; font: inherit; font-size: .92rem; font-weight: 600; color: var(--lime-dark); display: inline-flex; align-items: center; gap: .3rem; }
+.finder-zurueck:hover { color: var(--green); }
+.finder-frage { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin: 0 0 .6rem; outline: none; }
+.finder-hinweis { color: var(--ink-soft); margin: 0 0 1.6rem; }
+.finder-antworten { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.finder-antwort {
+  display: flex; flex-direction: column; gap: .35rem; text-align: left;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.4rem 1.5rem; cursor: pointer; font: inherit; color: inherit;
+  transition: border-color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
+}
+.finder-antwort:hover { border-color: #dde7c4; box-shadow: var(--shadow); transform: translateY(-2px); }
+.finder-antwort:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.finder-antwort.gewaehlt { border-color: var(--lime-dark); box-shadow: var(--shadow); }
+.finder-antwort strong { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--ink); }
+.finder-antwort span { color: var(--ink-soft); font-size: .95rem; }
+.finder-ergebnis { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem; }
+.finder-paket { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: .3rem 0 .6rem; outline: none; }
+.finder-ergebnis > p { color: var(--ink-soft); margin: 0 0 1.2rem; }
+.finder-angaben { list-style: none; margin: .4rem 0 1.4rem; padding: 0; }
+.finder-angaben li { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+.finder-angaben li span { color: var(--ink-soft); }
+.finder-preis-hinweis { background: var(--tint); border-radius: var(--radius); padding: .9rem 1.2rem; font-size: .9rem; color: var(--ink-soft); margin: 0 0 1.5rem; }
+.finder-aktionen { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.4rem; }
+.finder-fuss { font-size: .9rem; color: var(--ink-soft); margin: 0; }
+.finder-fuss a { color: var(--lime-dark); font-weight: 600; }
+.finder-neustart { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; font-size: .9rem; font-weight: 600; color: var(--lime-dark); }
+.finder-neustart:hover, .finder-fuss a:hover { color: var(--green); }
+@media (max-width: 620px) {
+  .finder { padding: 3rem 0 4rem; }
+  .finder-antworten { grid-template-columns: 1fr; }
+  .finder-aktionen .btn { width: 100%; justify-content: center; }
+  .finder-angaben li { flex-direction: column; gap: .15rem; }
+}
+
 /* ---- Pakete als Aufklapp-Dropdowns (mit Kurzinfo im geschlossenen Zustand) ---- */
 /* Mobile: eine Spalte, lesefreundlich zentriert. Desktop: alle drei Kacheln in einer Reihe. */
 .pakete-akkordeon { display: grid; grid-template-columns: 1fr; gap: .9rem; max-width: 760px; margin: 0 auto 2.5rem; }
@@ -539,6 +589,7 @@ p { margin: 0 0 1.1rem; }
   .paket-acc[open] .paket-acc-body { animation: none; }
   .paket-acc-chevron { transition: none; }
   .footer-standorte-band { animation: none; }
+  .finder-schritt, .finder-balken, .finder-antwort { transition: none; }
   html { scroll-behavior: auto; }
 }
 
