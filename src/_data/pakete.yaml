@@ -4,7 +4,7 @@ pakete:
     stufe: Standard
     preis: 2.250,00 €
     preis_zusatz: inkl. 19 % MwSt **
-    beschreibung: Die Einäscherung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
+    beschreibung: Die Einäscherung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
       - 'Beratung für eine Feuerbestattung mit Trauerfeier: Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik, Termine mit Behörden, Pfarramt und Organist'
       - Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken
@@ -27,7 +27,7 @@ pakete:
     stufe: Standard
     preis: 2.800,00 €
     preis_zusatz: inkl. 19 % MwSt **
-    beschreibung: Die Erdbestattung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
+    beschreibung: Die Erdbestattung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
       - 'Beratung für eine Erdbestattung mit Trauerfeier: Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik, Termine mit Behörden, Pfarramt und Organist'
       - Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken
@@ -89,3 +89,9 @@ weitere:
       - Persönliche Beratung und Begleitung bei der Terminplanung
       - Koordination mit der Friedhofsverwaltung
     text: 'Preis: 300,00 € für den ersten Tag, jeder weitere Tag 60,00 €.'
+  - name: Individuelles Wunschpaket
+    tag: Individuell
+    preis: Preis auf Anfrage
+    beschreibung: Sie haben besondere Wünsche oder möchten einzelne Leistungen ganz nach Ihren Vorstellungen gestalten? Kein Problem. Gemeinsam finden wir eine passende und würdevolle Lösung, die Ihren persönlichen Bedürfnissen entspricht.
+    leistungen_titel: ''
+    text: Sprechen Sie uns einfach an – wir nehmen uns Zeit für Ihre Anliegen und setzen alles daran, Ihre Wünsche nach Möglichkeit zu erfüllen. Gerne erstellen wir Ihnen ein individuelles Angebot, das genau auf Ihre Vorstellungen und Anforderungen abgestimmt ist.
