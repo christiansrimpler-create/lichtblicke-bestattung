@@ -1,96 +1,85 @@
-# Die Bestattungspakete – Reihenfolge hier bestimmt die Reihenfolge auf der Website.
-# Preise inkl. 19 % MwSt. Fußnoten (* / ** / ***) siehe Hinweis auf der Preise-Seite.
-#
-# Hinweis: Die Pakete liegen unter dem Schlüssel "pakete:", damit sie im CMS
-# (Sveltia) als bearbeitbare Liste verwaltet werden können. In den Templates
-# daher über "pakete.pakete" ansprechen.
 pakete:
-  - name: "Feuerbestattung StandardPaket"
-    art: "Feuerbestattung"
-    stufe: "Standard"
-    preis: "2.490,00 €"
-    preis_zusatz: "inkl. 19 % MwSt **"
-    beschreibung: "Die Einäscherung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg."
+  - name: Feuerbestattung StandardPaket
+    art: Feuerbestattung
+    stufe: Standard
+    preis: '2.250'
+    preis_zusatz: inkl. 19 % MwSt **
+    beschreibung: Die Einäscherung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
-      - "Beratung für eine Feuerbestattung mit Trauerfeier: Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik, Termine mit Behörden, Pfarramt und Organist"
-      - "Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken"
-      - "Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg"
-      - "Aufbewahrung in einem Kühlraum *"
-      - "Zwei Tage Abschiednahme in einem Aufbahrungsraum am Hauptfriedhof"
-      - "Überführung zum Krematorium in Saußheim sowie Rückholung der Aschenkapsel"
-      - "Vorbereitung und Gestaltung der Trauer- bzw. Urnenabschiedsfeier inkl. Katafalkdecke, Tüchern, Kerzen und Blumenschmuck"
-      - "Überführung der Urne zu einem Friedhof in Freiburg und Umgebung"
-      - "Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)"
+      - 'Beratung für eine Feuerbestattung mit Trauerfeier: Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik, Termine mit Behörden, Pfarramt und Organist'
+      - Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken
+      - Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg
+      - Aufbewahrung in einem Kühlraum *
+      - Zwei Tage Abschiednahme in einem Aufbahrungsraum am Hauptfriedhof
+      - Überführung zum Krematorium in Saußheim sowie Rückholung der Aschenkapsel
+      - Vorbereitung und Gestaltung der Trauer- bzw. Urnenabschiedsfeier inkl. Katafalkdecke, Tüchern, Kerzen und Blumenschmuck
+      - Überführung der Urne zu einem Friedhof in Freiburg und Umgebung
+      - Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)
     lieferungen:
-      - "Schlichter Kiefernsarg"
-      - "Herren- oder Damentalar in Weiß"
-      - "Schlichte Decke und Kissen aus Viskose mit Volant in Weiß"
-      - "Urnenkapsel"
-      - "Schmuckurne (Naturstoff, einfach)"
-
-  - name: "Erdbestattung StandardPaket"
-    art: "Erdbestattung"
-    stufe: "Standard"
-    preis: "2.490,00 €"
-    preis_zusatz: "inkl. 19 % MwSt **"
-    beschreibung: "Die Erdbestattung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg."
+      - Schlichter Kiefernsarg
+      - Herren- oder Damentalar in Weiß
+      - Schlichte Decke und Kissen aus Viskose mit Volant in Weiß
+      - Urnenkapsel
+      - Schmuckurne (Naturstoff, einfach)
+    hinweis: ''
+  - name: Erdbestattung StandardPaket
+    art: Erdbestattung
+    stufe: Standard
+    preis: 2.490,00 €
+    preis_zusatz: inkl. 19 % MwSt **
+    beschreibung: Die Erdbestattung mit Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
-      - "Beratung für eine Erdbestattung mit Trauerfeier: Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik, Termine mit Behörden, Pfarramt und Organist"
-      - "Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken"
-      - "Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg"
-      - "Aufbewahrung in einem Kühlraum *"
-      - "Zwei Tage Abschiednahme in einem Aufbahrungsraum am Hauptfriedhof"
-      - "Überführung zu einem Friedhof in Freiburg und Umgebung"
-      - "Vorbereitung und Gestaltung der Trauerfeier vor der Beerdigung inkl. Katafalkdecke, Tüchern, Kerzen und Blumenschmuck"
-      - "Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)"
+      - 'Beratung für eine Erdbestattung mit Trauerfeier: Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik, Termine mit Behörden, Pfarramt und Organist'
+      - Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken
+      - Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg
+      - Aufbewahrung in einem Kühlraum *
+      - Zwei Tage Abschiednahme in einem Aufbahrungsraum am Hauptfriedhof
+      - Überführung zu einem Friedhof in Freiburg und Umgebung
+      - Vorbereitung und Gestaltung der Trauerfeier vor der Beerdigung inkl. Katafalkdecke, Tüchern, Kerzen und Blumenschmuck
+      - Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)
     lieferungen:
-      - "Kiefernsarg Nr. 12/195, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose"
-      - "Herren- oder Damentalar in Weiß"
-      - "Schlichte Decke und Kissen aus Viskose mit Volant in Weiß"
-
-  - name: "Komfortpaket Anonyme Bestattung"
-    art: "Feuerbestattung"
-    stufe: "Anonym"
-    preis: "2.250,00 €"
-    preis_zusatz: "inkl. 19 % MwSt ***"
-    beschreibung: "Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung innerhalb ganz Deutschlands."
+      - Kiefernsarg Nr. 12/195, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose
+      - Herren- oder Damentalar in Weiß
+      - Schlichte Decke und Kissen aus Viskose mit Volant in Weiß
+    hinweis: ''
+  - name: Komfortpaket Anonyme Bestattung
+    art: Feuerbestattung
+    stufe: Anonym
+    preis: 2.250,00 €
+    preis_zusatz: inkl. 19 % MwSt ***
+    beschreibung: Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung innerhalb ganz Deutschlands.
     leistungen:
-      - "Persönliche und einfühlsame Beratung – telefonisch oder in einem persönlichen Gespräch vor Ort"
-      - "Abholung der verstorbenen Person sowie würdevolle Überführung vom Sterbeort zum Krematorium und anschließend zum Beisetzungsort innerhalb Deutschlands"
-      - "Fachgerechte Kühlung ab dem Zeitpunkt der Abholung"
-      - "Sorgfältige Versorgung der verstorbenen Person, Ankleiden mit Sterbehemd und würdevolle Einbettung"
-      - "Organisation der Einäscherung einschließlich der gesetzlich vorgeschriebenen zweiten Leichenschau sowie aller anfallenden Leistungen des Krematoriums"
-      - "Sichere Verwahrung der Urne bis zum Termin der Beisetzung"
-      - "Anmeldung der Beisetzung und Überführung der Urne zum gewünschten Friedhof oder Beisetzungsort"
-      - "Erledigung der Formalitäten beim Standesamt, einschließlich Sterbefallanzeige und Beantragung einer Sterbeurkunde"
-      - "Abmeldung bei Krankenkasse und Rentenversicherung sowie – sofern möglich – Beantragung des Sterbevierteljahres (dreimonatige Übergangsrente für Witwen und Witwer)"
-      - "Auf Wunsch: Beschaffung fehlender Unterlagen wie Eheurkunde oder Scheidungsurteil innerhalb Deutschlands (Aufpreis 50 €)"
+      - Persönliche und einfühlsame Beratung – telefonisch oder in einem persönlichen Gespräch vor Ort
+      - Abholung der verstorbenen Person sowie würdevolle Überführung vom Sterbeort zum Krematorium und anschließend zum Beisetzungsort innerhalb Deutschlands
+      - Fachgerechte Kühlung ab dem Zeitpunkt der Abholung
+      - Sorgfältige Versorgung der verstorbenen Person, Ankleiden mit Sterbehemd und würdevolle Einbettung
+      - Organisation der Einäscherung einschließlich der gesetzlich vorgeschriebenen zweiten Leichenschau sowie aller anfallenden Leistungen des Krematoriums
+      - Sichere Verwahrung der Urne bis zum Termin der Beisetzung
+      - Anmeldung der Beisetzung und Überführung der Urne zum gewünschten Friedhof oder Beisetzungsort
+      - Erledigung der Formalitäten beim Standesamt, einschließlich Sterbefallanzeige und Beantragung einer Sterbeurkunde
+      - Abmeldung bei Krankenkasse und Rentenversicherung sowie – sofern möglich – Beantragung des Sterbevierteljahres (dreimonatige Übergangsrente für Witwen und Witwer)
+      - 'Auf Wunsch: Beschaffung fehlender Unterlagen wie Eheurkunde oder Scheidungsurteil innerhalb Deutschlands (Aufpreis 50 €)'
     lieferungen:
-      - "Schlichter Einäscherungssarg inklusive Innenausstattung"
-      - "Sterbehemd"
-    hinweis: "Bei einer anonymen Bestattung erhält das Grab keine namentliche Kennzeichnung. In den meisten Fällen ist eine Teilnahme der Angehörigen an der Beisetzung nicht möglich, damit die Anonymität der Grabstätte gewahrt bleibt."
-
-# Weitere Pakete erscheinen als normale Kacheln unterhalb der drei Bestattungspakete
-# (Startseite und Preise-Seite). "beschreibung" dient auch als Teaser-Text,
-# Leistungsliste und weiterer Text sind optional und nur auf der Preise-Seite zu sehen.
+      - Schlichter Einäscherungssarg inklusive Innenausstattung
+      - Sterbehemd
+    hinweis: Bei einer anonymen Bestattung erhält das Grab keine namentliche Kennzeichnung. In den meisten Fällen ist eine Teilnahme der Angehörigen an der Beisetzung nicht möglich, damit die Anonymität der Grabstätte gewahrt bleibt.
 weitere:
-  - name: "Paket „Abschiedsfeier“"
-    tag: "Zusatzpaket"
-    preis: "650,00 €"
-    beschreibung: "Jeder Mensch ist einzigartig – und genauso individuell sollte auch der Abschied gestaltet werden. Ob mit einer persönlichen Trauerrede, eigenen Worten der Familie oder einer schlichten musikalischen Abschiedsfeier – wir begleiten Sie bei der Planung und Umsetzung einer würdevollen Zeremonie."
-    leistungen_titel: "Das Paket beinhaltet"
+  - name: Paket „Abschiedsfeier“
+    tag: Zusatzpaket
+    preis: 650,00 €
+    beschreibung: Jeder Mensch ist einzigartig – und genauso individuell sollte auch der Abschied gestaltet werden. Ob mit einer persönlichen Trauerrede, eigenen Worten der Familie oder einer schlichten musikalischen Abschiedsfeier – wir begleiten Sie bei der Planung und Umsetzung einer würdevollen Zeremonie.
+    leistungen_titel: Das Paket beinhaltet
     leistungen:
-      - "Persönliche Organisation und Begleitung der Abschiedsfeier"
-      - "Feierdauer von ca. 30 Minuten"
-      - "Gedrucktes Foto im Format A3, gerahmt (Leihrahmen) und auf einer Staffelei präsentiert"
-      - "Schlichte und stilvolle Dekoration inklusive Blütenblättern"
-      - "Vorbereitung der gewünschten Musik sowie Bereitstellung einer Musikanlage"
-      - "Terminabstimmung mit dem Feierort"
-      - "Individuelle Beratung und Unterstützung bei der Gestaltung der Abschiedsfeier"
-    text: "Auf Wunsch organisieren wir auch zusätzlichen Blumenschmuck, Kerzen, besondere Rituale oder weitere persönliche Elemente. Dafür arbeiten wir mit zuverlässigen regionalen Partnern zusammen. Über eventuell entstehende Zusatzkosten informieren wir Sie selbstverständlich im Voraus und transparent."
-
-  - name: "Individuelles Wunschpaket"
-    tag: "Individuell"
-    preis: "Preis auf Anfrage"
-    beschreibung: "Sie haben besondere Wünsche oder möchten einzelne Leistungen ganz nach Ihren Vorstellungen gestalten? Kein Problem. Gemeinsam finden wir eine passende und würdevolle Lösung, die Ihren persönlichen Bedürfnissen entspricht."
-    text: "Sprechen Sie uns einfach an – wir nehmen uns Zeit für Ihre Anliegen und setzen alles daran, Ihre Wünsche nach Möglichkeit zu erfüllen. Gerne erstellen wir Ihnen ein individuelles Angebot, das genau auf Ihre Vorstellungen und Anforderungen abgestimmt ist."
+      - Persönliche Organisation und Begleitung der Abschiedsfeier
+      - Feierdauer von ca. 30 Minuten
+      - Gedrucktes Foto im Format A3, gerahmt (Leihrahmen) und auf einer Staffelei präsentiert
+      - Schlichte und stilvolle Dekoration inklusive Blütenblättern
+      - Vorbereitung der gewünschten Musik sowie Bereitstellung einer Musikanlage
+      - Terminabstimmung mit dem Feierort
+      - Individuelle Beratung und Unterstützung bei der Gestaltung der Abschiedsfeier
+    text: Auf Wunsch organisieren wir auch zusätzlichen Blumenschmuck, Kerzen, besondere Rituale oder weitere persönliche Elemente. Dafür arbeiten wir mit zuverlässigen regionalen Partnern zusammen. Über eventuell entstehende Zusatzkosten informieren wir Sie selbstverständlich im Voraus und transparent.
+  - name: Individuelles Wunschpaket
+    tag: Individuell
+    preis: Preis auf Anfrage
+    beschreibung: Sie haben besondere Wünsche oder möchten einzelne Leistungen ganz nach Ihren Vorstellungen gestalten? Kein Problem. Gemeinsam finden wir eine passende und würdevolle Lösung, die Ihren persönlichen Bedürfnissen entspricht.
+    text: Sprechen Sie uns einfach an – wir nehmen uns Zeit für Ihre Anliegen und setzen alles daran, Ihre Wünsche nach Möglichkeit zu erfüllen. Gerne erstellen wir Ihnen ein individuelles Angebot, das genau auf Ihre Vorstellungen und Anforderungen abgestimmt ist.
