@@ -109,15 +109,24 @@ collections:
                 widget: list
                 field: { name: text, label: "Lieferung", widget: text }
               - { name: hinweis, label: "Hinweis (optional)", widget: text, required: false, hint: "Erscheint unter den Leistungen, z. B. der Hinweis zur Anonymität." }
-          - name: wunschpaket
-            label: "Wunschpaket (breite Karte unter den Paketen)"
-            widget: object
+          - name: weitere
+            label: "Weitere Pakete (breite Karten unter den Spalten)"
+            label_singular: "Weiteres Paket"
+            widget: list
+            summary: "{{fields.name}} – {{fields.preis}}"
             fields:
               - { name: name, label: "Name", widget: string }
-              - { name: tag, label: "Tag", widget: string, hint: "Kleine Zeile über dem Namen, z. B. Individuell" }
-              - { name: preis, label: "Preis-Angabe", widget: string, hint: "z. B. Preis auf Anfrage" }
+              - { name: tag, label: "Tag", widget: string, hint: "Kleine Zeile über dem Namen, z. B. Individuell oder Zusatzpaket" }
+              - { name: preis, label: "Preis-Angabe", widget: string, hint: "z. B. ab 650 € oder Preis auf Anfrage" }
               - { name: beschreibung, label: "Beschreibung", widget: text, hint: "Erscheint auch als Teaser auf der Startseite." }
-              - { name: text, label: "Weiterer Text", widget: text, hint: "Erscheint nur auf der Preise-Seite." }
+              - { name: leistungen_titel, label: "Überschrift der Leistungsliste", widget: string, required: false, hint: "z. B. Das Paket beinhaltet" }
+              - name: leistungen
+                label: "Leistungen (optional)"
+                label_singular: "Leistung"
+                widget: list
+                required: false
+                field: { name: text, label: "Leistung", widget: text }
+              - { name: text, label: "Weiterer Text (optional)", widget: text, required: false, hint: "Erscheint nur auf der Preise-Seite." }
 
   # ───────────────────────────────────────────────────────────────────────────
   #  3) Seiten-Texte
