@@ -1,7 +1,7 @@
 pakete:
   - name: Feuerbestattung Basis Paket
     art: Feuerbestattung
-    stufe: Standard
+    stufe: Basis
     preis: 2.750,00 €
     preis_zusatz: inkl. 19 % MwSt **
     beschreibung: Die Einäscherung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
@@ -32,7 +32,7 @@ pakete:
       (zuzüglich Auslagen wie Sterbeurkunden, Arztkosten und Friedhofsgebühren)
   - name: Erdbestattung Basis Paket
     art: Erdbestattung
-    stufe: Standard
+    stufe: Basis
     preis: 2.800,00 €
     preis_zusatz: inkl. 19 % MwSt **
     beschreibung: Die Erdbestattung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
