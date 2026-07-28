@@ -1,84 +1,101 @@
 pakete:
-  - name: Feuerbestattung StandardPaket
+  - name: Feuerbestattung Basis Paket
     art: Feuerbestattung
     stufe: Standard
-    preis: 2.250,00 €
+    preis: 2.750,00 €
     preis_zusatz: inkl. 19 % MwSt **
     beschreibung: Die Einäscherung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
-      - Beratung zur Feuerbestattung. Die Trauerfeier ist optional. Enthalten sind die Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik sowie die Terminabstimmung mit Behörden, Pfarramt und Organist.
-      - Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken
-      - Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg
-      - Aufbewahrung in einem Kühlraum *
-      - Zwei Tage Abschiednahme in einem Aufbahrungsraum am Hauptfriedhof
-      - Überführung zum Krematorium in Saußheim sowie Rückholung der Aschenkapsel
-      - Vorbereitung und Gestaltung der Trauer- bzw. Urnenabschiedsfeier inkl. Katafalkdecke, Tüchern, Kerzen und Blumenschmuck
-      - Überführung der Urne zu einem Friedhof in Freiburg und Umgebung
-      - Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)
-      - 'Auf Wunsch: Beschaffung fehlender Unterlagen wie Eheurkunde oder Scheidungsurteil innerhalb Deutschlands (Aufpreis 50 €)'
+      - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort
+      - Überführung vom Sterbeort in Freiburg und Umgebung inkl. Überführungstrage mit Hygienelaken
+      - Hygienische Grundversorgung, Einkleiden in ein Sterbehemd oder in eigene Kleidung sowie die würdevolle Einbettung
+      - Kühlkosten für die ersten 5 Tage ab Abholung – jeder weitere Tag 50 Euro
+      - Schlichter Kiefernholzsarg für die Einäscherung inklusive Innenausstattung
+      - Überführung zum Krematorium Südbaden, Rückholung der Aschenkapsel
+      - Kosten für das Krematorium Südbaden sowie für die gesetzlich vorgeschriebene zweite Leichenschau
+      - Verwahrung der Urne bis zur Beisetzung
+      - Überführung der Urne in Freiburg und Umgebung
+      - Anmeldung, Überführung und vollständige Terminkoordination mit dem jeweiligen Beisetzungsort
+      - Anzeige des Sterbefalls beim zuständigen Standesamt sowie Beantragung einer Sterbeurkunde
+      - Abmeldung bei der Krankenkasse und der Rentenversicherung sowie ggf. Beantragung der dreimonatigen Übergangsrente für Witwen oder Witwer
+      - Einfache Schmuckurne – hier geht es zu unserer Urnenauswahl für Urnen mit Aufpreis
+      - 'Optional: Beschaffung fehlender Dokumente innerhalb Deutschlands, z. B. einer Eheurkunde oder eines Scheidungsurteils, gegen einen Aufpreis von 100 Euro'
     lieferungen:
       - Schlichter Kiefernsarg
       - Herren- oder Damentalar in Weiß
       - Schlichte Decke und Kissen aus Viskose mit Volant in Weiß
       - Urnenkapsel
       - Schmuckurne (Naturstoff, einfach)
-    hinweis: '**Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.'
-  - name: Erdbestattung StandardPaket
+    hinweis: |-
+      **Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.
+
+      (zuzüglich Auslagen wie Sterbeurkunden, Arztkosten und Friedhofsgebühren)
+  - name: Erdbestattung Basis Paket
     art: Erdbestattung
     stufe: Standard
     preis: 2.800,00 €
     preis_zusatz: inkl. 19 % MwSt **
     beschreibung: Die Erdbestattung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
-      - Beratung zur Erdbestattung. Die Trauerfeier ist optional. Enthalten sind die Grab- und Friedhofswahl, Sarg, Blumenschmuck, Dekoration, Trauermusik sowie die Terminabstimmung mit Behörden, Pfarramt und Organist.
-      - Überführung vom Sterbeort in Freiburg und Umgebung (Gundelfingen, Heuweiler, Denzlingen, Vörstetten, March, Umkirch, Merzhausen, Au, Ebringen, Schallstadt), inkl. Überführungstrage mit Hygienelaken
-      - Hygienische Grundversorgung, Ankleiden mit Sterbetalar oder eigener Kleidung, Einbetten in den Sarg
-      - Aufbewahrung in einem Kühlraum *
-      - Zwei Tage Abschiednahme in einem Aufbahrungsraum am Hauptfriedhof
-      - Überführung zu einem Friedhof in Freiburg und Umgebung
-      - Vorbereitung und Gestaltung der Trauerfeier vor der Beerdigung inkl. Katafalkdecke, Tüchern, Kerzen und Blumenschmuck
-      - Erledigung sämtlicher Formalitäten (Standesamt, Krankenkasse, Rente, Übergangsrente)
+      - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort
+      - Überführung vom Sterbeort in Freiburg und Umgebung inkl. Überführungstrage mit Hygienelaken
+      - Hygienische Grundversorgung, Einkleiden in ein Sterbehemd oder in eigene Kleidung sowie die würdevolle Einbettung
+      - Kühlkosten für die ersten 5 Tage ab Abholung – jeder weitere Tag 50 Euro
+      - Schlichter Kiefernholzsarg mit 6 Griffen inklusive Innenausstattung – hier geht es zu unserer Sargauswahl für Särge mit Aufpreis
+      - Überführung zum Bestattungsort
+      - Anmeldung, Überführung und vollständige Terminkoordination mit dem jeweiligen Beisetzungsort
+      - Anzeige des Sterbefalls beim zuständigen Standesamt sowie Beantragung einer Sterbeurkunde
+      - Abmeldung bei der Krankenkasse und der Rentenversicherung sowie ggf. Beantragung der dreimonatigen Übergangsrente für Witwen oder Witwer
+      - 'Optional: Beschaffung fehlender Dokumente innerhalb Deutschlands, z. B. einer Eheurkunde oder eines Scheidungsurteils, gegen einen Aufpreis von 100 Euro'
     lieferungen:
       - Kiefernsarg, Vollholz, gebeizt, mit Kehlung im Oberteil und vier Griffen, Innenausschlag aus Viskose
       - Herren- oder Damentalar in Weiß
       - Schlichte Decke und Kissen aus Viskose mit Volant in Weiß
       - 'Auf Wunsch: Beschaffung fehlender Unterlagen wie Eheurkunde oder Scheidungsurteil innerhalb Deutschlands (Aufpreis 50 €)'
-    hinweis: '**Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.'
-  - name: Komfortpaket Anonyme Bestattung
+    hinweis: |-
+      **Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.
+
+      (zuzüglich Auslagen wie Sterbeurkunden, Arztkosten und Friedhofsgebühren)
+  - name: Feuerbestattung Anonym
     art: Feuerbestattung
     stufe: Anonym
     preis: 3.000,00 €
     preis_zusatz: inkl. 19 % MwSt ***
     beschreibung: Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung vom Sterbeort in Freiburg und Umgebung.
     leistungen:
-      - Persönliche und einfühlsame Beratung – telefonisch oder in einem persönlichen Gespräch vor Ort
-      - Abholung der verstorbenen Person sowie würdevolle Überführung vom Sterbeort zum Krematorium und anschließend zum Beisetzungsort innerhalb Freiburg und Umgebung.
-      - Fachgerechte Kühlung ab dem Zeitpunkt der Abholung
-      - Sorgfältige Versorgung der verstorbenen Person, Ankleiden mit Sterbehemd und würdevolle Einbettung
-      - Organisation der Einäscherung einschließlich der gesetzlich vorgeschriebenen zweiten Leichenschau sowie aller anfallenden Leistungen des Krematoriums
-      - Sichere Verwahrung der Urne bis zum Termin der Beisetzung
-      - Anmeldung der Beisetzung und Überführung der Urne zum gewünschten Friedhof oder Beisetzungsort
-      - Erledigung der Formalitäten beim Standesamt, einschließlich Sterbefallanzeige und Beantragung einer Sterbeurkunde
-      - Abmeldung bei Krankenkasse und Rentenversicherung sowie – sofern möglich – Beantragung des Sterbevierteljahres (dreimonatige Übergangsrente für Witwen und Witwer)
-      - 'Auf Wunsch: Beschaffung fehlender Unterlagen wie Eheurkunde oder Scheidungsurteil innerhalb Deutschlands (Aufpreis 50 €)'
+      - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort
+      - Überführung vom Sterbeort in Freiburg und Umgebung inkl. Überführungstrage mit Hygienelaken
+      - Hygienische Grundversorgung, Einkleiden in ein Sterbehemd oder in eigene Kleidung sowie die würdevolle Einbettung
+      - Kühlkosten für die ersten 5 Tage ab Abholung – jeder weitere Tag 50 Euro
+      - Schlichter Kiefernholzsarg für die Einäscherung inklusive Innenausstattung
+      - Überführung zum Krematorium Südbaden, Rückholung der Aschenkapsel
+      - Kosten für das Krematorium Südbaden sowie für die gesetzlich vorgeschriebene zweite Leichenschau
+      - Verwahrung der Urne bis zur Beisetzung
+      - Überführung der Urne zum Beisetzungsort
+      - Anonyme Beisetzung im Garten der Erinnerung
+      - Anmeldung, Überführung und vollständige Terminkoordination mit dem jeweiligen Beisetzungsort
+      - Anzeige des Sterbefalls beim zuständigen Standesamt sowie Beantragung einer Sterbeurkunde
+      - Abmeldung bei der Krankenkasse und der Rentenversicherung sowie ggf. Beantragung der dreimonatigen Übergangsrente für Witwen oder Witwer
+      - Einfache Schmuckurne – hier geht es zu unserer Urnenauswahl für Urnen mit Aufpreis
+      - 'Optional: Beschaffung fehlender Dokumente innerhalb Deutschlands, z. B. einer Eheurkunde oder eines Scheidungsurteils, gegen einen Aufpreis von 100 Euro'
     lieferungen:
       - Schlichter Einäscherungssarg inklusive Innenausstattung
       - Sterbehemd
     hinweis: |-
-      **Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.
+      **Hinweis:** Zuzüglich Auslagen wie Sterbeurkunden und Arztkosten
 
       Außerdem erhält das Grab bei einer anonymen Bestattung keine namentliche Kennzeichnung.
 weitere:
   - name: Paket „Abschiedsfeier“
     tag: Zusatzpaket
-    preis: 600,00 €
+    preis: ab 600,00 €
     beschreibung: Jeder Mensch ist einzigartig – und genauso individuell sollte auch der Abschied gestaltet werden. Ob mit einer persönlichen Trauerrede, eigenen Worten der Familie oder einer schlichten musikalischen Abschiedsfeier – wir begleiten Sie bei der Planung und Umsetzung einer würdevollen Zeremonie.
     leistungen_titel: Das Paket beinhaltet
     leistungen:
-      - Persönliche Organisation und Begleitung der Abschiedsfeier
+      - Persönliche Organisation der Abschiedsfeier
       - Feierdauer von ca. 30 Minuten
       - Gedrucktes Foto im Format A3, gerahmt (Leihrahmen) und auf einer Staffelei präsentiert
-      - Schlichte und stilvolle Dekoration inklusive Blütenblättern
+      - Schlichte und stilvolle Dekoration
       - Vorbereitung der gewünschten Musik sowie Bereitstellung einer Musikanlage
       - Terminabstimmung mit dem Feierort
       - Individuelle Beratung und Unterstützung bei der Gestaltung der Abschiedsfeier
