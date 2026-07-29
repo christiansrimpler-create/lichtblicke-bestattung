@@ -60,7 +60,7 @@ pakete:
     art: Feuerbestattung
     stufe: Anonym
     preis: 3.000,00 €
-    preis_zusatz: inkl. 19 % MwSt ***
+    preis_zusatz: inkl. 19 % MwSt
     beschreibung: Die anonyme Feuerbestattung ohne Trauerfeier – komplett organisiert inklusive Kremation, mit Überführung vom Sterbeort in Freiburg und Umgebung.
     leistungen:
       - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort
@@ -82,7 +82,7 @@ pakete:
       - Schlichter Einäscherungssarg inklusive Innenausstattung
       - Sterbehemd
     hinweis: |-
-      **Hinweis:** Zuzüglich Auslagen wie Sterbeurkunden und Arztkosten
+      Hinweis: zzgl. Auslagen wie Sterbeurkunden und Arztkosten
 
       Das Grab erhält bei einer anonymen Bestattung keine namentliche Kennzeichnung.
 weitere:
