@@ -29,7 +29,7 @@ pakete:
     hinweis: |-
       **Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.
 
-      (zuzüglich Auslagen wie Sterbeurkunden, Arztkosten und Friedhofsgebühren)
+      (zzgl. Auslagen wie Sterbeurkunden, Arztkosten und Friedhofsgebühren)
   - name: Erdbestattung Basis Paket
     art: Erdbestattung
     stufe: Basis
@@ -55,7 +55,7 @@ pakete:
     hinweis: |-
       **Hinweis:** Die Kosten für den Beisetzungsort sind nicht im Preis enthalten, da sie je nach Friedhof und Bestattungsart variieren. Wir beraten Sie individuell und finden gemeinsam die passende Lösung.
 
-      (zuzüglich Auslagen wie Sterbeurkunden, Arztkosten und Friedhofsgebühren)
+      (zzgl. Auslagen wie Sterbeurkunden, Arztkosten und Friedhofsgebühren)
   - name: Feuerbestattung Anonym
     art: Feuerbestattung
     stufe: Anonym
