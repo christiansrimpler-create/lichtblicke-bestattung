@@ -3,7 +3,7 @@ pakete:
     art: Feuerbestattung
     stufe: Basis
     preis: 2.750,00 €
-    preis_zusatz: inkl. 19 % MwSt **
+    preis_zusatz: inkl. 19 % MwSt
     beschreibung: Die Einäscherung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
       - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort
@@ -34,7 +34,7 @@ pakete:
     art: Erdbestattung
     stufe: Basis
     preis: 2.800,00 €
-    preis_zusatz: inkl. 19 % MwSt **
+    preis_zusatz: inkl. 19 % MwSt
     beschreibung: Die Erdbestattung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
       - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort

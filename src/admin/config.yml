@@ -291,11 +291,6 @@ collections:
           - { name: spalte_leistungen, label: "Spaltentitel „Leistungen“", widget: string }
           - { name: spalte_lieferungen, label: "Spaltentitel „Lieferungen“", widget: string }
           - { name: button_paket, label: "Button-Text je Paket", widget: string }
-          - name: fussnote
-            label: "Fußnoten (* / **)"
-            label_singular: "Fußnote"
-            widget: list
-            field: { name: zeile, label: "Zeile", widget: text }
           - { name: schluss, label: "Schluss-Absatz", widget: text }
 
       # ── Impressum ────────────────────────────────────────────────────────────
