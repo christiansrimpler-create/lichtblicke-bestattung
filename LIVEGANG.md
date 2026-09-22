@@ -24,10 +24,13 @@ einzigen Klick von der alten auf die neue Website umgeschaltet.
    das Passwort legt man selbst fest. **Beides aufschreiben.**
    *Wozu? Mit diesem Zugang darf unser System die neue Website automatisch
    auf den Strato-Speicher legen. Kein Mensch muss damit je arbeiten.*
-3. Im Menü **„Mein Vertrag"** (oder „Verträge") nach **„Auftragsverarbeitung"**
-   bzw. **„AVV"** suchen und online abschließen.
+3. *(Vorerst zurückgestellt, bitte nachholen:)* Im Menü **„Mein Vertrag"**
+   (oder „Verträge") nach **„Auftragsverarbeitung"** bzw. **„AVV"** suchen und
+   online abschließen.
    *Wozu? Ein Standard-Datenschutzvertrag mit Strato, Pflicht für jede
-   Firmen-Website. Zwei Klicks, kostet nichts.*
+   Firmen-Website. Falls der Menüpunkt fehlt: kurz beim Strato-Support
+   anrufen – die schicken den Vertrag auch direkt. Sobald er abgeschlossen
+   ist, ergänzen wir den Hinweis dazu wieder in der Datenschutzerklärung.*
 4. **Drei Angaben an Christian geben** – am besten am Telefon oder über
    einen Passwort-Manager, nicht einfach in eine E-Mail schreiben:
    - Servername (steht bei den FTP-Zugängen, meist `ftp.strato.de`)
