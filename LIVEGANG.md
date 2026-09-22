@@ -25,9 +25,8 @@ laufenden Betrieb.
 1. **FTP-Zugang anlegen:** Hosting-Paket öffnen → „Sicherheit" →
    „FTP-Zugänge" (je nach Paket „Passwörter festlegen"). Eigenen
    FTP-Benutzer anlegen, Benutzername + Passwort notieren.
-2. **SSL aktivieren:** „Domains" → Domainverwaltung → bei
-   `lichtblicke-bestattung.de` „SSL verwalten" → Zertifikat inkl. `www`
-   aktivieren. (Kann sofort passieren, unabhängig vom Go-Live.)
+2. **SSL prüfen:** Ist bereits aktiv (die alte Seite läuft über HTTPS) –
+   nur kontrollieren, dass das Zertifikat auch die `www`-Variante abdeckt.
 3. **AVV abschließen:** Kundenbereich → „Mein Vertrag"/„Verträge" →
    Vertrag zur Auftragsverarbeitung online abschließen. (Darauf verweist
    unsere Datenschutzerklärung.)
@@ -59,9 +58,11 @@ Alternativ per CLI: `gh secret set STRATO_FTP_SERVER` usw.
 
 ## Phase 4 – Go-Live: Domain umstellen
 
-**Vorher klären:** Liegt die alte WordPress-Seite im selben Strato-Paket?
-Dann ist der Umzug nur ein Ordnerwechsel. Die Weiterleitungen für alle
-bekannten alten URLs sind bereits in `src/.htaccess` hinterlegt (Phase 0).
+Die alte WordPress-Seite liegt im **selben Strato-Paket** – der Go-Live ist
+also nur ein Ordnerwechsel in der Domainverwaltung, ohne DNS-Änderung und
+ohne Wartezeit. **Rollback jederzeit möglich:** Domain einfach wieder auf
+den WordPress-Ordner zeigen lassen. Die Weiterleitungen für alle bekannten
+alten URLs sind bereits in `src/.htaccess` hinterlegt (Phase 0).
 
 1. Kollege: „Domains" → Domainverwaltung → `lichtblicke-bestattung.de`
    → Verwendungsart „Webspace" → Zielverzeichnis **`/lichtblicke-bestattung`**
@@ -92,6 +93,11 @@ bekannten alten URLs sind bereits in `src/.htaccess` hinterlegt (Phase 0).
 - Nach einigen Tagen in der Search Console kontrollieren, ob die Seite
   indexiert wird und keine 404-Fehler von alten URLs auflaufen (falls doch:
   301-Weiterleitungen in `src/.htaccess` nachziehen).
+- **Altes WordPress aufräumen** (nach ein paar Wochen Sicherheitsabstand):
+  Die WordPress-Installation liegt weiter im alten Ordner auf dem Webspace.
+  Ungenutzt und ohne Updates ist sie ein Sicherheitsrisiko – Backup ziehen
+  (Dateien + Datenbank) und dann vom Webspace löschen bzw. mindestens
+  sicherstellen, dass keine Domain/Subdomain mehr darauf zeigt.
 
 ## Laufender Betrieb (unverändert zum bisherigen Workflow)
 
