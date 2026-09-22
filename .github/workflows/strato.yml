@@ -1,0 +1,58 @@
+name: Website bauen und zu Strato hochladen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: strato
+  cancel-in-progress: true
+
+# Zielordner auf dem Strato-Webspace. In der Strato-Verwaltung muss die Domain
+# www.lichtblicke-bestattung.de auf genau diesen Ordner zeigen.
+env:
+  ZIELORDNER: /lichtblicke-bestattung/
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prüfen, ob die Strato-Zugangsdaten hinterlegt sind
+        id: zugang
+        env:
+          FTP_USER: ${{ secrets.STRATO_FTP_USER }}
+        run: |
+          if [ -z "$FTP_USER" ]; then
+            echo "vorhanden=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Strato-Secrets fehlen noch (STRATO_FTP_SERVER / STRATO_FTP_USER / STRATO_FTP_PASSWORT) – Upload wird übersprungen."
+          else
+            echo "vorhanden=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.zugang.outputs.vorhanden == 'true'
+      - uses: actions/setup-node@v4
+        if: steps.zugang.outputs.vorhanden == 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        if: steps.zugang.outputs.vorhanden == 'true'
+
+      # Ohne PATH_PREFIX baut Eleventy für die Root-Domain – damit entfällt
+      # das noindex automatisch und die Seite ist indexierbar (siehe
+      # eleventy.config.js). site_url steht in einstellungen.yaml.
+      - run: npx eleventy
+        if: steps.zugang.outputs.vorhanden == 'true'
+
+      - name: Per FTPS zu Strato hochladen
+        if: steps.zugang.outputs.vorhanden == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.STRATO_FTP_SERVER }}
+          username: ${{ secrets.STRATO_FTP_USER }}
+          password: ${{ secrets.STRATO_FTP_PASSWORT }}
+          protocol: ftps
+          local-dir: _site/
+          server-dir: ${{ env.ZIELORDNER }}

@@ -64,15 +64,31 @@ git add -A && git commit -m "Inhalt aktualisiert" && git push
 - **Datenschutzerklärung** rechtlich prüfen lassen.
 - **Karte** auf dem Kontaktbereich: Marker-Koordinaten ggf. exakt setzen.
 
-### Beim Domain-Umzug (SEO)
+## Hosting auf Strato (Produktion)
 
-Solange die Seite unter dem GitHub-Pages-Unterpfad läuft, ist sie bewusst auf
-`noindex` gesetzt (reine Kundenvorschau). Beim Wechsel auf die echte Domain:
+Der Workflow `.github/workflows/strato.yml` baut die Seite bei jedem Push für
+die Root-Domain (dadurch automatisch **indexierbar**, im Gegensatz zur
+GitHub-Pages-Vorschau) und lädt `_site/` per FTPS auf den Strato-Webspace.
+Die GitHub-Pages-Vorschau unter dem Unterpfad bleibt parallel bestehen
+(weiterhin `noindex`).
 
-- `PATH_PREFIX` in `.github/workflows/pages.yml` auf `/` setzen → entfernt
-  automatisch das `noindex` und macht die Seite indexierbar.
-- `site_url` in `src/_data/einstellungen.yaml` auf die echte Domain ändern
-  (wirkt auf Canonical, Sitemap und Social-Vorschau).
+Einmalig einzurichten:
+
+1. In der **Strato-Verwaltung** einen FTP-Zugang anlegen bzw. das
+   Master-Passwort setzen (Sicherheit → FTP-Zugänge).
+2. Im GitHub-Repo unter *Settings → Secrets and variables → Actions* drei
+   Secrets anlegen: `STRATO_FTP_SERVER` (in der Regel `ftp.strato.de`),
+   `STRATO_FTP_USER`, `STRATO_FTP_PASSWORT`. Ohne diese Secrets überspringt
+   der Workflow den Upload mit einem Hinweis (kein Fehler).
+3. In der Strato-Verwaltung die Domain `www.lichtblicke-bestattung.de` auf den
+   Ordner `/lichtblicke-bestattung/` zeigen lassen (muss zum `ZIELORDNER` im
+   Workflow passen) und das **SSL-Zertifikat** für die Domain aktivieren.
+4. Danach einen Deploy anstoßen (Push oder in Actions „Run workflow“) und
+   prüfen: `https://www.lichtblicke-bestattung.de` lädt, `http://…` und die
+   Variante ohne `www` leiten per 301 weiter (Regeln in `src/.htaccess`).
+
+### Nach dem Livegang (SEO)
+
 - **Sitemap** (`/sitemap.xml`) in der **Google Search Console** einreichen.
 - **Titel & Meta-Descriptions** fürs lokale SEO optimieren (Stichwort „Freiburg“
   / „Bestatter“) – z. B. Start: „Bestatter Freiburg – würdevoll & bezahlbar“.

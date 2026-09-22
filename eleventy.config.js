@@ -13,6 +13,9 @@ export default function (eleventyConfig) {
   // Statische Dateien (Bilder, CSS, JS) unverändert übernehmen
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
+  // Apache-Konfiguration für den Strato-Webspace (Weiterleitungen, Caching)
+  eleventyConfig.addPassthroughCopy({ "src/.htaccess": ".htaccess" });
+
   // CMS (Sveltia): Admin-Oberfläche & Konfiguration 1:1 übernehmen. Die
   // index.html wird vom Template-Build ausgenommen, damit sie nicht durch
   // die Nunjucks-Engine läuft, sondern unverändert kopiert wird.
