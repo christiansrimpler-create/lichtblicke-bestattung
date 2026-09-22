@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 # Zielordner auf dem Strato-Webspace. In der Strato-Verwaltung muss die Domain
-# www.lichtblicke-bestattung.de auf genau diesen Ordner zeigen.
+# lichtblicke-bestattung.de (mit und ohne www) auf genau diesen Ordner zeigen.
 env:
   ZIELORDNER: /lichtblicke-bestattung/
 

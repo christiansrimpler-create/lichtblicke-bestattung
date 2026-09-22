@@ -80,12 +80,13 @@ Einmalig einzurichten:
    Secrets anlegen: `STRATO_FTP_SERVER` (in der Regel `ftp.strato.de`),
    `STRATO_FTP_USER`, `STRATO_FTP_PASSWORT`. Ohne diese Secrets überspringt
    der Workflow den Upload mit einem Hinweis (kein Fehler).
-3. In der Strato-Verwaltung die Domain `www.lichtblicke-bestattung.de` auf den
+3. In der Strato-Verwaltung die Domain `lichtblicke-bestattung.de` (mit und ohne
+   www) auf den
    Ordner `/lichtblicke-bestattung/` zeigen lassen (muss zum `ZIELORDNER` im
    Workflow passen) und das **SSL-Zertifikat** für die Domain aktivieren.
 4. Danach einen Deploy anstoßen (Push oder in Actions „Run workflow“) und
-   prüfen: `https://www.lichtblicke-bestattung.de` lädt, `http://…` und die
-   Variante ohne `www` leiten per 301 weiter (Regeln in `src/.htaccess`).
+   prüfen: `https://lichtblicke-bestattung.de` lädt, `http://…` und die
+   Variante mit `www` leiten per 301 weiter (Regeln in `src/.htaccess`).
 
 ### Nach dem Livegang (SEO)
 

@@ -6,13 +6,36 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
-# HTTPS und www in einer einzigen 301-Weiterleitung erzwingen
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.lichtblicke-bestattung.de%{REQUEST_URI} [R=301,L]
+# ── Alte WordPress-URLs auf die neuen Seiten weiterleiten ────────────────────
+# Die alte Seite lief ohne sprechende URLs (Query-String-Permalinks).
+# Zuordnung der page_ids, Stand Sept. 2026:
+RewriteCond %{QUERY_STRING} (^|&)page_id=17(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/? [R=301,L]
+RewriteCond %{QUERY_STRING} (^|&)page_id=18(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/ueber-uns/? [R=301,L]
+RewriteCond %{QUERY_STRING} (^|&)page_id=19(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/kontakt/? [R=301,L]
+RewriteCond %{QUERY_STRING} (^|&)page_id=61(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/datenschutz/? [R=301,L]
+RewriteCond %{QUERY_STRING} (^|&)page_id=66(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/impressum/? [R=301,L]
+RewriteCond %{QUERY_STRING} (^|&)page_id=67(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/bestattung-im-wandel/? [R=301,L]
+RewriteCond %{QUERY_STRING} (^|&)page_id=94(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/preise/? [R=301,L]
+# Übrige alte Beitrags-/Archiv-Links (die Pakete lagen in WP-Beiträgen) → Preise
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id|cat)=\d+(&|$)
+RewriteRule ^ https://lichtblicke-bestattung.de/preise/? [R=301,L]
 
-# Browser-Caching: Schriften/Bilder lange (ändern sich selten), CSS/JS mittel
-# (werden per ?v=… gebustet), HTML immer frisch
+# ── HTTPS erzwingen und www entfernen ────────────────────────────────────────
+# Kanonische Domain wie bei der alten Seite: OHNE www (dort liegen die
+# bestehenden Google-Signale und Verlinkungen).
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://lichtblicke-bestattung.de%{REQUEST_URI} [R=301,L]
+
+# ── Browser-Caching: Schriften/Bilder lange, CSS/JS mittel (per ?v=… gebustet),
+#    HTML immer frisch ──
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType font/woff2 "access plus 1 year"

@@ -9,9 +9,12 @@ laufenden Betrieb.
 - [x] Deploy-Workflow `.github/workflows/strato.yml`: baut bei jedem Push für
   die Root-Domain (indexierbar) und lädt `_site/` per FTPS zu Strato.
   Solange die Secrets fehlen, wird der Upload kommentarlos übersprungen.
-- [x] `src/.htaccess`: HTTPS + www als eine 301-Weiterleitung, 404-Seite,
-  Browser-Caching.
-- [x] `site_url` = `https://www.lichtblicke-bestattung.de` (Canonical,
+- [x] `src/.htaccess`: HTTPS erzwingen + www entfernen (eine 301-Weiterleitung),
+  404-Seite, Browser-Caching.
+- [x] 301-Weiterleitungen für alle URLs der alten WordPress-Seite
+  (`/?page_id=…` → passende neue Seite; übrige Beitrags-Links → `/preise/`).
+- [x] `site_url` = `https://lichtblicke-bestattung.de` (Canonical – ohne www,
+  wie die bisherige kanonische Domain der alten Seite,
   Sitemap, Social-Vorschau).
 - [x] Datenschutzerklärung: Hosting-Abschnitt auf Strato AG umgestellt
   (Server in Deutschland, AVV nach Art. 28 DSGVO).
@@ -57,20 +60,19 @@ Alternativ per CLI: `gh secret set STRATO_FTP_SERVER` usw.
 ## Phase 4 – Go-Live: Domain umstellen
 
 **Vorher klären:** Liegt die alte WordPress-Seite im selben Strato-Paket?
-Dann ist der Umzug nur ein Ordnerwechsel. Falls alte URLs bei Google gut
-ranken (Search Console der alten Seite prüfen), vorher eine Liste der
-wichtigsten alten Pfade besorgen – dafür ergänzen wir 301-Weiterleitungen
-in `src/.htaccess`, damit kein Ranking verloren geht.
+Dann ist der Umzug nur ein Ordnerwechsel. Die Weiterleitungen für alle
+bekannten alten URLs sind bereits in `src/.htaccess` hinterlegt (Phase 0).
 
-1. Kollege: „Domains" → Domainverwaltung → `www.lichtblicke-bestattung.de`
+1. Kollege: „Domains" → Domainverwaltung → `lichtblicke-bestattung.de`
    → Verwendungsart „Webspace" → Zielverzeichnis **`/lichtblicke-bestattung`**
    (muss zum `ZIELORDNER` in `.github/workflows/strato.yml` passen).
-   Gleiches für die Domain ohne `www`. **Damit ist die alte Seite offline
+   Gleiches für die Variante mit `www`. **Damit ist die alte Seite offline
    und die neue live.**
 2. Direkt danach durchtesten:
-   - `https://www.lichtblicke-bestattung.de` lädt die neue Seite
-   - `http://…` und die Variante ohne `www` leiten per 301 auf
-     `https://www.…` weiter
+   - `https://lichtblicke-bestattung.de` lädt die neue Seite
+   - `http://…` und die Variante mit `www` leiten per 301 auf
+     `https://lichtblicke-bestattung.de` weiter
+   - eine alte URL wie `/?page_id=18` leitet per 301 auf `/ueber-uns/`
    - `/sitemap.xml` und `/robots.txt` erreichbar
    - eine nicht existierende URL zeigt die eigene 404-Seite
    - Quelltext der Startseite: **kein** `noindex`, Canonical zeigt auf die
