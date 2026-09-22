@@ -46,13 +46,19 @@ jobs:
       - run: npx eleventy
         if: steps.zugang.outputs.vorhanden == 'true'
 
-      - name: Per FTPS zu Strato hochladen
+      # Der Strato-Zugang ist ein SFTP-Zugang (SSH), daher Upload per lftp-Spiegelung:
+      # überträgt nur geänderte Dateien und entfernt nicht mehr vorhandene –
+      # ausschließlich innerhalb des Zielordners.
+      - name: Per SFTP zu Strato hochladen
         if: steps.zugang.outputs.vorhanden == 'true'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.STRATO_FTP_SERVER }}
-          username: ${{ secrets.STRATO_FTP_USER }}
-          password: ${{ secrets.STRATO_FTP_PASSWORT }}
-          protocol: ftps
-          local-dir: _site/
-          server-dir: ${{ env.ZIELORDNER }}
+        env:
+          SERVER: ${{ secrets.STRATO_FTP_SERVER }}
+          BENUTZER: ${{ secrets.STRATO_FTP_USER }}
+          PASSWORT: ${{ secrets.STRATO_FTP_PASSWORT }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+          lftp -u "$BENUTZER","$PASSWORT" "sftp://$SERVER" -e "
+            set sftp:auto-confirm yes;
+            mirror -R --delete --parallel=4 --verbose _site/ $ZIELORDNER;
+            quit"
