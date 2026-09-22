@@ -1,109 +1,91 @@
-# Livegang auf Strato – Komplettanleitung
+# So bringen wir die neue Website online – einfache Anleitung
 
-Stand: September 2026. Die technische Vorbereitung im Repo ist abgeschlossen –
-dieser Plan führt von hier bis zur live geschalteten Domain und in den
-laufenden Betrieb.
+Stand: September 2026. Ohne Fachbegriffe – jeder Schritt sagt, wer ihn macht.
 
-## Phase 0 – Bereits erledigt (Repo-Seite)
+**Die Idee in einem Satz:** Die neue Website wird zuerst unsichtbar auf den
+Strato-Speicher gelegt, gründlich geprüft – und ganz am Ende wird mit einem
+einzigen Klick von der alten auf die neue Website umgeschaltet.
 
-- [x] Deploy-Workflow `.github/workflows/strato.yml`: baut bei jedem Push für
-  die Root-Domain (indexierbar) und lädt `_site/` per FTPS zu Strato.
-  Solange die Secrets fehlen, wird der Upload kommentarlos übersprungen.
-- [x] `src/.htaccess`: HTTPS erzwingen + www entfernen (eine 301-Weiterleitung),
-  404-Seite, Browser-Caching.
-- [x] 301-Weiterleitungen für alle URLs der alten WordPress-Seite
-  (`/?page_id=…` → passende neue Seite; übrige Beitrags-Links → `/preise/`).
-- [x] `site_url` = `https://lichtblicke-bestattung.de` (Canonical – ohne www,
-  wie die bisherige kanonische Domain der alten Seite,
-  Sitemap, Social-Vorschau).
-- [x] Datenschutzerklärung: Hosting-Abschnitt auf Strato AG umgestellt
-  (Server in Deutschland, AVV nach Art. 28 DSGVO).
-- [x] Schriften lokal, keine Cookies, kein Banner nötig.
+**Wer macht was:**
+- Der Kollege mit Strato-Zugang: zwei kurze Einsätze (Teil A jetzt,
+  Teil B beim Umschalten)
+- Christian / Claude: alles Technische dazwischen
+- Die alte Website bleibt bis zum Umschalt-Klick vollständig online
 
-## Phase 1 – Kollege im Strato-Kundenbereich (ca. 15 Minuten)
+---
 
-1. **FTP-Zugang anlegen:** Hosting-Paket öffnen → „Sicherheit" →
-   „FTP-Zugänge" (je nach Paket „Passwörter festlegen"). Eigenen
-   FTP-Benutzer anlegen, Benutzername + Passwort notieren.
-2. **SSL prüfen:** Ist bereits aktiv (die alte Seite läuft über HTTPS) –
-   nur kontrollieren, dass das Zertifikat auch die `www`-Variante abdeckt.
-3. **AVV abschließen:** Kundenbereich → „Mein Vertrag"/„Verträge" →
-   Vertrag zur Auftragsverarbeitung online abschließen. (Darauf verweist
-   unsere Datenschutzerklärung.)
-4. **Drei Angaben sicher übermitteln** (Passwortmanager oder Telefon, nicht
-   unverschlüsselte E-Mail): FTP-Server (i. d. R. `ftp.strato.de`),
-   FTP-Benutzername, FTP-Passwort.
-5. **Noch NICHT die Domain umstellen** – das ist der Go-Live-Moment und
-   kommt erst in Phase 4, wenn die neue Seite fertig auf dem Webspace liegt.
+## Teil A – Vorbereitung bei Strato (Kollege, ca. 15 Minuten, jetzt)
 
-## Phase 2 – Secrets im Repo hinterlegen (5 Minuten)
+1. Auf **www.strato.de** einloggen und das Paket öffnen, in dem die
+   Website liegt.
+2. Im Menü den Punkt **„Sicherheit"** suchen, darin **„FTP-Zugänge"**
+   (heißt je nach Paket auch „Passwörter festlegen").
+   Dort einen **neuen Zugang anlegen**. Strato zeigt einen Benutzernamen an,
+   das Passwort legt man selbst fest. **Beides aufschreiben.**
+   *Wozu? Mit diesem Zugang darf unser System die neue Website automatisch
+   auf den Strato-Speicher legen. Kein Mensch muss damit je arbeiten.*
+3. Im Menü **„Mein Vertrag"** (oder „Verträge") nach **„Auftragsverarbeitung"**
+   bzw. **„AVV"** suchen und online abschließen.
+   *Wozu? Ein Standard-Datenschutzvertrag mit Strato, Pflicht für jede
+   Firmen-Website. Zwei Klicks, kostet nichts.*
+4. **Drei Angaben an Christian geben** – am besten am Telefon oder über
+   einen Passwort-Manager, nicht einfach in eine E-Mail schreiben:
+   - Servername (steht bei den FTP-Zugängen, meist `ftp.strato.de`)
+   - Benutzername
+   - Passwort
+5. **Wichtig: Sonst nichts ändern!** Besonders die Einstellungen der Domain
+   `lichtblicke-bestattung.de` nicht anfassen – die alte Website soll erst
+   offline gehen, wenn die neue fertig bereitliegt (Teil B).
 
-GitHub → Repo → *Settings → Secrets and variables → Actions* → drei
-Repository-Secrets anlegen (Namen exakt so):
+## Teil B – Der Umschalt-Klick (Kollege, 2 Minuten, erst nach Freigabe)
 
-- `STRATO_FTP_SERVER`
-- `STRATO_FTP_USER`
-- `STRATO_FTP_PASSWORT`
+Erst wenn Christian sagt: „Die neue Seite liegt bereit."
 
-Alternativ per CLI: `gh secret set STRATO_FTP_SERVER` usw.
+1. Bei Strato einloggen → Menü **„Domains"** → **„Domainverwaltung"**.
+2. Bei `lichtblicke-bestattung.de` auf **„Einstellungen"** klicken. Dort ist
+   hinterlegt, aus welchem **Ordner** die Website kommt – aktuell der Ordner
+   der alten Seite.
+3. Diesen Eintrag ändern auf: **`/lichtblicke-bestattung`**
+4. Falls `www.lichtblicke-bestattung.de` separat aufgeführt ist: dort
+   denselben Ordner eintragen.
+5. Christian Bescheid geben. **Ab diesem Moment ist die neue Seite online.**
 
-## Phase 3 – Erster Upload und Test (noch ohne Domain-Umstellung)
+*Sicherheitsnetz: Sollte irgendetwas nicht stimmen, trägt man einfach wieder
+den alten Ordner ein – dann ist sofort die alte Seite zurück.*
 
-1. Deploy anstoßen: Push aufs Repo oder GitHub → Actions →
-   „Website bauen und zu Strato hochladen" → „Run workflow".
-2. Prüfen, dass der Workflow grün ist und Dateien im Ordner
-   `/lichtblicke-bestattung/` auf dem Webspace liegen.
-3. Ab jetzt landet jeder Push (auch CMS-Änderungen des Kunden) automatisch
-   auf dem Webspace.
+---
 
-## Phase 4 – Go-Live: Domain umstellen
+## Was Christian/Claude dazwischen und danach machen
 
-Die alte WordPress-Seite liegt im **selben Strato-Paket** – der Go-Live ist
-also nur ein Ordnerwechsel in der Domainverwaltung, ohne DNS-Änderung und
-ohne Wartezeit. **Rollback jederzeit möglich:** Domain einfach wieder auf
-den WordPress-Ordner zeigen lassen. Die Weiterleitungen für alle bekannten
-alten URLs sind bereits in `src/.htaccess` hinterlegt (Phase 0).
+**Nach Teil A** (sobald die drei Angaben da sind):
+- Die Zugangsdaten werden verschlüsselt im System hinterlegt.
+- Die neue Website wird automatisch auf den Strato-Speicher geladen –
+  in einen eigenen Ordner, die alte Seite merkt davon nichts.
+- Kurzer Test, dass alles vollständig angekommen ist → dann Freigabe
+  für Teil B.
 
-1. Kollege: „Domains" → Domainverwaltung → `lichtblicke-bestattung.de`
-   → Verwendungsart „Webspace" → Zielverzeichnis **`/lichtblicke-bestattung`**
-   (muss zum `ZIELORDNER` in `.github/workflows/strato.yml` passen).
-   Gleiches für die Variante mit `www`. **Damit ist die alte Seite offline
-   und die neue live.**
-2. Direkt danach durchtesten:
-   - `https://lichtblicke-bestattung.de` lädt die neue Seite
-   - `http://…` und die Variante mit `www` leiten per 301 auf
-     `https://lichtblicke-bestattung.de` weiter
-   - eine alte URL wie `/?page_id=18` leitet per 301 auf `/ueber-uns/`
-   - `/sitemap.xml` und `/robots.txt` erreichbar
-   - eine nicht existierende URL zeigt die eigene 404-Seite
-   - Quelltext der Startseite: **kein** `noindex`, Canonical zeigt auf die
-     eigene Domain
-   - CMS-Login unter `/admin` funktioniert
-3. Die GitHub-Pages-Vorschau läuft parallel weiter (noindex) – kann später
-   abgeschaltet werden, stört aber nicht.
+**Direkt nach Teil B** (Kontrolle der neuen Seite):
+- Die Seite lädt unter `https://lichtblicke-bestattung.de`.
+- Alle alten Adressen (auch mit `www.` davor und die alten
+  WordPress-Links) leiten automatisch auf die richtigen neuen Seiten um –
+  gespeicherte Links und Google-Einträge laufen also nicht ins Leere.
+- Die Bearbeitung der Inhalte über `/admin` funktioniert weiter wie gewohnt.
 
-## Phase 5 – Nach dem Livegang (SEO & Formalia)
+**In den Tagen danach:**
+- Website bei Google anmelden (Search Console) und das
+  Google-Unternehmensprofil aktualisieren – Adresse und Telefonnummer
+  überall identisch.
+- Datenschutzerklärung einmal von einem Anwalt prüfen lassen (war von
+  Anfang an so geplant).
+- Nach ein paar Wochen: Die alte WordPress-Seite liegt dann immer noch
+  ungenutzt auf dem Speicher. Einmal sichern und danach löschen – eine
+  veraltete, ungepflegte Installation ist sonst ein Sicherheitsrisiko.
 
-- **Google Search Console:** Property für die Domain anlegen,
-  `/sitemap.xml` einreichen.
-- **Google-Unternehmensprofil** beanspruchen/aktualisieren – Adresse und
-  Telefonnummer exakt wie auf der Website (NAP).
-- **Datenschutzerklärung rechtlich prüfen lassen** (steht als Grundfassung,
-  war von Anfang an so vorgesehen).
-- Nach einigen Tagen in der Search Console kontrollieren, ob die Seite
-  indexiert wird und keine 404-Fehler von alten URLs auflaufen (falls doch:
-  301-Weiterleitungen in `src/.htaccess` nachziehen).
-- **Altes WordPress aufräumen** (nach ein paar Wochen Sicherheitsabstand):
-  Die WordPress-Installation liegt weiter im alten Ordner auf dem Webspace.
-  Ungenutzt und ohne Updates ist sie ein Sicherheitsrisiko – Backup ziehen
-  (Dateien + Datenbank) und dann vom Webspace löschen bzw. mindestens
-  sicherstellen, dass keine Domain/Subdomain mehr darauf zeigt.
+## Der Alltag danach – ändert sich nichts
 
-## Laufender Betrieb (unverändert zum bisherigen Workflow)
-
-- Änderungen laufen **immer über das Repo**: lokal/Claude Code oder über das
-  CMS unter `/admin`. Jeder Push deployt automatisch zu Strato.
-- **Niemals** Dateien direkt per FTP auf dem Webspace bearbeiten – der
-  nächste Deploy überschreibt sie.
-- CMS-Regel: Nach Code-Änderungen am Datenmodell offene CMS-Tabs neu laden,
-  bevor gespeichert wird (sonst verwirft der Editor neue Felder).
+- Inhalte pflegt der Kunde weiter wie gewohnt über die
+  Bearbeitungsoberfläche (`/admin`). Jede gespeicherte Änderung erscheint
+  nach wenigen Minuten automatisch auf der Website.
+- Größere Änderungen macht die Agentur wie bisher.
+- Niemand muss je manuell Dateien zu Strato hochladen – das passiert
+  vollautomatisch im Hintergrund.
