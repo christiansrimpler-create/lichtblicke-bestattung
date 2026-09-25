@@ -4,7 +4,7 @@ pakete:
     stufe: Basis
     preis: 2.750,00 €
     preis_zusatz: inkl. 19 % MwSt **
-    beschreibung: Die Einäscherung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
+    beschreibung: Die Einäscherung ohne Trauerfeier inklusive Krematoriumkosten und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
       - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort
       - Überführung vom Sterbeort in Freiburg und Umgebung inkl. Überführungstrage mit Hygienelaken
@@ -35,7 +35,7 @@ pakete:
     stufe: Basis
     preis: 2.800,00 €
     preis_zusatz: inkl. 19 % MwSt **
-    beschreibung: Die Erdbestattung ohne Trauerfeier, zwei Tagen Abschiednahme und erweitertem Überführungsgebiet rund um Freiburg.
+    beschreibung: Die Erdbestattung ohne Trauerfeier und erweitertem Überführungsgebiet rund um Freiburg.
     leistungen:
       - Persönliche Beratung durch Lichtblicke Bestattungen – telefonisch oder vor Ort
       - Überführung vom Sterbeort in Freiburg und Umgebung inkl. Überführungstrage mit Hygienelaken
@@ -116,4 +116,5 @@ weitere:
     preis: Preis auf Anfrage
     beschreibung: Sie haben besondere Wünsche oder möchten einzelne Leistungen ganz nach Ihren Vorstellungen gestalten? Kein Problem. Gemeinsam finden wir eine passende und würdevolle Lösung, die Ihren persönlichen Bedürfnissen entspricht.
     leistungen_titel: ''
+    leistungen: []
     text: Sprechen Sie uns einfach an – wir nehmen uns Zeit für Ihre Anliegen und setzen alles daran, Ihre Wünsche nach Möglichkeit zu erfüllen. Gerne erstellen wir Ihnen ein individuelles Angebot, das genau auf Ihre Vorstellungen und Anforderungen abgestimmt ist.
